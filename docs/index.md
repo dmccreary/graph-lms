@@ -21,5 +21,14 @@ You can use the search function to help you find the right
 content or use the navigation system in the left margin
 to explore our content.
 
-If you are not familiar with terms, we suggest you refer to
+If you are not familiar with the terms, we suggest you refer to
 our [glossary](./glossary.md) of terms.
+
+## License
+
+Please read our [License](./license.md) to understand if this
+content will meet your needs.
+
+Please contact me on [LinkedIn](https://www.linkedin.com/in/danmccreary/)
+if you have any questions.
+
