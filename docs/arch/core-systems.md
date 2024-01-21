@@ -6,18 +6,37 @@ Here are the key components of a Learning Management System (LMS). For each syst
 
 A Learning Management System (LMS) is a software application designed for the administration, documentation, tracking, reporting, automation, and delivery of educational courses, training programs, or learning and development programs. The key components and core data entities of an LMS, along with their relationships, include:
 
-## User Management**
+## User Management
 
-    -   **Entities**: Students, Instructors, Administrators.
-    -   **Relationship**: Administrators manage the access and roles of Instructors and Students. Instructors and Students interact within courses.
+### Entities
+
+1. Students
+2. Instructors
+3. Administrators
+4. Content Managers
+5. Auditors
+6. Business Analysts
+
+### Relationships
+
+Administrators manage the access and roles of Instructors and Students. Instructors and Students interact within courses.
+
 ## Content Management
 
-    -   **Entities**: Courses, Modules, Lessons, Assessments.
-    -   **Relationship**: Courses are divided into Modules, which are further broken down into Lessons. Assessments are linked to Lessons and Modules to evaluate the understanding of Students.
+### Entities
+
+1. Courses
+2. Modules
+3. Lessons
+4. Assessments
+
+### Relationships
+
+Courses are divided into Modules, which are further broken down into Lessons. Assessments are linked to Lessons and Modules to evaluate the understanding of Students.
 
 ## Course Enrollment and Tracking
 
-### Entities**
+### Entities
 
 1. Learning Organizations (School, College)
 2. Learning Organization Department
@@ -36,7 +55,7 @@ A Learning Management System (LMS) is a software application designed for the ad
 15. Course Description
 16. Course Prerequisite
 
-### Relationship
+### Relationships
 
 1. Learning Organizations have Departments
 2. Departments may have other Departments
