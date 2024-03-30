@@ -1,5 +1,7 @@
 # Graph Learning Management Systems
 
+![](./img/banner.png)
+
 Welcome to the Graph Learning Management Systems (GLMS) website.
 
 Our mission is to build open-source tools that promote the
