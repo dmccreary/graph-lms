@@ -10,6 +10,7 @@ nav:
   - Architecture:
     - Introduction: arch/index.md
     - Core Systems: arch/core-systems.md
+  - References: references.md
   - License: license.md
   - How We Built This Site: how-we-built-this-site.md
   - Contact: contact.md
