@@ -7,6 +7,11 @@ repo_url: 'https://github.com/dmccreary/graph-lms'
 
 nav:
   - Home: index.md
+  - Concepts:
+    - Introduction: concepts/index.md
+    - Concepts: concepts/concepts.md
+    - Content: concepts/content.md
+    - Learning Trajectories: 
   - Architecture:
     - Introduction: arch/index.md
     - Core Systems: arch/core-systems.md
