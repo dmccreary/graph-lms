@@ -9,8 +9,8 @@ nav:
   - Home: index.md
   - Concepts:
     - Introduction: concepts/index.md
-    - Concepts: concepts/concepts.md
-    - Content: concepts/content.md
+    - Concepts: concepts/concept-graphs.md
+    - Content: concepts/content-graphs.md
     - Learning Trajectories: concepts/learning-trajectories.md
   - Architecture:
     - Introduction: arch/index.md
