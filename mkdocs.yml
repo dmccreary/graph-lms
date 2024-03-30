@@ -11,7 +11,7 @@ nav:
     - Introduction: concepts/index.md
     - Concepts: concepts/concepts.md
     - Content: concepts/content.md
-    - Learning Trajectories: 
+    - Learning Trajectories: concepts/learning-trajectories.md
   - Architecture:
     - Introduction: arch/index.md
     - Core Systems: arch/core-systems.md
