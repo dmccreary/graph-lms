@@ -45,4 +45,24 @@
          <lastmod>2024-03-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
+    <url>
+         <loc>https://dmccreary.github.io/graph-lms/concepts/</loc>
+         <lastmod>2024-03-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/graph-lms/concepts/concept-graphs/</loc>
+         <lastmod>2024-03-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/graph-lms/concepts/content-graphs/</loc>
+         <lastmod>2024-03-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/graph-lms/concepts/learning-trajectories/</loc>
+         <lastmod>2024-03-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
 </urlset>
