@@ -17,3 +17,8 @@
 
 8. [Learning Trajectories: What Are They?](https://www.youtube.com/watch?v=0KiBDbNvQF0) by Doug Clements
 
+9. [Forbes: Computational Thinking in the Era of AI](https://www.forbes.com/sites/forbeshumanresourcescouncil/2024/07/23/computational-thinking-is-a-key-problem-solving-skill-in-the-ai-era/) - Neil Morelli, July 23, 2024
+
+10. [KG + RAG is not all you need](https://blog.selman.org/2024/06/04/knowledge-graphs-rag-is-not-all-you-need/)
+
+11. [RecAI: Leveraging Large Language Models for Next-Generation Recommender Systems](https://arxiv.org/abs/2403.06465v1) - also note the GitHub repo activity has stopped: [RecAI GitHub Contributors](https://github.com/microsoft/RecAI/graphs/contributors) - note the lack of graph awareness
