@@ -22,3 +22,8 @@
 10. [KG + RAG is not all you need](https://blog.selman.org/2024/06/04/knowledge-graphs-rag-is-not-all-you-need/)
 
 11. [RecAI: Leveraging Large Language Models for Next-Generation Recommender Systems](https://arxiv.org/abs/2403.06465v1) - also note the GitHub repo activity has stopped: [RecAI GitHub Contributors](https://github.com/microsoft/RecAI/graphs/contributors) - note the lack of graph awareness
+
+12. [Introducing Semantic Capability in LinkedIn's Content Search Engine](https://www.linkedin.com/blog/engineering/search/introducing-semantic-capability-in-linkedins-content-search-engine) - a good example of how LLMs combine with search tools to create a better pairing of questions and content.
+
+13. [LangChain’s Harrison Chase on Building the Orchestration Layer for AI Agents | Training Data
+](https://www.youtube.com/watch?v=6XZLoW0-mPY) - agents are when LLMs decide the control flow.
