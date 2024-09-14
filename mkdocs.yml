@@ -15,6 +15,9 @@ nav:
   - Architecture:
     - Introduction: arch/index.md
     - Core Systems: arch/core-systems.md
+  - View Data Model:
+    - Introduction: view-data-model/index.md
+    - View with Vis.js: view-data-model/view-model.html
   - References: references.md
   - License: license.md
   - How We Built This Site: how-we-built-this-site.md
