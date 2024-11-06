@@ -14,6 +14,21 @@ The evaluation of a student's knowledge, skills, and abilities.
 
 In the graph LMS, assessments are personalized and can adapt in real-time to accurately measure learning progress.
 
+#### Badge
+
+![](./img/sample-robot-badge.png)
+
+A digital or physical recognition awarded to students upon the completion of a course or achievement of specific learning milestones.
+
+In the graph LMS, badges serve as incentives and markers of accomplishment, representing a student's progress and mastery in particular areas. Badges can be displayed on the student's profile and act as motivators, encouraging further engagement and goal attainment.
+
+In the physical world, many in-person courses provide laptop stickers or iron-on badges for
+achieving specific goals.
+
+**Example:** The LMS awards a "Programming Fundamentals" badge to students who complete all modules in an introductory coding course, signifying their understanding of core programming concepts.
+
+* [MicroPython Skill Badge Iron on Patch from Adafruit](https://www.adafruit.com/product/3271)
+
 #### Concept Space
 
 A set of graph nodes and relationships that represents the key concepts
@@ -132,6 +147,16 @@ In the graph LMS, hyper-personalization tailors every aspect of the learning exp
 
 **Example:** The LMS modifies simulations on-the-fly to match a student's learning style and pace.
 
+#### Journey Map
+
+![Beginning Python Journey](./img/beginning-python-journey-map.png)
+
+A visual representation of a student's learning path, highlighting key milestones, interactions, and achievements throughout a course or curriculum.
+
+In the graph LMS, the journey map provides an overview of each student's unique progress, illustrating completed concepts, remaining prerequisites, and upcoming objectives. It serves as both a navigation tool and a motivational guide, helping students visualize their learning trajectory.
+
+**Example:** The LMS journey map shows a student's progression through foundational math concepts, with future topics in algebra and geometry mapped out to encourage goal-setting and clarity on the learning path.
+
 #### Knowledge Management System
 
 A system that organizes, stores, and retrieves knowledge to improve understanding and collaboration.
@@ -155,6 +180,14 @@ In the graph LMS, LangChain integrates LLMs to generate real-time, personalized 
 An AI model trained on extensive text data to understand and generate human-like language.
 
 In the graph LMS, LLMs create customized explanations, answer questions, and generate simulations.
+
+#### Learning Certification
+
+A formal recognition that a student has achieved a specific level of knowledge or competency in a given subject or skill.
+
+In the graph LMS, learning certifications are awarded upon completion of defined learning objectives, mastery of competencies, or successful assessments. These certifications can be used to track progress and verify skill acquisition.
+
+**Example:** A LMS can grants a learning certification to students who complete all modules in a programming course, demonstrating proficiency in coding basics.
 
 #### Learning Concept
 
