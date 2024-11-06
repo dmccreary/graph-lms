@@ -21,7 +21,7 @@ nav:
     - View with Vis.js: view-data-model/view-model.html
   - Prompts:
     - Introduction: prompts/index.md
-    - Wordcloud: prompts/01-wordcloud/index.md
+    - Word Cloud: prompts/01-wordcloud/index.md
     - Glossary: prompts/02-glossary/index.md
   - References: references.md
   - License: license.md
