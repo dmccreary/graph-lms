@@ -253,7 +253,13 @@ A subset of AI that enables systems to learn from data and improve over time wit
 
 In the graph LMS, machine learning algorithms personalize content and predict student needs.
 
+#### Markdown
 
+A lightweight markup language with plain text formatting syntax, designed to be easy to read and write. Markdown is widely used to format documents, notes, and web content.
+
+In the graph LMS, Markdown is used to structure content for [microsites](#microsite) and other educational materials, particularly with MkDocs, which converts Markdown files into static websites. Many generative AI tools also output content in Markdown, making it simple to integrate AI-generated content directly into the LMS.
+
+**Example:** The LMS leverages generative AI to produce Markdown lesson plans, which are then formatted and published as microsites using MkDocs.
 #### Mastery Learning
 
 An approach where students must achieve a high level of understanding
@@ -272,6 +278,13 @@ generate them or modify them in real-time to meet the needs of a student.
 
 * [MicroSim Website](https://dmccreary.github.io/microsims/)
 
+#### Microsite
+
+A standalone, focused website created using MkDocs, designed to deliver specific content on a narrow topic within the graph LMS.
+
+In the graph LMS, microsites are used to provide detailed, easily accessible resources on particular subjects or courses. They feature a built-in, serverless search function that uses a reverse index loaded into the webpage, allowing users to quickly locate information without relying on an external search engine.
+
+**Example:** A "Graph Algorithms 101" microsite helps students explore algorithm fundamentals, with serverless search enabling quick access to topics like "shortest path" and "clustering."
 #### Node
 
 An individual element in a graph representing an entity such as a concept, student, or resource.

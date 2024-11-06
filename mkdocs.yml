@@ -7,6 +7,7 @@ repo_url: 'https://github.com/dmccreary/graph-lms'
 
 nav:
   - Home: index.md
+  - About: about.md
   - Concepts:
     - Introduction: concepts/index.md
     - Concepts: concepts/concept-graphs.md
@@ -21,6 +22,7 @@ nav:
   - Prompts:
     - Introduction: prompts/index.md
     - Wordcloud: prompts/01-wordcloud/index.md
+    - Glossary: prompts/02-glossary/index.md
   - References: references.md
   - License: license.md
   - How We Built This Site: how-we-built-this-site.md
