@@ -1,0 +1,1282 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Graph LMS Design Documents All content licensed Creative Commons ShareAlike Attribution Noncommercial">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/graph-lms/prompts/01-wordcloud/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../references/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.33">
+    
+    
+      
+        <title>Wordcloud - Graph LMS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#generate-a-word-cloud" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Graph LMS" class="md-header__button md-logo" aria-label="Graph LMS" data-md-component="logo">
+      
+  <img src="../../img/logo-180.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Graph LMS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Wordcloud
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/graph-lms" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Graph LMS" class="md-nav__button md-logo" aria-label="Graph LMS" data-md-component="logo">
+      
+  <img src="../../img/logo-180.png" alt="logo">
+
+    </a>
+    Graph LMS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/graph-lms" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../concepts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Concepts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../arch/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Architecture
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../view-data-model/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    View Data Model
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Prompts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Wordcloud
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Wordcloud
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prompt
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wordcloud-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wordcloud Prompt
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wordcloud-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wordcloud Response
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prompt
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wordcloud-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wordcloud Prompt
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wordcloud-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wordcloud Response
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="generate-a-word-cloud">Generate a Word Cloud</h1>
+<p><a href="wordcloud.html">Run the WordCloud App</a></p>
+<h2 id="prompt">Prompt</h2>
+<div class="highlight"><pre><span></span><code>Prompt Name: Wordcloud for GraphLMS.
+
+Generate a list of the 100 most important concepts used
+in a book on creating an AI-based learning management system (LMS) using a graph
+database.  The graph databases is an LPG database that uses Cypher.
+The focus of this LMS is real-time hyper-personalized
+content for each student based on their needs.
+This book covers how to use a graph database that
+personalized lesson plans, animations, simulations and concent
+for each student in real-time.  It generates simulations using
+JavaScript libraries such as p5.js and vis.js.  The graph contains
+information about courses, students, assignments, lesson plans, assessments
+and the key relationships between the entities stored in learning management
+systems.  The book teaches how to setup and build these LMS systems
+and use LLMs, vector stores, similarity, RAG and GraphRAG to
+generate learning content.
+
+For each concept, return a short label and number from 1 to 100 that
+indicates how often this term would be used in the book.  Return
+the list in frequency of use from highest use to lowest use in
+the book.  This list will be used to generate a word-cloud.
+</code></pre></div>
+<h2 id="response">Response</h2>
+<ul>
+<li>Graph Database - 100</li>
+<li>Learning Management System - 99</li>
+<li>Personalization - 98</li>
+<li>Student - 97</li>
+<li>Content - 96</li>
+<li>Real-Time - 95</li>
+<li>Lesson Plan - 94</li>
+<li>Simulation - 93</li>
+<li>JavaScript - 92</li>
+<li>p5.js - 91</li>
+<li>vis.js - 90</li>
+<li>Course - 89</li>
+<li>Assignment - 88</li>
+<li>Assessment - 87</li>
+<li>LLM (Large Language Model) - 86</li>
+<li>Vector Store - 85</li>
+<li>Similarity - 84</li>
+<li>RAG (Retrieval Augmented Generation) - 83</li>
+<li>GraphRAG - 82</li>
+<li>Node - 81</li>
+<li>Edge - 80</li>
+<li>Relationship - 79</li>
+<li>Hyper-Personalization - 78</li>
+<li>Data Visualization - 77</li>
+<li>Interactive Simulation - 76</li>
+<li>User Interface - 75</li>
+<li>Machine Learning - 74</li>
+<li>Artificial Intelligence - 73</li>
+<li>Adaptive Learning - 72</li>
+<li>Knowledge Graph - 71</li>
+<li>Data Modeling - 70</li>
+<li>Querying - 69</li>
+<li>Neo4j - 68</li>
+<li>Graph Traversal - 67</li>
+<li>Backend Development - 66</li>
+<li>Frontend Development - 65</li>
+<li>Programming - 64</li>
+<li>Data Storage - 63</li>
+<li>Student Engagement - 62</li>
+<li>Feedback Loop - 61</li>
+<li>Learning Analytics - 60</li>
+<li>Content Generation - 59</li>
+<li>Code Examples - 58</li>
+<li>Curriculum Design - 57</li>
+<li>Learning Objectives - 56</li>
+<li>Educational Technology - 55</li>
+<li>Student Performance - 54</li>
+<li>Skill Mapping - 53</li>
+<li>Learning Pathways - 52</li>
+<li>User Experience (UX) - 51</li>
+<li>API (Application Programming Interface) - 50</li>
+<li>Scalability - 49</li>
+<li>Security - 48</li>
+<li>Data Privacy - 47</li>
+<li>Web Development - 46</li>
+<li>Database Management - 45</li>
+<li>Data Structures - 44</li>
+<li>Cloud Computing - 43</li>
+<li>Integration - 42</li>
+<li>Learning Outcomes - 41</li>
+<li>Student Progress - 40</li>
+<li>Dynamic Content - 39</li>
+<li>Content Delivery - 38</li>
+<li>Software Architecture - 37</li>
+<li>Version Control - 36</li>
+<li>Continuous Integration - 35</li>
+<li>Testing - 34</li>
+<li>Debugging - 33</li>
+<li>Error Handling - 32</li>
+<li>Best Practices - 31</li>
+<li>Collaboration - 30</li>
+<li>Data Ingestion - 29</li>
+<li>Data Preprocessing - 28</li>
+<li>Data Analysis - 27</li>
+<li>Predictive Modeling - 26</li>
+<li>Natural Language Processing - 25</li>
+<li>Knowledge Representation - 24</li>
+<li>Ontologies - 23</li>
+<li>Semantic Web - 22</li>
+<li>Cypher - 21</li>
+<li>LPG - 20</li>
+<li>Educational Standards - 19</li>
+<li>Compliance - 18</li>
+<li>Accessibility - 17</li>
+<li>Mobile Learning - 16</li>
+<li>Responsive Design - 15</li>
+<li>Cross-Platform Development - 14</li>
+<li>User Authentication - 13</li>
+<li>Authorization - 12</li>
+<li>Session Management - 11</li>
+<li>WebSockets - 10</li>
+<li>RESTful APIs - 9</li>
+<li>HTTP Requests - 8</li>
+<li>Asynchronous Programming - 7</li>
+<li>Dependency Management - 6</li>
+<li>Package Management - 5</li>
+<li>Deployment Strategies - 4</li>
+<li>Containerization - 3</li>
+<li>Microservices - 2</li>
+<li>Edge Computing - 1</li>
+</ul>
+<h2 id="wordcloud-prompt">Wordcloud Prompt</h2>
+<div class="highlight"><pre><span></span><code>Now create a HTML page that displays this in a word cloud using the wordcloud2 JavaScript library.
+</code></pre></div>
+<h2 id="wordcloud-response">Wordcloud Response</h2>
+<p>ChatGPT o1-preview Thought for 30 seconds</p>
+<p>Sure! Below is an HTML page that uses the <strong>wordcloud2.js</strong> library to display the word cloud based on your list of concepts and their frequencies:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Word Cloud for AI-Based LMS Book<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.1.0/wordcloud2.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="n">Arial</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
+<span class="w">            </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="p">#</span><span class="nn">word-cloud</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="w">            </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">            </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<span class="w">            </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#ccc</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Word Cloud for AI-Based LMS Book<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;word-cloud&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">words</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Graph Database&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Learning Management System&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">99</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Personalization&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">98</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Student&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">97</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Content&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">96</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Real-Time&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">95</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Lesson Plan&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">94</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Simulation&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">93</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;JavaScript&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">92</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;p5.js&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">91</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;vis.js&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">90</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Course&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">89</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Assignment&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">88</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Assessment&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">87</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;LLM (Large Language Model)&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">86</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Vector Store&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">85</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Similarity&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">84</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;RAG (Retrieval Augmented Generation)&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">83</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;GraphRAG&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">82</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Node&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">81</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Edge&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">80</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Relationship&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">79</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Hyper-Personalization&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">78</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Data Visualization&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">77</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Interactive Simulation&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">76</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;User Interface&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">75</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Machine Learning&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">74</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Artificial Intelligence&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">73</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Adaptive Learning&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">72</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Knowledge Graph&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">71</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Data Modeling&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">70</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Querying&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">69</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Neo4j&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">68</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Graph Traversal&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">67</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Backend Development&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">66</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Frontend Development&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">65</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Programming&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">64</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Data Storage&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">63</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Student Engagement&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">62</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Feedback Loop&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">61</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Learning Analytics&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">60</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Content Generation&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">59</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Code Examples&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">58</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Curriculum Design&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">57</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Learning Objectives&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">56</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Educational Technology&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">55</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Student Performance&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">54</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Skill Mapping&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">53</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Learning Pathways&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">52</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;User Experience (UX)&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">51</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;API&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Scalability&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">49</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Security&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">48</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Data Privacy&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">47</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Web Development&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">46</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Database Management&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">45</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Data Structures&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">44</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Cloud Computing&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">43</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Integration&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">42</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Learning Outcomes&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">41</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Student Progress&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">40</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Dynamic Content&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">39</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Content Delivery&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">38</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Software Architecture&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">37</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Version Control&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">36</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Continuous Integration&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">35</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Testing&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">34</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Debugging&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">33</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Error Handling&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">32</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Best Practices&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">31</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Collaboration&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">30</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Data Ingestion&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">29</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Data Preprocessing&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">28</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Data Analysis&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">27</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Predictive Modeling&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">26</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Natural Language Processing&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">25</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Knowledge Representation&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">24</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Ontologies&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">23</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Semantic Web&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">22</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Cypher&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">21</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;LPG (Labeled Property Graph)&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Educational Standards&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">19</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Compliance&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">18</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Accessibility&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">17</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Mobile Learning&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Responsive Design&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">15</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Cross-Platform Development&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">14</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;User Authentication&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">13</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Authorization&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">12</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Session Management&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">11</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;WebSockets&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;RESTful APIs&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">9</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;HTTP Requests&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Asynchronous Programming&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">7</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Dependency Management&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Package Management&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Deployment Strategies&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Containerization&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Microservices&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">&#39;Edge Computing&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">]</span>
+<span class="w">    </span><span class="p">];</span>
+
+<span class="w">    </span><span class="nx">WordCloud</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;word-cloud&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">list</span><span class="o">:</span><span class="w"> </span><span class="nx">words</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">gridSize</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">weightFactor</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="nx">size</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">100</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span><span class="w"> </span><span class="c1">// Adjust the multiplier for size scaling</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nx">fontFamily</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Times, serif&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;random-dark&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#f0f0f0&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">rotateRatio</span><span class="o">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">rotationSteps</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">shuffle</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">drawOutOfBound</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+`
+</code></pre></div></td></tr></table></div>
+<p><strong>Instructions:</strong></p>
+<ol>
+<li>
+<p><strong>Save the Code</strong>: Copy the above code into a text editor and save it with a <code>.html</code> extension, for example, <code>wordcloud.html</code>.</p>
+</li>
+<li>
+<p><strong>Open in Browser</strong>: Open the saved HTML file in a modern web browser (e.g., Chrome, Firefox, Edge).</p>
+</li>
+<li>
+<p><strong>View the Word Cloud</strong>: The page will display a word cloud where each word's size corresponds to its frequency.</p>
+</li>
+</ol>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>The <strong>wordcloud2.js</strong> library is included via a CDN link for ease of use.</li>
+<li>Ensure you have an active internet connection to load the library from the CDN.</li>
+<li>You can adjust the <code>weightFactor</code> function in the script to scale the word sizes as desired.</li>
+<li>The <code>gridSize</code> parameter affects the gap between words; smaller values result in a tighter layout.</li>
+</ul>
+<p><strong>Example Screenshot:</strong></p>
+<p><em>(Note: Replace with actual screenshot if needed.)</em></p>
+<p>Feel free to customize the styling and parameters to better suit your preferences!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Introduction
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../references/" class="md-footer__link md-footer__link--next" aria-label="Next: References">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                References
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.af256bd8.min.js"></script>
+      
+    
+  </body>
+</html>

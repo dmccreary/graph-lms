@@ -12,13 +12,9 @@
         <meta name="author" content="Dan McCreary">
       
       
-        <link rel="canonical" href="https://dmccreary.github.io/graph-lms/concepts/content-graphs/">
+        <link rel="canonical" href="https://dmccreary.github.io/graph-lms/prompts/02-glossary/">
       
       
-        <link rel="prev" href="../concept-graphs/">
-      
-      
-        <link rel="next" href="../learning-trajectories/">
       
       
       <link rel="icon" href="../../img/favicon.ico">
@@ -26,7 +22,7 @@
     
     
       
-        <title>Content - Graph LMS</title>
+        <title>Glossary Prompt - Graph LMS</title>
       
     
     
@@ -76,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#content" class="md-skip">
+        <a href="#glossary-prompt" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Content
+              Glossary Prompt
             
           </span>
         </div>
@@ -244,8 +240,6 @@
       
   
   
-    
-  
   
   
     
@@ -265,117 +259,29 @@
     
     
       
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
-              
+  
+  
+    <a href="../../concepts/" class="md-nav__link">
+      
   
   <span class="md-ellipsis">
     Concepts
   </span>
   
 
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            Concepts
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concept-graphs/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Concepts
-  </span>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
   
 
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    Content
-  </span>
-  
-
-      </a>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../learning-trajectories/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Learning Trajectories
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
       
     </li>
   
@@ -505,7 +411,7 @@
         
   
   
-    <a href="../../prompts/" class="md-nav__link">
+    <a href="../" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -644,6 +550,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -660,12 +583,156 @@
   
 
 
-<h1 id="content">Content</h1>
-<ul>
-<li>A lesson plan</li>
-<li>An activity</li>
-<li>A Wikipedia Page</li>
-</ul>
+<h1 id="glossary-prompt">Glossary Prompt</h1>
+<div class="highlight"><pre><span></span><code>Prompt Name: Glossary for Graph LMS Website
+
+Please complete a glossary of terms below and
+suggest missing terms.  The focus of this glossary
+is to support a graph-based Learning Management System (LMS)
+website that
+creates real-time hyper-personalized content for each student
+based on their needs.
+
+This book covers how to use a graph database that
+generates personalized lesson plans, animations, simulations and concent
+for a course for each student in real-time.  It generates simulations using
+JavaScript libraries such as p5.js and vis.js.  The graph contains
+information about courses, students, assignments, lesson plans, assessments
+and the key relationships between the entities stored in learning management
+systems.  The book teaches how to setup and build these LMS systems
+and uses LLMs, vector stores, similarity, RAG and GraphRAG to
+generate learning content.
+
+For each term, return a term label in a level 4 markdown header.
+Place a precise, concise, distinct, non-circular definition
+after the header in a separate paragraph.
+
+If appropriate create an example of how that term might be
+used in the website.  Use **Example:** with no newline after it.
+</code></pre></div>
+<h2 id="response">Response</h2>
+<h1 id="glossary-of-graph-learning-management-system">Glossary of Graph Learning Management System</h1>
+<h4 id="analytics">Analytics</h4>
+<p>The systematic computational analysis of data to discover patterns and insights.</p>
+<p>In the graph LMS, analytics are used to monitor student progress, personalize learning paths, and improve educational outcomes.</p>
+<p><strong>Example:</strong> The LMS dashboard provides analytics on student engagement with different learning concepts.</p>
+<h4 id="computational-thinking">Computational Thinking</h4>
+<p>A problem-solving process that involves breaking down complex problems into manageable parts that can be solved using computational methods.</p>
+<p>In the graph LMS, computational thinking skills are fostered through interactive simulations and coding exercises.</p>
+<p><strong>Example:</strong> Students use computational thinking to design algorithms within the LMS simulations.</p>
+<h4 id="content-management-system-cms">Content Management System (CMS)</h4>
+<p>A software application that enables users to create, edit, manage, and publish digital content without specialized technical knowledge.</p>
+<p>In the graph LMS, a CMS manages educational resources, lesson plans, and multimedia content for courses.</p>
+<h4 id="diamond-age-primer">Diamond Age Primer</h4>
+<p>An inspiration from Neal Stephenson's novel "The Diamond Age," referring to an interactive, adaptive book that provides personalized education.</p>
+<p>In the graph LMS, the concept of the Diamond Age Primer influences the creation of hyper-personalized learning experiences.</p>
+<p><strong>Example:</strong> The LMS acts like a modern Diamond Age Primer by adapting lessons in real-time based on student interactions.</p>
+<h4 id="graph-database">Graph Database</h4>
+<p>A type of database that uses graph structures with nodes and edges to represent and store data relationships.</p>
+<p>In the graph LMS, a graph database models the connections between courses, concepts, students, and learning resources.</p>
+<p><strong>Example:</strong> The LMS queries the graph database to identify prerequisite concepts for a student's next lesson.</p>
+<h4 id="graph-machine-learning">Graph Machine Learning</h4>
+<p>The application of machine learning techniques to graph-structured data to make predictions or discover patterns.</p>
+<p>In the graph LMS, graph machine learning predicts student performance and recommends personalized learning paths.</p>
+<h4 id="graphrag">GraphRAG</h4>
+<p>A method that combines graph databases with Retrieval-Augmented Generation to generate personalized content.</p>
+<p>In the graph LMS, GraphRAG retrieves relevant concepts from the graph and uses LLMs to generate customized learning materials.</p>
+<h4 id="hyper-personalization">Hyper-Personalization</h4>
+<p>An advanced form of personalization that uses real-time data and AI to deliver highly relevant content to each user.</p>
+<p>In the graph LMS, hyper-personalization tailors every aspect of the learning experience to individual student needs.</p>
+<p><strong>Example:</strong> The LMS modifies simulations on-the-fly to match a student's learning style and pace.</p>
+<h4 id="knowledge-management-system">Knowledge Management System</h4>
+<p>A system that organizes, stores, and retrieves knowledge to improve understanding and collaboration.</p>
+<p>In the graph LMS, it manages educational content, resources, and learning outcomes across courses.</p>
+<h4 id="knowledge-space">Knowledge Space</h4>
+<p>A conceptual framework representing all possible knowledge states within a domain.</p>
+<p>In the graph LMS, the knowledge space is mapped using nodes and edges to represent concepts and their relationships.</p>
+<h4 id="langchain">LangChain</h4>
+<p>A framework for developing applications powered by language models.</p>
+<p>In the graph LMS, LangChain integrates LLMs to generate real-time, personalized educational content.</p>
+<h4 id="large-language-model-llm">Large-Language Model (LLM)</h4>
+<p>An AI model trained on extensive text data to understand and generate human-like language.</p>
+<p>In the graph LMS, LLMs create customized explanations, answer questions, and generate simulations.</p>
+<h4 id="learning-trajectories">Learning Trajectories</h4>
+<p>The paths students take through educational content as they progress toward learning objectives.</p>
+<p>In the graph LMS, learning trajectories are dynamically adjusted based on student performance and mastery.</p>
+<p><strong>Example:</strong> The LMS reroutes a student's learning trajectory to reinforce a concept they struggled with.</p>
+<h4 id="lesson-plan">Lesson Plan</h4>
+<p>A detailed guide created by educators outlining the instruction for a class.</p>
+<p>In the graph LMS, lesson plans are automatically generated and personalized for each student.</p>
+<p><strong>Example:</strong> The LMS provides a lesson plan that focuses on interactive simulations for visual learners.</p>
+<h4 id="machine-learning">Machine Learning</h4>
+<p>A subset of AI that enables systems to learn from data and improve over time without explicit programming.</p>
+<p>In the graph LMS, machine learning algorithms personalize content and predict student needs.</p>
+<h4 id="retrieval-augmented-generation-rag">Retrieval Augmented Generation (RAG)</h4>
+<p>A technique that enhances language model outputs by retrieving relevant information from a database.</p>
+<p>In the graph LMS, RAG retrieves specific concepts from the graph to generate accurate, personalized content.</p>
+<h4 id="real-time-personalization">Real-Time Personalization</h4>
+<p>The immediate adaptation of content or services based on user interactions and data.</p>
+<p>In the graph LMS, learning materials adjust instantly to student inputs and performance.</p>
+<p><strong>Example:</strong> The LMS changes the difficulty level of questions in real-time based on the student's responses.</p>
+<h4 id="recommendation-system">Recommendation System</h4>
+<p>An algorithm that suggests items or content to users based on analysis of data.</p>
+<p>In the graph LMS, recommendation systems propose the next best concepts or resources for a student to explore.</p>
+<p><strong>Example:</strong> After completing a lesson, the LMS recommends related topics for further study.</p>
+<h4 id="adaptive-learning">Adaptive Learning</h4>
+<p>An educational approach that modifies the presentation of material in response to student performance.</p>
+<p>In the graph LMS, adaptive learning ensures that each student receives instruction suited to their current understanding.</p>
+<h4 id="assessment">Assessment</h4>
+<p>The evaluation of a student's knowledge, skills, and abilities.</p>
+<p>In the graph LMS, assessments are personalized and can adapt in real-time to accurately measure learning progress.</p>
+<h4 id="edge">Edge</h4>
+<p>A connection between two nodes in a graph representing the relationship between them.</p>
+<p>In the graph LMS, edges depict prerequisites and dependencies between learning concepts.</p>
+<h4 id="node">Node</h4>
+<p>An individual element in a graph representing an entity such as a concept, student, or resource.</p>
+<p>In the graph LMS, nodes are used to represent learning concepts within the knowledge graph.</p>
+<h4 id="directed-graph">Directed Graph</h4>
+<p>A graph where edges have a direction, indicating the relationship flows from one node to another.</p>
+<p>In the graph LMS, the learning graph is a directed graph showing how concepts build upon each other.</p>
+<h4 id="prerequisite">Prerequisite</h4>
+<p>A concept or course that must be understood before progressing to more advanced material.</p>
+<p>In the graph LMS, prerequisites are mapped to ensure students have the necessary foundation before moving forward.</p>
+<h4 id="student-model">Student Model</h4>
+<p>A representation of a student's knowledge, skills, and preferences used to personalize learning.</p>
+<p>In the graph LMS, the student model is continuously updated based on interactions and assessments.</p>
+<h4 id="simulations">Simulations</h4>
+<p>Interactive programs that imitate real-world processes for learning purposes.</p>
+<p>In the graph LMS, simulations help students grasp complex concepts through experiential learning.</p>
+<p><strong>Example:</strong> A physics simulation allows students to adjust variables and observe the effects in real-time.</p>
+<h4 id="p5js">p5.js</h4>
+<p>A JavaScript library for creative coding, enabling interactive graphics and animations.</p>
+<p>In the graph LMS, p5.js is used to create dynamic visualizations and educational simulations.</p>
+<h4 id="visjs">vis.js</h4>
+<p>An open-source JavaScript library for displaying interactive, animated networks.</p>
+<p>In the graph LMS, vis.js visualizes the learning graph and concept relationships.</p>
+<h4 id="vector-store">Vector Store</h4>
+<p>A database that stores vector representations (embeddings) of data for similarity searches.</p>
+<p>In the graph LMS, vector stores hold embeddings of concepts to facilitate similarity analysis and content retrieval.</p>
+<h4 id="similarity-analysis">Similarity Analysis</h4>
+<p>The process of comparing data to identify likeness based on certain criteria or features.</p>
+<p>In the graph LMS, similarity analysis finds related concepts or resources to enhance personalized learning.</p>
+<h4 id="personal-learning-environment">Personal Learning Environment</h4>
+<p>A system that provides learners with tools to control and manage their own learning.</p>
+<p>In the graph LMS, it empowers students to navigate through content that aligns with their interests and goals.</p>
+<h4 id="learning-objective">Learning Objective</h4>
+<p>A specific skill or knowledge area that students are expected to acquire.</p>
+<p>In the graph LMS, learning objectives guide the creation of personalized learning paths and assessments.</p>
+<h4 id="cognitive-load">Cognitive Load</h4>
+<p>The total amount of mental effort being used in working memory.</p>
+<p>In the graph LMS, content is tailored to manage cognitive load and prevent student overload.</p>
+<h4 id="mastery-learning">Mastery Learning</h4>
+<p>An approach where students must achieve a high level of understanding before moving to the next concept.</p>
+<p>In the graph LMS, students progress upon demonstrating mastery, ensuring solid foundational knowledge.</p>
+<h4 id="competency-based-education">Competency-Based Education</h4>
+<p>An educational model where progress is based on demonstrating competence in specific areas.</p>
+<p>In the graph LMS, students advance by proving mastery of competencies rather than time spent on a subject.</p>
+<h4 id="learning-analytics">Learning Analytics</h4>
+<p>The collection and analysis of data about learners to improve education.</p>
+<p>In the graph LMS, learning analytics inform decisions on content personalization and instructional strategies.</p>
+<h4 id="data-driven-instruction">Data-Driven Instruction</h4>
+<p>An approach where teaching is guided by analysis of student data to meet learning needs.</p>
+<p>In the graph LMS, data-driven instruction helps educators adjust content and methods for better outcomes.</p>
 
 
 
@@ -696,44 +763,6 @@
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-          
-          <a href="../concept-graphs/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Concepts">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                Concepts
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../learning-trajectories/" class="md-footer__link md-footer__link--next" aria-label="Next: Learning Trajectories">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Learning Trajectories
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">
