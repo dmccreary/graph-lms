@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Word Cloud for AI-Based LMS Book</title>
+    <!-- Include the wordcloud2.js library from a CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.1.0/wordcloud2.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #word-cloud {
+            width: 100%;
+            height: 600px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Word Cloud for AI-Based LMS Book</h1>
+<div id="word-cloud"></div>
+
+<script>
+    var words = [
+        ['Graph Database', 100],
+        ['Learning Management System', 99],
+        ['Personalization', 98],
+        ['Student', 97],
+        ['Content', 96],
+        ['Real-Time', 95],
+        ['Lesson Plan', 94],
+        ['Simulation', 93],
+        ['JavaScript', 92],
+        ['p5.js', 91],
+        ['vis.js', 90],
+        ['Course', 89],
+        ['Assignment', 88],
+        ['Assessment', 87],
+        ['LLM (Large Language Model)', 86],
+        ['Vector Store', 85],
+        ['Similarity', 84],
+        ['RAG (Retrieval Augmented Generation)', 83],
+        ['GraphRAG', 82],
+        ['Node', 81],
+        ['Edge', 80],
+        ['Relationship', 79],
+        ['Hyper-Personalization', 78],
+        ['Data Visualization', 77],
+        ['Interactive Simulation', 76],
+        ['User Interface', 75],
+        ['Machine Learning', 74],
+        ['Artificial Intelligence', 73],
+        ['Adaptive Learning', 72],
+        ['Knowledge Graph', 71],
+        ['Data Modeling', 70],
+        ['Querying', 69],
+        ['Neo4j', 68],
+        ['Graph Traversal', 67],
+        ['Backend Development', 66],
+        ['Frontend Development', 65],
+        ['Programming', 64],
+        ['Data Storage', 63],
+        ['Student Engagement', 62],
+        ['Feedback Loop', 61],
+        ['Learning Analytics', 60],
+        ['Content Generation', 59],
+        ['Code Examples', 58],
+        ['Curriculum Design', 57],
+        ['Learning Objectives', 56],
+        ['Educational Technology', 55],
+        ['Student Performance', 54],
+        ['Skill Mapping', 53],
+        ['Learning Pathways', 52],
+        ['User Experience (UX)', 51],
+        ['API', 50],
+        ['Scalability', 49],
+        ['Security', 48],
+        ['Data Privacy', 47],
+        ['Web Development', 46],
+        ['Database Management', 45],
+        ['Data Structures', 44],
+        ['Cloud Computing', 43],
+        ['Integration', 42],
+        ['Learning Outcomes', 41],
+        ['Student Progress', 40],
+        ['Dynamic Content', 39],
+        ['Content Delivery', 38],
+        ['Software Architecture', 37],
+        ['Version Control', 36],
+        ['Continuous Integration', 35],
+        ['Testing', 34],
+        ['Debugging', 33],
+        ['Error Handling', 32],
+        ['Best Practices', 31],
+        ['Collaboration', 30],
+        ['Data Ingestion', 29],
+        ['Data Preprocessing', 28],
+        ['Data Analysis', 27],
+        ['Predictive Modeling', 26],
+        ['Natural Language Processing', 25],
+        ['Knowledge Representation', 24],
+        ['Ontologies', 23],
+        ['Semantic Web', 22],
+        ['Cypher', 21],
+        ['LPG (Labeled Property Graph)', 20],
+        ['Educational Standards', 19],
+        ['Compliance', 18],
+        ['Accessibility', 17],
+        ['Mobile Learning', 16],
+        ['Responsive Design', 15],
+        ['Cross-Platform Development', 14],
+        ['User Authentication', 13],
+        ['Authorization', 12],
+        ['Session Management', 11],
+        ['WebSockets', 10],
+        ['RESTful APIs', 9],
+        ['HTTP Requests', 8],
+        ['Asynchronous Programming', 7],
+        ['Dependency Management', 6],
+        ['Package Management', 5],
+        ['Deployment Strategies', 4],
+        ['Containerization', 3],
+        ['Microservices', 2],
+        ['Edge Computing', 1]
+    ];
+
+    WordCloud(document.getElementById('word-cloud'), {
+        list: words,
+        gridSize: 8,
+        weightFactor: function (size) {
+            return (size / 100) * 50; // Adjust the multiplier for size scaling
+        },
+        fontFamily: 'Times, serif',
+        color: 'random-dark',
+        backgroundColor: '#f0f0f0',
+        rotateRatio: 0.5,
+        rotationSteps: 2,
+        shuffle: true,
+        drawOutOfBound: false
+    });
+</script>
+
+</body>
+</html>

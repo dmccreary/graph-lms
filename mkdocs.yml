@@ -18,6 +18,9 @@ nav:
   - View Data Model:
     - Introduction: view-data-model/index.md
     - View with Vis.js: view-data-model/view-model.html
+  - Prompts:
+    - Introduction: prompts/index.md
+    - Wordcloud: prompts/01-wordcloud/index.md
   - References: references.md
   - License: license.md
   - How We Built This Site: how-we-built-this-site.md
