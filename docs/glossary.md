@@ -369,3 +369,10 @@ An open-source JavaScript library for displaying interactive, animated networks.
 
 In the graph LMS, vis.js visualizes the learning graph and concept relationships.
 
+#### Zone of Proximal Development (ZPD)
+
+The range of tasks or concepts that a learner can accomplish with guidance but not yet independently. This concept, introduced by Lev Vygotsky, highlights the importance of targeted assistance in learning.
+
+In a learning graph, the ZPD is used to guide real-time personalization by identifying concepts that a student is ready to learn with support. A LMS leverages data analytics and AI to dynamically adjust content, ensuring it remains within the student's ZPD.
+
+**Example:** The LMS identifies that a student struggling with graph traversal is within their ZPD for mastering depth-first search and provides an interactive simulation to bridge the gap.
