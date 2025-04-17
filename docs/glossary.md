@@ -373,7 +373,7 @@ In the graph LMS, vis.js visualizes the learning graph and concept relationships
 
 The Experience API (xAPI) is an advanced learning technology standard that enables the collection and exchange of learning data from various sources, beyond the traditional LMS environment.
 
-[xAPI Standard in Concepts](./concepts/xAPI.md)
+[xAPI Standard in Concepts](./concepts/xapi.md)
 
 #### Zone of Proximal Development (ZPD)
 
