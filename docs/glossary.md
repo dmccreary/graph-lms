@@ -337,6 +337,10 @@ An algorithm that suggests items or content to users based on analysis of data.
 
 In the graph LMS, recommendation systems propose the next best concepts or resources for a student to explore.
 
+#### SCORM
+
+
+
 #### Similarity Analysis
 
 The process of comparing data to identify likeness based on certain criteria or features.
