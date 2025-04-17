@@ -13,6 +13,7 @@ nav:
     - Concepts: concepts/concept-graphs.md
     - Content: concepts/content-graphs.md
     - Learning Trajectories: concepts/learning-trajectories.md
+    - xAPI: concepts/xapi.md
   - Architecture:
     - Introduction: arch/index.md
     - Core Systems: arch/core-systems.md
