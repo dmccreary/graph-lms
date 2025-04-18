@@ -12,13 +12,13 @@
         <meta name="author" content="Dan McCreary">
       
       
-        <link rel="canonical" href="https://dmccreary.github.io/graph-lms/concepts/content-graphs/">
+        <link rel="canonical" href="https://dmccreary.github.io/graph-lms/concepts/lrs/">
       
       
-        <link rel="prev" href="../concept-graphs/">
+        <link rel="prev" href="../xapi/">
       
       
-        <link rel="next" href="../learning-trajectories/">
+        <link rel="next" href="../../arch/">
       
       
       <link rel="icon" href="../../img/favicon.ico">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Content - Graph LMS</title>
+        <title>Learning Record Store - Graph LMS</title>
       
     
     
@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#content" class="md-skip">
+        <a href="#learning-record-store" class="md-skip">
           Skip to content
         </a>
       
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Content
+              Learning Record Store
             
           </span>
         </div>
@@ -360,19 +360,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../content-graphs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -381,7 +372,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -433,10 +423,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../lrs/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -445,6 +444,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -740,12 +740,148 @@
   
 
 
-<h1 id="content">Content</h1>
+<h1 id="learning-record-store">Learning Record Store</h1>
+<p>In this section we will explain the IEEE standard for the Learning Record Store (LRS) 
+and how it can be used to track MicroSim effectiveness.</p>
+<h1 id="ieee-experience-api-xapi-and-learning-record-store-lrs">IEEE Experience API (xAPI) and Learning Record Store (LRS)</h1>
+<p>The IEEE Experience API (xAPI), formally known as IEEE 1484.12.3-2016, is a specification that enables the collection of data about a wide range of learning experiences. The Learning Record Store (LRS) is a core component of this architecture.  The LRS is used to store the xAPI events for all users of
+an intelligent textbook and the MicroSims in a central location using a standard JSON format.</p>
+<h2 id="what-is-a-learning-record-store-lrs">What is a Learning Record Store (LRS)?</h2>
+<p>A Learning Record Store is a system that serves as the repository for learning experience data formatted according to the xAPI specification. The LRS stores and retrieves "statements" that capture learning activities in a standardized format.  You can think of it as a structured event log that stores JSON records
+for users of an intelligent textbook.</p>
+<p>Each xAPI statement is a JSON file that follows a simple structure that stores who did what and when they
+did it:</p>
 <ul>
-<li>A lesson plan</li>
-<li>An activity</li>
-<li>A Wikipedia Page</li>
+<li><strong>Actor</strong> (who performed the action)</li>
+<li><strong>Verb</strong> (what action was taken) </li>
+<li><strong>Object</strong> (what the action was performed on)</li>
+<li><strong>Result</strong> (outcome of the action)</li>
+<li><strong>Context</strong> (additional information about the action)</li>
 </ul>
+<h2 id="using-an-lrs-to-track-microsim-effectiveness">Using an LRS to Track MicroSim Effectiveness</h2>
+<p>MicroSims, as interactive educational simulations, generate valuable learning data 
+that can be captured through the xAPI standard. 
+Here's how an LRS would be used to track their effectiveness:</p>
+<h3 id="1-capturing-interaction-data">1. Capturing Interaction Data</h3>
+<p>When students interact with a MicroSim, the following types of data could be captured and sent to the LRS:</p>
+<ul>
+<li><strong>Time spent</strong> on specific components of the simulation</li>
+<li><strong>Number of attempts</strong> to complete tasks</li>
+<li><strong>Specific interactions</strong> (button clicks, parameter adjustments)</li>
+<li><strong>Completion status</strong> of simulation objectives</li>
+<li><strong>Answers</strong> to embedded assessment questions</li>
+</ul>
+<h3 id="2-analyzing-learning-outcomes">2. Analyzing Learning Outcomes</h3>
+<p>The LRS allows for detailed analysis of how students engage with MicroSims:</p>
+<ul>
+<li>Identifying which concepts students struggle with (based on time spent or multiple attempts)</li>
+<li>Tracking progression through related concepts</li>
+<li>Comparing performance across different student populations</li>
+<li>Measuring knowledge retention through pre/post assessments</li>
+</ul>
+<h3 id="3-integration-with-learning-graphs">3. Integration with Learning Graphs</h3>
+<p>The data stored in the LRS can be particularly powerful when mapped to learning graphs:</p>
+<ul>
+<li>Track student progression through conceptual nodes</li>
+<li>Identify where students struggle in concept mastery</li>
+<li>Adapt learning paths based on demonstrated understanding</li>
+<li>Measure the effectiveness of specific MicroSims at teaching target concepts</li>
+</ul>
+<h3 id="4-implementation-example">4. Implementation Example</h3>
+<p>For a MicroSim teaching complex physics concepts:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Example xAPI statement when student completes a physics simulation</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">statement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">actor</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Student123&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">mbox</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;mailto:student123@example.edu&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">verb</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/verbs/completed&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">display</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;en-US&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">object</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;http://example.edu/microsims/physics/momentum-conservation&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">definition</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;en-US&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Conservation of Momentum Simulation&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/activities/simulation&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">result</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">completion</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">score</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">scaled</span><span class="o">:</span><span class="w"> </span><span class="mf">0.85</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">extensions</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;http://example.edu/microsim/attempts&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;http://example.edu/microsim/time-spent&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;PT4M32S&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">context</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">contextActivities</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">parent</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;http://example.edu/course/physics101&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">definition</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;en-US&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Introductory Physics&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="benefits-for-intelligent-textbooks">Benefits for Intelligent Textbooks</h2>
+<p>Implementing an LRS with MicroSims in intelligent textbooks provides several advantages:</p>
+<ol>
+<li>Hyper-personalization based on actual usage data</li>
+<li>Evidence-based refinement of learning materials</li>
+<li>Detailed analytics on which simulations effectively teach concepts</li>
+<li>Integration with concept and learning graphs for adaptive learning paths</li>
+</ol>
+<p>The data collected can help identify which MicroSims are most effective at teaching specific complex concepts, allowing for continuous improvement of the learning experience.  The LRS can have a front-end
+tool that allows complex A/B testing of different versions of MicroSims to see what versions
+are the most effective at helping students learn.</p>
 
 
 
@@ -783,7 +919,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../concept-graphs/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Concepts">
+          <a href="../xapi/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Experience API (xAPI)">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -793,20 +929,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Concepts
+                Experience API (xAPI)
               </div>
             </div>
           </a>
         
         
           
-          <a href="../learning-trajectories/" class="md-footer__link md-footer__link--next" aria-label="Next: Learning Trajectories">
+          <a href="../../arch/" class="md-footer__link md-footer__link--next" aria-label="Next: Introduction">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Learning Trajectories
+                Introduction
               </div>
             </div>
             <div class="md-footer__button md-icon">
