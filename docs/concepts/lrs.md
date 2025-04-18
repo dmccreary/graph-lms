@@ -116,3 +116,12 @@ Implementing an LRS with MicroSims in intelligent textbooks provides several adv
 The data collected can help identify which MicroSims are most effective at teaching specific complex concepts, allowing for continuous improvement of the learning experience.  The LRS can have a front-end
 tool that allows complex A/B testing of different versions of MicroSims to see what versions
 are the most effective at helping students learn.
+
+## References
+
+- [IEEE 1484.12.3-2016 - IEEE Approved Draft Standard for Learning Technology -- Extensible Markup Language (XML) Schema Definition Language Binding for Learning Object Metadata](https://standards.ieee.org/ieee/1484.12.3/7029/)
+- [Advanced Distributed Learning (ADL) Initiative: Experience API (xAPI) Specification](https://github.com/adlnet/xAPI-Spec)
+- [Rustici Software: What is a Learning Record Store?](https://xapi.com/learning-record-store/)
+- [IEEE LTSC - Learning Technology Standards Committee](https://www.computer.org/volunteering/boards-and-committees/standards-activities/committees/learning-technology)
+- [IEEE Standards Association - Learning Technology](https://standards.ieee.org/industry-connections/education/learning-technology/)
+- [Advanced Distributed Learning: xAPI Technical Specifications](https://adlnet.gov/projects/xapi/xapi-specification/)
