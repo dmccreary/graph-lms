@@ -110,18 +110,23 @@ function parameterChanged(paramName, value) {
 
 With MicroSims, you might want to track:
 
-1.  **Engagement metrics**:
--   When students start/stop simulations
--   Total time spent on each simulation
--   Number of times a simulation is used
-2.  **Interaction details**:
--   Parameter adjustments made (e.g., changing variables in a physics simulation)
--   Specific actions taken (e.g., pressing buttons, dragging objects)
--   Completion of specific simulation challenges
-3.  **Learning outcomes**:
--   Correct predictions or hypotheses
--   Achievement of simulation goals
--   Patterns of exploration that indicate understanding
+### 1. Engagement metrics
+
+- When students start/stop simulations
+- Total time spent on each simulation
+- Number of times a simulation is used
+
+### 2. Interaction details
+
+- Parameter adjustments made (e.g., changing variables in a physics simulation)
+- Specific actions taken (e.g., pressing buttons, dragging objects)
+-  Completion of specific simulation challenges
+
+### 3.  **Learning outcomes**
+
+- Correct predictions or hypotheses
+- Achievement of simulation goals
+- Patterns of exploration that indicate understanding
 
 ## Data Analysis Possibilities
 
@@ -137,9 +142,9 @@ Once MicroSim interaction data is captured in your LRS, you can:
 
 The true power of xAPI tracking for MicroSims emerges when combined with other learning activity data. For example, you could correlate:
 
--   MicroSim exploration patterns with subsequent quiz performance
--   Time spent on specific simulations with mastery of related concepts
--   Sequences of simulation usage that lead to optimal learning outcomes
+- MicroSim exploration patterns with subsequent quiz performance
+- Time spent on specific simulations with mastery of related concepts
+- Sequences of simulation usage that lead to optimal learning outcomes
 
 This approach allows for a comprehensive view of how interactive simulations contribute to the overall learning experience within your intelligent textbook platform.
 
