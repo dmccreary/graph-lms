@@ -18,6 +18,7 @@ nav:
   - Architecture:
     - Introduction: arch/index.md
     - Core Systems: arch/core-systems.md
+    - TLA: concepts/tla.md
   - View Data Model:
     - Introduction: view-data-model/index.md
     - View with Vis.js: view-data-model/view-model.html
