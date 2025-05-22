@@ -1,5 +1,16 @@
 # Glossary of Graph Learning Management System
 
+#### Advanced Distributed Learning
+
+An initiative of US federal agencies to encourage collaboration, facilitate interoperability, and promote best practices for using distributed learning technologies.
+
+See also:
+
+- [ADL Total Learning Architecture Website](https://www.adlnet.gov/projects/tla/)
+- [Main ADL Web Site](https://www.adlnet.gov/)
+- [ADL GitHub Site](https://github.com/adlnet)
+- [Total Learning Architecture Reference Implementation GitHub Repo](https://github.com/adlnet/tla)
+
 #### Analytics
 
 The systematic computational analysis of data to discover patterns and insights.
