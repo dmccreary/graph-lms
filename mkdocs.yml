@@ -25,6 +25,9 @@ nav:
     - Introduction: prompts/index.md
     - Word Cloud: prompts/01-wordcloud/index.md
     - Glossary: prompts/02-glossary/index.md
+  - MicroSims:
+    - Intro: sims/index.md
+    - Sample Architecture Drawing: sims/sample-arch/index.md
   - References: references.md
   - License: license.md
   - How We Built This Site: how-we-built-this-site.md
