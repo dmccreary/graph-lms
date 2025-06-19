@@ -11,7 +11,7 @@ hide:
 ---
 # Graph Integrated Learning Architecture Infographic
 
-<iframe src="./main.html" height="480px" scrolling="no"
+<iframe src="./main.html" height="580px" scrolling="no"
   style="overflow: hidden;"></iframe>
 
 You can include this MicroSim in your course by pasting the following HTML directly into your web page.

@@ -1,4 +1,4 @@
-site_name: Graph LMS
+site_name: Graph Learning Management System
 site_description: 'Graph LMS Design Documents All content licensed Creative Commons ShareAlike Attribution Noncommercial'
 site_author: 'Dan McCreary'
 repo_name: 'GitHub Repo'
@@ -49,8 +49,7 @@ nav:
 edit_uri: 'blob/master/docs'
 theme:
   name: material
-  extra_css:
-    - styles/custom.css
+
   logo: img/logo-180.png
   favicon: img/favicon.ico
   palette:
@@ -77,6 +76,10 @@ markdown_extensions:
   - attr_list
   - pymdownx.highlight:
       linenums: true
+extra_css:
+    - css/extra.css
+extra_javascript:
+    - js/extra.js
 extra:
   analytics:
     provider: google
