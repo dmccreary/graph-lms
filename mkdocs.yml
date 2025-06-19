@@ -37,6 +37,7 @@ nav:
     - Intro: sims/index.md
     - Sample Architecture Drawing: sims/sample-arch/index.md
     - Graph Integrated Learning Architecture: sims/graph-ila/index.md
+    - Graph TLA Vis: sims/tla-vis/index.md
     - Templates: sims/templates/index.md
   
   - References: references.md
