@@ -8,6 +8,7 @@ repo_url: 'https://github.com/dmccreary/graph-lms'
 nav:
   - Home: index.md
   - About: about.md
+  
   - Concepts:
     - Introduction: concepts/index.md
     - Concepts: concepts/concept-graphs.md
@@ -15,20 +16,31 @@ nav:
     - Learning Trajectories: concepts/learning-trajectories.md
     - Experience API (xAPI): concepts/xapi.md
     - Learning Record Store (LRS): concepts/lrs.md
+  
   - Architecture:
     - Introduction: arch/index.md
     - Core Systems: arch/core-systems.md
     - TLA: concepts/tla.md
+  
   - View Data Model:
     - Introduction: view-data-model/index.md
     - View with Vis.js: view-data-model/view-model.html
+  
   - Prompts:
     - Introduction: prompts/index.md
     - Word Cloud: prompts/01-wordcloud/index.md
     - Glossary: prompts/02-glossary/index.md
+    - TLA Glossary: prompts/03-tla-glossary.md
+
   - MicroSims:
     - Intro: sims/index.md
     - Sample Architecture Drawing: sims/sample-arch/index.md
+  
+  - MicroSims:
+    - Intro: sims/index.md
+    - Graph Integrated Learning Architecture: sims/graph-ila/index.md
+    - Templates: sims/templates/index.md
+  
   - References: references.md
   - License: license.md
   - How We Built This Site: how-we-built-this-site.md

@@ -1,37 +1,26 @@
-# Glossary Prompt
+# Glossary for Graph Learning Management Systems Prompt
 
-```linenums="0"
-Prompt Name: Glossary for Graph LMS Website
+!!! prompt
+    Prompt Name: Glossary for Graph LMS Website
 
-Please complete a glossary of terms below and
-suggest missing terms.  The focus of this glossary
-is to support a graph-based Learning Management System (LMS)
-website that
-creates real-time hyper-personalized content for each student
-based on their needs.
+    Please complete a glossary of terms below and
+    suggest missing terms.  The focus of this glossary
+    is to support a graph-based Learning Management System (LMS)
+    website that creates real-time hyper-personalized content for each student based on their needs.
 
-This book covers how to use a graph database that
-generates personalized lesson plans, animations, simulations and concent
-for a course for each student in real-time.  It generates simulations using
-JavaScript libraries such as p5.js and vis.js.  The graph contains
-information about courses, students, assignments, lesson plans, assessments
-and the key relationships between the entities stored in learning management
-systems.  The book teaches how to setup and build these LMS systems
-and uses LLMs, vector stores, similarity, RAG and GraphRAG to
-generate learning content.
+    This book covers how to use a graph database that
+    generates personalized lesson plans, animations, simulations and concent
+    for a course for each student in real-time.  It generates simulations using JavaScript libraries such as p5.js and vis.js.  The graph contains
+    information about courses, students, assignments, lesson plans, assessments and the key relationships between the entities stored in learning management systems.  The book teaches how to setup and build these LMS systems and uses LLMs, vector stores, similarity, RAG and GraphRAG to generate learning content.
 
-For each term, return a term label in a level 4 markdown header.
-Place a precise, concise, distinct, non-circular definition
-after the header in a separate paragraph.
+    For each term, return a term label in a level 4 markdown header.
+    Place a precise, concise, distinct, non-circular definition
+    after the header in a separate paragraph.
 
-If appropriate create an example of how that term might be
-used in the website.  Use **Example:** with no newline after it.
-```
+    If appropriate create an example of how that term might be
+    used in the website.  Use **Example:** with no newline after it.
 
 ## Response
-
-Glossary of Graph Learning Management System
-============================================
 
 #### Analytics
 
