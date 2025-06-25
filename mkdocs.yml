@@ -31,13 +31,11 @@ nav:
     - Word Cloud: prompts/01-wordcloud/index.md
     - Glossary: prompts/02-glossary/index.md
     - TLA Glossary: prompts/03-tla-glossary.md
+    - Pitch Deck: prompts/sample-pitch-deck.md
 
   - MicroSims:
     - Intro: sims/index.md
     - Sample Architecture Drawing: sims/sample-arch/index.md
-  
-  - MicroSims:
-    - Intro: sims/index.md
     - Graph Integrated Learning Architecture: sims/graph-ila/index.md
     - Templates: sims/templates/index.md
   
