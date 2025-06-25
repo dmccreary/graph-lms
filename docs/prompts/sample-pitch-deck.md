@@ -1,12 +1,11 @@
-Here is your **Markdown-formatted pitch deck**, which you can import into [Google Slides](https://slides.new) using tools like [Docs to Slides](https://workspace.google.com/marketplace/app/slides_creator/477243597152) or [Marp](https://marp.app/), or by manually copying/pasting each slide.
-
 ---
+marp: true
+---
+# 🧠 Intelligent Textbooks for AI-Native LMS
 
-## 🧠 Intelligent Textbooks for AI-Native LMS
-
-**Company:** GraphLearn.ai
-**Subtitle:** Redefining Learning with Graphs, Vectors, and AI
-**Presenter:** Dan McCreary, Founder
+* **Company:** TBD
+* **Subtitle:** Redefining Learning with Graphs, Vectors, and AI
+* **Presenter:** Dan McCreary, Founder
 
 ---
 
@@ -20,7 +19,7 @@ Here is your **Markdown-formatted pitch deck**, which you can import into [Googl
 
 ## 🌍 The Opportunity
 
-* \$200B+ global EdTech market by 2027
+* $200B+ global EdTech market by 2027
 * Demand for hyper-personalized, AI-powered education
 * GenAI enables smart content and adaptive learning paths
 
@@ -135,9 +134,9 @@ Here is your **Markdown-formatted pitch deck**, which you can import into [Googl
 
 ## 🌐 Market Size
 
-* EdTech: \$200B by 2027
-* AI in Ed: \$25B+
-* TAM: \$2B in STEM-focused institutions
+* EdTech: $200B by 2027
+* AI in Ed: $25B+
+* TAM: $2B in STEM-focused institutions
 
 ---
 
@@ -161,7 +160,7 @@ Here is your **Markdown-formatted pitch deck**, which you can import into [Googl
 
 ## 💰 Funding Ask
 
-* **\$2M Seed Round**
+* **$2M Seed Round**
 * Use of Funds:
 
   * 40% Product Development
@@ -174,6 +173,6 @@ Here is your **Markdown-formatted pitch deck**, which you can import into [Googl
 ## 🎓 Let’s Build the Future of Learning
 
 > “The future of learning isn’t linear—it’s a graph.”
-> 📧 [dan@graphlearn.ai](mailto:dan@graphlearn.ai)
-> 🌐 [www.graphlearn.ai](http://www.graphlearn.ai)
+
+LinkedIn: https://www.linkedin.com/in/danmccreary/
 
