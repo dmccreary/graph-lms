@@ -27,3 +27,11 @@
 
 13. [LangChain’s Harrison Chase on Building the Orchestration Layer for AI Agents | Training Data
 ](https://www.youtube.com/watch?v=6XZLoW0-mPY) - agents are when LLMs decide the control flow.
+
+14. [Enterprise Digital Learning Modernization (EDLM)](https://dam.defense.gov/Resources/Enterprise-Digital-Learning-Modernization/)
+
+15. [Advanced Digital Learning Initiatives](https://www.adlnet.gov/guides/tla/service-definitions/TLA-Master-Object-Model-TLA-CMM-Level-2.html#learning-event-management-lem-services)
+
+16. [ADL TLA Quick-Start Services](https://www.adlnet.gov/guides/tla/service-definitions/#document-scope-and-intended-audience)
+
+17. [Veracity Learning](https://lrs.io/home) - Learning Record Store As a Service. LRS.io is a SaaS LRS with a rich feature set and an excellent free service tier.
