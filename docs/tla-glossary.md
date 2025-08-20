@@ -15,9 +15,9 @@ This glossary covers terminology from the key IEEE TLA (Total Learning Architect
 
 An entity (person, group, or system) who performs an action in an xAPI statement. In xAPI, the Actor is the "who" in the subject-verb-object structure of learning data.
 
-#### ADL Initiative
+#### Advanced Digital Learning
 
-Advanced Digital Learning Initiative - a U.S. Department of Defense program that develops learning technology standards and reference implementations.
+ADL or the Advanced Digital Learning Initiative is a U.S. Department of Defense program that develops learning technology standards and reference implementations.
 
 #### Agent
 

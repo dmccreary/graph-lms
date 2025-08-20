@@ -19,6 +19,10 @@ In the graph LMS, analytics are used to monitor student progress, personalize le
 
 **Example:** The LMS dashboard provides analytics on student engagement with different learning concepts.
 
+### Advanced Digital Learning
+
+ADL or the Advanced Digital Learning Initiative is a U.S. Department of Defense program that develops learning technology standards and reference implementations.
+
 #### Assessment
 
 The evaluation of a student's knowledge, skills, and abilities.
