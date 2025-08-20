@@ -6,19 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A description under 110 characters.">
+        <meta name="description" content="Graph LMS Design Documents All content licensed Creative Commons ShareAlike Attribution Noncommercial">
       
       
         <meta name="author" content="Dan McCreary">
       
       
-        <link rel="canonical" href="https://dmccreary.github.io/graph-lms/sims/tla-vis/">
+        <link rel="canonical" href="https://dmccreary.github.io/graph-lms/concepts/lrs/">
       
       
-        <link rel="prev" href="../graph-ila/">
+        <link rel="prev" href="../learning-trajectories/">
       
       
-        <link rel="next" href="../templates/">
+        <link rel="next" href="../../arch/">
       
       
       <link rel="icon" href="../../img/favicon.ico">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Graph TLA via vis.js - Graph Learning Management System</title>
+        <title>Learning Record Store (LRS) - Graph Learning Management System</title>
       
     
     
@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#graph-total-learning-architecture-using-vis" class="md-skip">
+        <a href="#learning-record-store" class="md-skip">
           Skip to content
         </a>
       
@@ -123,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Graph TLA via vis.js
+              Learning Record Store (LRS)
             
           </span>
         </div>
@@ -204,8 +204,6 @@
           
             
               
-                
-              
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -285,6 +283,8 @@
       
   
   
+    
+  
   
   
     
@@ -309,18 +309,17 @@
     
     
       
-        
-        
-      
     
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
-  
-  
-  
-    <a href="../../concepts/" class="md-nav__link">
-      
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -329,12 +328,151 @@
   </span>
   
 
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concept-graphs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Concepts
+    
+  </span>
   
 
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../content-graphs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learning-trajectories/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Learning Trajectories
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xapi.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Experience API (xAPI)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Learning Record Store (LRS)
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -505,8 +643,6 @@
       
   
   
-    
-  
   
   
     
@@ -529,17 +665,18 @@
     
     
       
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
-              
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
   
   
   <span class="md-ellipsis">
@@ -548,128 +685,12 @@
   </span>
   
 
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_7">
-            <span class="md-nav__icon md-icon"></span>
-            MicroSims
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../sample-arch/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Sample Architecture Drawing
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../graph-ila/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Graph Integrated Learning Architecture
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+        <span class="md-nav__icon md-icon"></span>
       
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    Graph TLA Vis
-    
-  </span>
+    </a>
   
 
-      </a>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../templates/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Templates
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
       
     </li>
   
@@ -815,9 +836,7 @@
             
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -840,59 +859,165 @@
               <article class="md-content__inner md-typeset">
                 
                   
-  
-
 
 
   
   
 
 
-<h1 id="graph-total-learning-architecture-using-vis">Graph Total Learning Architecture using Vis</h1>
-<iframe src="./main.html" height="600px" scrolling="no"
-  style="overflow: hidden;"></iframe>
-
-<p>You can include this MicroSim in your course by pasting the following HTML directly into your web page.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/signal-processing/sims/SIM_NAME/main.html&quot;</span> 
-   <span class="na">height</span><span class="o">=</span><span class="s">&quot;600px&quot;</span> <span class="na">scrolling</span><span class="o">=</span><span class="s">&quot;no&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;overflow: hidden;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<h1 id="learning-record-store">Learning Record Store</h1>
+<p>In this section we will explain the IEEE standard for the Learning Record Store (LRS) 
+and how it can be used to track MicroSim effectiveness.</p>
+<h1 id="ieee-experience-api-xapi-and-learning-record-store-lrs">IEEE Experience API (xAPI) and Learning Record Store (LRS)</h1>
+<p>The IEEE Experience API (xAPI), formally known as IEEE 1484.12.3-2016, is a specification that enables the collection of data about a wide range of learning experiences. The Learning Record Store (LRS) is a core component of this architecture.  The LRS is used to store the xAPI events for all users of
+an intelligent textbook and the MicroSims in a central location using a standard JSON format.</p>
+<h2 id="what-is-a-learning-record-store-lrs">What is a Learning Record Store (LRS)?</h2>
+<p>A Learning Record Store is a system that serves as the repository for learning experience data formatted according to the xAPI specification. The LRS stores and retrieves "statements" that capture learning activities in a standardized format.  You can think of it as a structured event log that stores JSON records
+for users of an intelligent textbook.</p>
+<p>Each xAPI statement is a JSON file that follows a simple structure that stores who did what and when they
+did it:</p>
+<ul>
+<li><strong>Actor</strong> (who performed the action)</li>
+<li><strong>Verb</strong> (what action was taken) </li>
+<li><strong>Object</strong> (what the action was performed on)</li>
+<li><strong>Result</strong> (outcome of the action)</li>
+<li><strong>Context</strong> (additional information about the action)</li>
+</ul>
+<h2 id="using-an-lrs-to-track-microsim-effectiveness">Using an LRS to Track MicroSim Effectiveness</h2>
+<p>MicroSims, as interactive educational simulations, generate valuable learning data 
+that can be captured through the xAPI standard. 
+Here's how an LRS would be used to track their effectiveness:</p>
+<h3 id="1-capturing-interaction-data">1. Capturing Interaction Data</h3>
+<p>When students interact with a MicroSim, the following types of data could be captured and sent to the LRS:</p>
+<ul>
+<li><strong>Time spent</strong> on specific components of the simulation</li>
+<li><strong>Number of attempts</strong> to complete tasks</li>
+<li><strong>Specific interactions</strong> (button clicks, parameter adjustments)</li>
+<li><strong>Completion status</strong> of simulation objectives</li>
+<li><strong>Answers</strong> to embedded assessment questions</li>
+</ul>
+<h3 id="2-analyzing-learning-outcomes">2. Analyzing Learning Outcomes</h3>
+<p>The LRS allows for detailed analysis of how students engage with MicroSims:</p>
+<ul>
+<li>Identifying which concepts students struggle with (based on time spent or multiple attempts)</li>
+<li>Tracking progression through related concepts</li>
+<li>Comparing performance across different student populations</li>
+<li>Measuring knowledge retention through pre/post assessments</li>
+</ul>
+<h3 id="3-integration-with-learning-graphs">3. Integration with Learning Graphs</h3>
+<p>The data stored in the LRS can be particularly powerful when mapped to learning graphs:</p>
+<ul>
+<li>Track student progression through conceptual nodes</li>
+<li>Identify where students struggle in concept mastery</li>
+<li>Adapt learning paths based on demonstrated understanding</li>
+<li>Measure the effectiveness of specific MicroSims at teaching target concepts</li>
+</ul>
+<h3 id="4-implementation-example">4. Implementation Example</h3>
+<p>For a MicroSim teaching complex physics concepts:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Example xAPI statement when student completes a physics simulation</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">statement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">actor</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Student123&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">mbox</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;mailto:student123@example.edu&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">verb</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/verbs/completed&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">display</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;en-US&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">object</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;http://example.edu/microsims/physics/momentum-conservation&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">definition</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;en-US&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Conservation of Momentum Simulation&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/activities/simulation&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">result</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">completion</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">score</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">scaled</span><span class="o">:</span><span class="w"> </span><span class="mf">0.85</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">extensions</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;http://example.edu/microsim/attempts&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;http://example.edu/microsim/time-spent&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;PT4M32S&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">context</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">contextActivities</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">parent</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;http://example.edu/course/physics101&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">definition</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;en-US&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Introductory Physics&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
 </code></pre></div></td></tr></table></div>
-<p><a class="md-button md-button--primary" href="main.html">Run the Graph TLA Vis MicroSim</a></p>
-<style type="css">
-    .legend {
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 15px;
-            margin-top: 20px;
-            font-size: 12px;
-        }
+<h2 id="benefits-for-intelligent-textbooks">Benefits for Intelligent Textbooks</h2>
+<p>Implementing an LRS with MicroSims in intelligent textbooks provides several advantages:</p>
+<ol>
+<li>Hyper-personalization based on actual usage data</li>
+<li>Evidence-based refinement of learning materials</li>
+<li>Detailed analytics on which simulations effectively teach concepts</li>
+<li>Integration with concept and learning graphs for adaptive learning paths</li>
+</ol>
+<p>The data collected can help identify which MicroSims are most effective at teaching specific complex concepts, allowing for continuous improvement of the learning experience.  The LRS can have a front-end
+tool that allows complex A/B testing of different versions of MicroSims to see what versions
+are the most effective at helping students learn.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://standards.ieee.org/ieee/1484.12.3/7029/">IEEE 1484.12.3-2016 - IEEE Approved Draft Standard for Learning Technology -- Extensible Markup Language (XML) Schema Definition Language Binding for Learning Object Metadata</a></li>
+<li><a href="https://github.com/adlnet/xAPI-Spec">Advanced Distributed Learning (ADL) Initiative: Experience API (xAPI) Specification</a></li>
+<li><a href="https://xapi.com/learning-record-store/">Rustici Software: What is a Learning Record Store?</a></li>
+<li><a href="https://www.computer.org/volunteering/boards-and-committees/standards-activities/committees/learning-technology">IEEE LTSC - Learning Technology Standards Committee</a></li>
+<li><a href="https://standards.ieee.org/industry-connections/education/learning-technology/">IEEE Standards Association - Learning Technology</a></li>
+<li><a href="https://adlnet.gov/projects/xapi/xapi-specification/">Advanced Distributed Learning: xAPI Technical Specifications</a></li>
+</ul>
 
-        .legend-item {
-            display: inline-block;
-            margin-right: 20px;
-            margin-bottom: 5px;
-        }
 
-        .legend-color {
-            display: inline-block;
-            width: 15px;
-            height: 15px;
-            margin-right: 5px;
-            border-radius: 3px;
-            vertical-align: middle;
-        }
-</style>
-<div class="legend">
-        <strong>Component Categories:</strong><br>
-        <div class="legend-item"><span class="legend-color" style="background-color: #FFA500;"></span>Core Knowledge</div>
-        <div class="legend-item"><span class="legend-color" style="background-color: #20B2AA;"></span>TLA Data Pillars</div>
-        <div class="legend-item"><span class="legend-color" style="background-color: #ADD8E6;"></span>Edge Learning</div>
-        <div class="legend-item"><span class="legend-color" style="background-color: #FFD700;"></span>AI/ML Analytics</div>
-        <div class="legend-item"><span class="legend-color" style="background-color: #7FFFD4;"></span>Data Integration</div>
-        <div class="legend-item"><span class="legend-color" style="background-color: #E6E6FA;"></span>Administrative</div>
-        <div class="legend-item"><span class="legend-color" style="background-color: #98FB98;"></span>Career Management</div>
-    </div>
 
 
 
@@ -901,14 +1026,7 @@
 
 
   
-  
 
-
-
-  
-
-
-  
 
 
 
@@ -932,12 +1050,10 @@
   
     
       
-        
-      
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../graph-ila/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Graph Integrated Learning Architecture">
+          <a href="../learning-trajectories/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Learning Trajectories">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -947,20 +1063,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Graph Integrated Learning Architecture
+                Learning Trajectories
               </div>
             </div>
           </a>
         
         
           
-          <a href="../templates/" class="md-footer__link md-footer__link--next" aria-label="Next: Templates">
+          <a href="../../arch/" class="md-footer__link md-footer__link--next" aria-label="Next: Introduction">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Templates
+                Introduction
               </div>
             </div>
             <div class="md-footer__button md-icon">
