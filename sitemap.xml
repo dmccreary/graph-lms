@@ -2,110 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://dmccreary.github.io/graph-lms/</loc>
-         <lastmod>2025-06-25</lastmod>
+         <lastmod>2025-08-20</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/graph-lms/about/</loc>
-         <lastmod>2025-06-25</lastmod>
+         <lastmod>2025-08-20</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/graph-lms/contact/</loc>
-         <lastmod>2025-06-25</lastmod>
+         <lastmod>2025-08-20</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/graph-lms/glossary/</loc>
-         <lastmod>2025-06-25</lastmod>
+         <lastmod>2025-08-20</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/graph-lms/how-we-built-this-site/</loc>
-         <lastmod>2025-06-25</lastmod>
+         <lastmod>2025-08-20</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/graph-lms/license/</loc>
-         <lastmod>2025-06-25</lastmod>
+         <lastmod>2025-08-20</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/graph-lms/references/</loc>
-         <lastmod>2025-06-25</lastmod>
+         <lastmod>2025-08-20</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/graph-lms/arch/</loc>
-         <lastmod>2025-06-25</lastmod>
+         <lastmod>2025-08-20</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/graph-lms/arch/core-systems/</loc>
-         <lastmod>2025-06-25</lastmod>
+         <lastmod>2025-08-20</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/graph-lms/concepts/</loc>
-         <lastmod>2025-06-25</lastmod>
+         <lastmod>2025-08-20</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/graph-lms/concepts/concept-graphs/</loc>
-         <lastmod>2025-06-25</lastmod>
+         <lastmod>2025-08-20</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/graph-lms/concepts/content-graphs/</loc>
-         <lastmod>2025-06-25</lastmod>
+         <lastmod>2025-08-20</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/graph-lms/concepts/learning-trajectories/</loc>
-         <lastmod>2025-06-25</lastmod>
-    </url>
-    <url>
-         <loc>https://dmccreary.github.io/graph-lms/concepts/lrs/</loc>
-         <lastmod>2025-06-25</lastmod>
-    </url>
-    <url>
-         <loc>https://dmccreary.github.io/graph-lms/concepts/tla/</loc>
-         <lastmod>2025-06-25</lastmod>
-    </url>
-    <url>
-         <loc>https://dmccreary.github.io/graph-lms/concepts/xapi/</loc>
-         <lastmod>2025-06-25</lastmod>
+         <lastmod>2025-08-20</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/graph-lms/prompts/</loc>
-         <lastmod>2025-06-25</lastmod>
-    </url>
-    <url>
-         <loc>https://dmccreary.github.io/graph-lms/prompts/03-tla-glossary/</loc>
-         <lastmod>2025-06-25</lastmod>
-    </url>
-    <url>
-         <loc>https://dmccreary.github.io/graph-lms/prompts/sample-pitch-deck/</loc>
-         <lastmod>2025-06-25</lastmod>
+         <lastmod>2025-08-20</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/graph-lms/prompts/01-wordcloud/</loc>
-         <lastmod>2025-06-25</lastmod>
+         <lastmod>2025-08-20</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/graph-lms/prompts/02-glossary/</loc>
-         <lastmod>2025-06-25</lastmod>
+         <lastmod>2025-08-20</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/graph-lms/sims/</loc>
-         <lastmod>2025-06-25</lastmod>
+         <lastmod>2025-08-20</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/graph-lms/sims/graph-ila/</loc>
-         <lastmod>2025-06-25</lastmod>
-    </url>
-    <url>
-         <loc>https://dmccreary.github.io/graph-lms/sims/sample-arch/</loc>
-         <lastmod>2025-06-25</lastmod>
+         <lastmod>2025-08-20</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/graph-lms/sims/templates/</loc>
-         <lastmod>2025-06-25</lastmod>
+         <lastmod>2025-08-20</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/graph-lms/sims/templates/index-social-override/</loc>
-         <lastmod>2025-06-25</lastmod>
+         <loc>https://dmccreary.github.io/graph-lms/sims/tla-vis/</loc>
+         <lastmod>2025-08-20</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/graph-lms/view-data-model/</loc>
-         <lastmod>2025-06-25</lastmod>
+         <lastmod>2025-08-20</lastmod>
     </url>
 </urlset>
