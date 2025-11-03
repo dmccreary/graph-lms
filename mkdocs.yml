@@ -16,7 +16,7 @@ nav:
     - Learning Trajectories: concepts/learning-trajectories.md
     - Experience API (xAPI): concepts/xapi.md
     - Learning Record Store (LRS): concepts/lrs.md
-    - Adaptive Assessments
+    - Adaptive Assessments: concepts/adaptive-assessments.md
     - Assessment Standards: concepts/assessment-standards.md
   
   - Architecture:
