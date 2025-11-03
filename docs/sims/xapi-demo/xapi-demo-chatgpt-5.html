@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>MicroSim: Circle Radius + xAPI (localStorage)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+  <style>
+    :root { --fg:#111; --muted:#6b7280; --accent:#2563eb; --bg:#fafafa; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 0; color: var(--fg); background: var(--bg); }
+    header { padding: 12px 16px; border-bottom: 1px solid #e5e7eb; }
+    h1 { font-size: 18px; margin: 0 0 4px; }
+    #controls { display: grid; gap: 8px; grid-template-columns: 1fr auto auto auto; align-items: center; padding: 12px 16px; border-bottom: 1px solid #e5e7eb; }
+    #controls .row { display: flex; gap: 8px; align-items: center; }
+    label { font-size: 14px; color: var(--muted); }
+    input[type="text"] { padding: 6px 8px; border: 1px solid #d1d5db; border-radius: 8px; min-width: 180px; }
+    input[type="range"] { width: 260px; }
+    button { padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 10px; background: #fff; cursor: pointer; }
+    button:hover { border-color: var(--accent); }
+    #stats { font-size: 13px; color: var(--muted); text-align: right; }
+    #canvas-wrap { display: grid; place-items: center; padding: 12px 16px; }
+    #legend { font-size: 13px; color: var(--muted); padding: 0 16px 12px; }
+    .warn { color: #b45309; font-weight: 600; }
+    .danger { color: #b91c1c; font-weight: 700; }
+    .badge { font-size: 12px; padding: 2px 6px; border-radius: 999px; background: #eef2ff; color: #3730a3; }
+    .spacer { flex: 1; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>MicroSim: Slider → Circle Radius (with xAPI events in localStorage)</h1>
+    <div id="legend">Move the slider to change the circle’s radius. Events are stored locally as xAPI‑style statements. Use <span class="badge">Export JSON</span> to download.</div>
+  </header>
+
+  <section id="controls">
+    <div class="row">
+      <label for="learner">Learner Name:</label>
+      <input id="learner" type="text" placeholder="Optional (e.g., Dan McCreary)" />
+    </div>
+    <div class="row">
+      <label for="radius">Radius:</label>
+      <input id="radius" type="range" min="10" max="220" step="1" />
+      <span id="radiusVal" class="badge">—</span>
+    </div>
+    <div class="row">
+      <button id="exportBtn">Export JSON</button>
+      <button id="clearBtn">Clear Events</button>
+    </div>
+    <div id="stats">0 events • 0.00 KB used</div>
+  </section>
+
+  <section id="canvas-wrap">
+    <!-- p5 canvas will mount here -->
+  </section>
+
+  <script>
+    /**********************
+     * Config & Utilities *
+     **********************/
+    const STORAGE_KEY = 'microsim:xapi:circle-radius:events';
+    const META_KEY    = 'microsim:xapi:circle-radius:meta';
+    const OBJECT_ID   = location.origin + location.pathname + '#circle-radius-microsim';
+    const OBJECT_NAME = 'Circle Radius Slider MicroSim';
+    const VERBS = {
+      initialized: 'http://adlnet.gov/expapi/verbs/initialized',
+      interacted:  'http://adlnet.gov/expapi/verbs/interacted',
+      // Custom verbs for local actions:
+      cleared:     'https://example.com/xapi/verbs/cleared',
+      exported:    'https://example.com/xapi/verbs/exported'
+    };
+
+    // ~10 MB nominal target; browsers vary. We prune if we exceed this.
+    const STORAGE_TARGET_BYTES = 10 * 1024 * 1024;        // 10,485,760
+    const STORAGE_SOFT_LIMIT   = STORAGE_TARGET_BYTES*0.96;// 96% warning threshold
+    const STORAGE_PRUNE_TO     = STORAGE_TARGET_BYTES*0.90;// prune back to 90%
+
+    const toBytes = (s) => new TextEncoder().encode(s).length;
+    const fmtKB = (b) => (b/1024).toFixed(2) + ' KB';
+    const fmtMB = (b) => (b/1024/1024).toFixed(2) + ' MB';
+    const uuid  = () => (crypto?.randomUUID?.() ?? ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+                  (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)));
+
+    function nowISO() { return new Date().toISOString(); }
+
+    function getMeta() {
+      try {
+        const m = JSON.parse(localStorage.getItem(META_KEY) || '{}');
+        if (!m.sessionId) m.sessionId = uuid();
+        if (!m.actorName) m.actorName = 'Anonymous';
+        localStorage.setItem(META_KEY, JSON.stringify(m));
+        return m;
+      } catch {
+        const m = { sessionId: uuid(), actorName: 'Anonymous' };
+        localStorage.setItem(META_KEY, JSON.stringify(m));
+        return m;
+      }
+    }
+
+    function setActorName(name) {
+      const m = getMeta();
+      m.actorName = (name && name.trim()) ? name.trim() : 'Anonymous';
+      localStorage.setItem(META_KEY, JSON.stringify(m));
+    }
+
+    function getEvents() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
+      catch { return []; }
+    }
+
+    function putEvents(arr) {
+      const s = JSON.stringify(arr);
+      try {
+        localStorage.setItem(STORAGE_KEY, s);
+        return true;
+      } catch (e) {
+        console.warn('localStorage setItem failed (likely quota). Attempting prune…', e);
+        return false;
+      }
+    }
+
+    function bytesUsed() {
+      const s = localStorage.getItem(STORAGE_KEY) || '[]';
+      return toBytes(s);
+    }
+
+    function updateStats() {
+      const count = getEvents().length;
+      const used = bytesUsed();
+      const statsEl = document.getElementById('stats');
+      const warnClass = used >= STORAGE_SOFT_LIMIT ? (used >= STORAGE_TARGET_BYTES ? 'danger' : 'warn') : '';
+      const limitText = used >= STORAGE_TARGET_BYTES ? ' (over 10MB! pruning suggested)' :
+                        used >= STORAGE_SOFT_LIMIT   ? ' (approaching 10MB)' : '';
+      statsEl.innerHTML = `${count} events • ${fmtKB(used)} used<span class="${warnClass}">${limitText}</span>`;
+    }
+
+    function pruneIfNeeded() {
+      let arr = getEvents();
+      let s = JSON.stringify(arr);
+      if (toBytes(s) <= STORAGE_TARGET_BYTES) return;
+
+      // Prune oldest 10% repeatedly until under target or nothing left.
+      while (toBytes(s) > STORAGE_PRUNE_TO && arr.length > 0) {
+        const pruneCount = Math.max(1, Math.floor(arr.length * 0.10));
+        arr = arr.slice(pruneCount); // drop oldest
+        s = JSON.stringify(arr);
+      }
+      localStorage.setItem(STORAGE_KEY, s);
+    }
+
+    function makeStatement(verbId, verbDisplay, result = null, contextExt = {}) {
+      const meta = getMeta();
+      const stmt = {
+        id: uuid(),
+        timestamp: nowISO(),
+        actor: {
+          name: meta.actorName,
+          account: { homePage: location.origin, name: meta.sessionId }
+          // (You could use mbox instead: { mbox: "mailto:anonymous@example.com" })
+        },
+        verb: {
+          id: verbId,
+          display: { 'en-US': verbDisplay }
+        },
+        object: {
+          id: OBJECT_ID,
+          definition: {
+            name: { 'en-US': OBJECT_NAME },
+            type: 'http://adlnet.gov/expapi/activities/simulation'
+          }
+        },
+        context: {
+          extensions: {
+            'https://example.com/extensions/session-id': meta.sessionId,
+            ...contextExt
+          }
+        }
+      };
+      if (result) stmt.result = result;
+      return stmt;
+    }
+
+    function saveStatement(stmt) {
+      const arr = getEvents();
+      arr.push(stmt);
+      // Try to save; if quota hit, prune and retry once.
+      if (!putEvents(arr)) {
+        pruneIfNeeded();
+        const arr2 = getEvents(); arr2.push(stmt);
+        putEvents(arr2);
+      }
+      updateStats();
+    }
+
+    /*******************
+     * UI / p5 Sketch  *
+     *******************/
+    let radiusInput, radiusValEl, exportBtn, clearBtn, learnerInput;
+    let currentR = 120;
+    let debounceTimer = null;
+
+    function setupControls() {
+      learnerInput = document.getElementById('learner');
+      radiusInput  = document.getElementById('radius');
+      radiusValEl  = document.getElementById('radiusVal');
+      exportBtn    = document.getElementById('exportBtn');
+      clearBtn     = document.getElementById('clearBtn');
+
+      // Restore previous actor name if present
+      learnerInput.value = getMeta().actorName || '';
+
+      // Initialize slider and label
+      radiusInput.value = currentR;
+      radiusValEl.textContent = currentR;
+
+      learnerInput.addEventListener('change', () => {
+        setActorName(learnerInput.value);
+        // (Optional) log a small context update:
+        saveStatement(makeStatement(VERBS.interacted, 'updated actor', null, {
+          'https://example.com/extensions/actor-name': learnerInput.value || 'Anonymous'
+        }));
+      });
+
+      radiusInput.addEventListener('input', () => {
+        currentR = parseInt(radiusInput.value, 10) || currentR;
+        radiusValEl.textContent = currentR;
+        // Debounce interaction logging to avoid spamming
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+          saveStatement(makeStatement(VERBS.interacted, 'adjusted radius', {
+            response: String(currentR),
+            extensions: {
+              'https://example.com/extensions/radius-min': radiusInput.min,
+              'https://example.com/extensions/radius-max': radiusInput.max
+            }
+          }));
+        }, 150);
+      });
+
+      exportBtn.addEventListener('click', () => {
+        const data = JSON.stringify(getEvents(), null, 2);
+        const blob = new Blob([data], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'microsim-xapi-circle-radius.json';
+        document.body.appendChild(a); a.click(); a.remove();
+        URL.revokeObjectURL(url);
+        saveStatement(makeStatement(VERBS.exported, 'exported statements', {
+          response: 'download'
+        }));
+      });
+
+      clearBtn.addEventListener('click', () => {
+        localStorage.removeItem(STORAGE_KEY);
+        updateStats();
+        saveStatement(makeStatement(VERBS.cleared, 'cleared statements'));
+      });
+
+      updateStats();
+    }
+
+    // p5 globals
+    let cnv;
+
+    function setup() {
+      const w = Math.min(640, Math.max(320, window.innerWidth - 32));
+      const h = Math.min(420, Math.max(240, Math.floor(w * 0.65)));
+      cnv = createCanvas(w, h);
+      cnv.parent(document.getElementById('canvas-wrap'));
+
+      describe('A circle at canvas center whose radius is controlled by a slider labeled Radius.');
+
+      textFont('system-ui, -apple-system, Segoe UI, Roboto, sans-serif');
+
+      setupControls();
+      // Log initialization once per load
+      saveStatement(makeStatement(VERBS.initialized, 'initialized simulation', {
+        success: true,
+        extensions: {
+          'https://example.com/extensions/canvas-width': width,
+          'https://example.com/extensions/canvas-height': height
+        }
+      }));
+    }
+
+    function windowResized() {
+      const w = Math.min(640, Math.max(320, window.innerWidth - 32));
+      const h = Math.min(420, Math.max(240, Math.floor(w * 0.65)));
+      resizeCanvas(w, h);
+    }
+
+    function draw() {
+      background(255);
+      // Title
+      noStroke(); fill(17);
+      textSize(16);
+      text('Circle Radius MicroSim', 12, 24);
+
+      // Circle
+      const cx = width / 2;
+      const cy = height / 2 + 10;
+      fill(238); stroke(0); strokeWeight(2);
+      circle(cx, cy, currentR * 2);
+
+      // Axes / ruler (nice visual affordance)
+      stroke(200); strokeWeight(1);
+      line(12, cy, width-12, cy);
+      line(cx, 40, cx, height-12);
+
+      // Radius indicator
+      stroke(37, 99, 235); strokeWeight(3);
+      line(cx, cy, cx + currentR, cy);
+      noStroke(); fill(37, 99, 235);
+      textSize(13);
+      text(`r = ${currentR}`, cx + currentR + 8, cy - 6);
+    }
+  </script>
+</body>
+</html>

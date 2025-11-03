@@ -16,6 +16,8 @@ nav:
     - Learning Trajectories: concepts/learning-trajectories.md
     - Experience API (xAPI): concepts/xapi.md
     - Learning Record Store (LRS): concepts/lrs.md
+    - Adaptive Assessments
+    - Assessment Standards: concepts/assessment-standards.md
   
   - Architecture:
     - Introduction: arch/index.md
@@ -37,11 +39,14 @@ nav:
     - Intro: sims/index.md
     - Sample Architecture Drawing: sims/sample-arch/index.md
     - Graph Integrated Learning Architecture: sims/graph-ila/index.md
+    - xAPI Demo: sims/xapi-demo/index.md
+    - Graph Integrated Learning Architecture (GILA): sims/gila/index.md
     - Templates: sims/templates/index.md
   
   - References: references.md
   - License: license.md
   - How We Built This Site: how-we-built-this-site.md
+  - Customization Checklist: checklist.md
   - Glossary: glossary.md
   - Contact: contact.md
  

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xAPI Event Tracking MicroSim Demo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .microsim-container {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .controls {
+            background: #f8f9fa;
+            padding: 15px;
+            border-top: 1px solid #ddd;
+        }
+        .status-bar {
+            background: #e9ecef;
+            padding: 10px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .event-count {
+            font-weight: bold;
+            color: #28a745;
+        }
+        .clear-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .clear-btn:hover {
+            background: #c82333;
+        }
+        input[type="range"] {
+            width: 100%;
+            margin: 10px 0;
+        }
+        .info-panel {
+            background: #e3f2fd;
+            border: 1px solid #bbdefb;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .latest-event {
+            font-family: monospace;
+            font-size: 12px;
+            background: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            margin-top: 10px;
+            max-height: 100px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>xAPI Event Tracking MicroSim Demo</h1>
+        
+        <div class="info-panel">
+            <h3>About This Demo</h3>
+            <p>This MicroSim demonstrates how to track user interactions using IEEE xAPI (Experience API) standards. 
+            As you interact with the circle size slider, each event is logged with xAPI-compliant statements and stored in browser localStorage.</p>
+            <p><strong>Try this:</strong> Move the slider below and watch the event count increase. Each interaction creates a structured learning record.</p>
+        </div>
+
+        <div class="microsim-container">
+            <div id="sketch-container"></div>
+            
+            <div class="controls">
+                <label for="sizeSlider">Circle Size:</label>
+                <input type="range" id="sizeSlider" min="10" max="200" value="50">
+                <div>Current Size: <span id="sizeValue">50</span>px</div>
+            </div>
+            
+            <div class="status-bar">
+                <div class="event-count">Events Logged: <span id="eventCount">0</span></div>
+                <button class="clear-btn" onclick="clearEvents()">Clear Events</button>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h4>Latest xAPI Event:</h4>
+            <div class="latest-event" id="latestEvent">No events yet - try moving the slider!</div>
+        </div>
+
+        <div class="info-panel">
+            <h4>xAPI Event Structure</h4>
+            <p>Each event follows the xAPI format: <strong>Actor</strong> (learner) performed <strong>Verb</strong> (action) on <strong>Object</strong> (activity) with optional <strong>Result</strong> data.</p>
+        </div>
+    </div>
+
+    <script>
+        // Global variables for p5.js
+        let circleSize = 50;
+        let canvas;
+        let eventCount = 0;
+        
+        // xAPI Event Tracking System
+        class XAPITracker {
+            constructor() {
+                this.storageKey = 'xapi_microsim_events';
+                this.sessionId = this.generateSessionId();
+                this.loadEventCount();
+            }
+            
+            generateSessionId() {
+                return 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+            }
+            
+            createXAPIStatement(verb, object, result = null) {
+                const statement = {
+                    id: this.generateUUID(),
+                    timestamp: new Date().toISOString(),
+                    actor: {
+                        name: "Demo Learner",
+                        mbox: "mailto:learner@example.com",
+                        objectType: "Agent"
+                    },
+                    verb: {
+                        id: `http://adlnet.gov/expapi/verbs/${verb}`,
+                        display: { "en-US": verb }
+                    },
+                    object: {
+                        id: "http://example.com/microsims/circle-size",
+                        definition: {
+                            name: { "en-US": "Circle Size MicroSim" },
+                            description: { "en-US": object },
+                            type: "http://adlnet.gov/expapi/activities/simulation"
+                        },
+                        objectType: "Activity"
+                    },
+                    context: {
+                        platform: "MicroSim Demo",
+                        language: "en-US",
+                        extensions: {
+                            "http://example.com/session": this.sessionId
+                        }
+                    }
+                };
+                
+                if (result) {
+                    statement.result = result;
+                }
+                
+                return statement;
+            }
+            
+            generateUUID() {
+                return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                    const r = Math.random() * 16 | 0;
+                    const v = c == 'x' ? r : (r & 0x3 | 0x8);
+                    return v.toString(16);
+                });
+            }
+            
+            logEvent(verb, object, result = null) {
+                try {
+                    const statement = this.createXAPIStatement(verb, object, result);
+                    
+                    // Get existing events
+                    const existingEvents = JSON.parse(localStorage.getItem(this.storageKey) || '[]');
+                    
+                    // Add new event
+                    existingEvents.push(statement);
+                    
+                    // Check storage limit (approximate 10MB check)
+                    const dataSize = JSON.stringify(existingEvents).length;
+                    if (dataSize > 10 * 1024 * 1024) {
+                        // Remove oldest events if approaching limit
+                        existingEvents.splice(0, 100);
+                        console.log('Removed old events due to storage limit');
+                    }
+                    
+                    // Store updated events
+                    localStorage.setItem(this.storageKey, JSON.stringify(existingEvents));
+                    
+                    // Update UI
+                    eventCount = existingEvents.length;
+                    this.updateUI(statement);
+                    
+                } catch (error) {
+                    console.error('Error logging xAPI event:', error);
+                }
+            }
+            
+            updateUI(latestStatement) {
+                document.getElementById('eventCount').textContent = eventCount;
+                document.getElementById('latestEvent').textContent = JSON.stringify(latestStatement, null, 2);
+            }
+            
+            loadEventCount() {
+                try {
+                    const existingEvents = JSON.parse(localStorage.getItem(this.storageKey) || '[]');
+                    eventCount = existingEvents.length;
+                    document.getElementById('eventCount').textContent = eventCount;
+                } catch (error) {
+                    console.error('Error loading event count:', error);
+                }
+            }
+            
+            clearEvents() {
+                localStorage.removeItem(this.storageKey);
+                eventCount = 0;
+                document.getElementById('eventCount').textContent = eventCount;
+                document.getElementById('latestEvent').textContent = 'Events cleared - try moving the slider!';
+            }
+        }
+        
+        // Initialize xAPI tracker
+        const xapiTracker = new XAPITracker();
+        
+        // p5.js setup
+        function setup() {
+            canvas = createCanvas(600, 300);
+            canvas.parent('sketch-container');
+            
+            // Log session start
+            xapiTracker.logEvent('experienced', 'Started Circle Size MicroSim session');
+        }
+        
+        // p5.js draw loop
+        function draw() {
+            background(240, 248, 255);
+            
+            // Draw grid
+            stroke(200);
+            strokeWeight(1);
+            for (let i = 0; i < width; i += 20) {
+                line(i, 0, i, height);
+            }
+            for (let i = 0; i < height; i += 20) {
+                line(0, i, width, i);
+            }
+            
+            // Draw circle
+            fill(100, 150, 255);
+            stroke(50, 100, 200);
+            strokeWeight(2);
+            ellipse(width/2, height/2, circleSize, circleSize);
+            
+            // Draw size label
+            fill(50);
+            noStroke();
+            textAlign(CENTER, CENTER);
+            textSize(16);
+            text(`${circleSize}px`, width/2, height/2);
+        }
+        
+        // Slider event handler
+        document.getElementById('sizeSlider').addEventListener('input', function(e) {
+            const newSize = parseInt(e.target.value);
+            const oldSize = circleSize;
+            circleSize = newSize;
+            
+            // Update display
+            document.getElementById('sizeValue').textContent = newSize;
+            
+            // Log xAPI event
+            xapiTracker.logEvent(
+                'interacted',
+                `Adjusted circle size from ${oldSize}px to ${newSize}px`,
+                {
+                    score: { raw: newSize, min: 10, max: 200 },
+                    extensions: {
+                        "http://example.com/previous_value": oldSize,
+                        "http://example.com/new_value": newSize,
+                        "http://example.com/change": newSize - oldSize
+                    }
+                }
+            );
+        });
+        
+        // Global function for clear button
+        function clearEvents() {
+            xapiTracker.clearEvents();
+        }
+        
+        // Log page unload
+        window.addEventListener('beforeunload', function() {
+            xapiTracker.logEvent('exited', 'Left Circle Size MicroSim session');
+        });
+    </script>
+</body>
+</html>

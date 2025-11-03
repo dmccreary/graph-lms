@@ -148,6 +148,46 @@ The true power of xAPI tracking for MicroSims emerges when combined with other l
 
 This approach allows for a comprehensive view of how interactive simulations contribute to the overall learning experience within your intelligent textbook platform.
 
+
+## Sample JSON xAPI for Slider
+
+```json
+{ 
+    "id": "07086244-26b8-4602-8a4a-845154de6ef8", 
+    "timestamp": "2025-08-15T15:50:53.909Z", 
+    "actor": { 
+        "name": "Demo Learner", 
+        "mbox": "mailto:learner@example.com", 
+        "objectType": "Agent" 
+        }, 
+    "verb": { 
+        "id": "http://adlnet.gov/expapi/verbs/interacted",
+         "display": { "en-US": "interacted" } 
+         }, 
+    "object": { 
+        "id": "http://example.com/microsims/circle-size", 
+        "definition": {
+             "name": { "en-US": "Circle Size MicroSim" }, 
+             "description": { "en-US": "Adjusted circle size from 95px to 96px" }, 
+             "type": "http://adlnet.gov/expapi/activities/simulation" 
+             }, 
+        "objectType": "Activity" 
+        }, 
+    "context": { 
+        "platform": "MicroSim Demo", 
+        "language": "en-US", 
+        "extensions": { "http://example.com/session": "session_1755273047962_x04l0kdi1" } 
+        }, 
+    "result": { 
+        "score": { "raw": 96, "min": 10, "max": 200 }, 
+        "extensions": { 
+            "http://example.com/previous_value": 95, 
+            "http://example.com/new_value": 96, 
+            "http://example.com/change": 1 
+        } 
+    } 
+}
+```
 ## References
 
 - [xAPI Enabled LMS: Tracking eLearning Experiences](https://elearningindustry.com/xapi-enabled-lms-tracking-elearning-experiences) - eLearning Industry (2021, May 12)
