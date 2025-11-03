@@ -4,7 +4,7 @@ Data Pillars and Their Applicability to Adaptive Instructional Systems
 
 ## Overview
 
-The [Advanced Distributed Learning](../glossary.md#advanced-distributed-learing) (ADL) Initiative has developed the Total Learning Architecture (TLA) since 2016 as a comprehensive 4-pillar data strategy for managing lifelong learning across organizations. The TLA provides a foundational framework that enables interoperability, data-driven decision making, and adaptive instructional capabilities through standardized data management and sharing.
+The [Advanced Distributed Learning](../glossary.md#advanced-distributed-learning) (ADL) Initiative has developed the Total Learning Architecture (TLA) since 2016 as a comprehensive 4-pillar data strategy for managing lifelong learning across organizations. The TLA provides a foundational framework that enables interoperability, data-driven decision making, and adaptive instructional capabilities through standardized data management and sharing.
 
 ## The Four TLA Data Pillars
 

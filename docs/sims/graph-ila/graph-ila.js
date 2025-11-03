@@ -13,7 +13,7 @@ function setup() {
 }
 
 function draw() {
-  background(245);
+  background("aliceblue");
   
   // Calculate scale factor based on current canvas width
   let scaleFactor = width / canvasWidth;
