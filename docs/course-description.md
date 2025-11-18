@@ -8,7 +8,9 @@
 
 Most Learning Management Systems in use today are not capable of meeting the increasing demands of of AI-driven students, teachers and administrators. Most legacy LMS systems were built around the notion that the primary goal of an LMS was to track courses, enrollment and grading.  Their reporting focus was [counts and amounts](glossary.md#counts-and-amounts) not recommending learning paths.  However, modern graph databases are much more capable at providing a platform that will create a detailed model of the world that enable real-time content recommendation to support every students learning goals.
 
-This course provides a foundation of concepts learners need to know to understand why modern LMS systems must be based on a real-time graph database.  We introduce many of the challenges of integrating [intelligent textbooks](./glossary.md)
+This course provides a foundation of concepts learners need to know to understand why modern LMS systems must be based on a real-time graph database.  We introduce many of the challenges of integrating [intelligent textbooks](./glossary.md) and the need for integrating intelligent textbooks created by a wide variety of content producers.
+
+We we then display a traditional RDBMS data model for an LMS and see the limitations of this model for predicting a learning path for students.  We then walk the user through the components of a graph data model for an AI-enhanced LMS.
 
 ## Concepts Included
 
