@@ -16,6 +16,10 @@ nav:
     - Learning Trajectories: concepts/learning-trajectories.md
     - Experience API (xAPI): concepts/xapi.md
     - Learning Record Store (LRS): concepts/lrs.md
+    - Learning Activity Metadata (LAM): concepts/lam.md
+    - Reusable Competency Definitions (RCD): concepts/rcd.md
+    - Question and Test Interoperability (QTI): concepts/qti.md
+    - Enterprise Learner Records (ELR): concepts/elr.md
     - Adaptive Assessments: concepts/adaptive-assessments.md
     - Assessment Standards: concepts/assessment-standards.md
   

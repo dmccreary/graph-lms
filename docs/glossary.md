@@ -29,6 +29,16 @@ The evaluation of a student's knowledge, skills, and abilities.
 
 In the graph LMS, assessments are personalized and can adapt in real-time to accurately measure learning progress.
 
+#### Assessment Item
+
+A single question or task within an assessment used to measure learner knowledge or skills. Assessment items are the fundamental units in [Question and Test Interoperability](#question-and-test-interoperability-qti) (QTI) assessments.
+
+In the graph LMS, assessment items are tagged with competencies they measure, enabling precise tracking of learner proficiency.
+
+**Example:** A multiple-choice question asking students to identify the correct Python syntax for defining a function is an assessment item.
+
+See also: [Question and Test Interoperability (QTI)](concepts/qti.md)
+
 #### Badge
 
 ![](./img/sample-robot-badge.png)
@@ -57,8 +67,25 @@ are also stored in a vector store for similarity analysis.
 
 An educational model where progress is based on demonstrating competence in specific areas.
 
-In the graph LMS, students advance by proving mastery of competencies rather than time spent on a subject.  This is achieved by monitoring progress and generating real-time simulations
-that can monitor progress.
+In the graph LMS, students advance by proving mastery of competencies rather than time spent on a subject. This is achieved by monitoring progress and generating real-time simulations that can monitor progress.
+
+#### Competency Framework
+
+A structured set of competency definitions that describes the knowledge, skills, abilities, and behaviors required within a specific domain, occupation, or educational context. Competency frameworks use [Reusable Competency Definitions](#reusable-competency-definitions-rcd) as their building blocks.
+
+In the graph LMS, competency frameworks map learning activities to industry standards and job requirements, enabling skills-based learning pathways and credential alignment.
+
+**Example:** An IT competency framework defines proficiency levels for programming languages, system administration, and cybersecurity skills.
+
+See also: [Reusable Competency Definitions (RCD)](concepts/rcd.md)
+
+#### Comprehensive Learner Record
+
+An IMS Global (now 1EdTech) standard for digital learner records that extends beyond traditional transcripts to include competencies, co-curricular activities, and evidence of achievement. Related to but distinct from [Enterprise Learner Records](#enterprise-learner-records-elr).
+
+In the graph LMS, Comprehensive Learner Records provide holistic documentation of academic and experiential learning, supporting competency-based credentials and portable learner profiles.
+
+See also: [Enterprise Learner Records (ELR)](concepts/elr.md)
 
 #### Computational Thinking
 
@@ -67,6 +94,24 @@ A problem-solving process that involves breaking down complex problems into mana
 In the graph LMS, computational thinking skills are fostered through interactive simulations and coding exercises.
 
 **Example:** Students use computational thinking to design algorithms within the LMS simulations.
+
+#### Caliper Analytics
+
+An IMS Global (now 1EdTech) learning analytics standard that defines a structured approach to collecting, organizing, and transmitting learning data for analytics and reporting purposes.
+
+In the graph LMS, Caliper Analytics complements xAPI by providing standardized event tracking and metrics for learning activities, enabling cross-system analytics and reporting.
+
+See also: [Experience API (xAPI)](concepts/xapi.md)
+
+#### cmi5
+
+An xAPI profile specification that defines how learning management systems launch, communicate with, and track xAPI-enabled content. It is the successor to SCORM, providing modern interoperability for web-based learning content.
+
+In the graph LMS, cmi5 enables LMS-launched learning activities to report detailed xAPI statements while maintaining LMS control over content launch and tracking.
+
+**Example:** An LMS uses cmi5 to launch an interactive training module, which then reports learner interactions back to the LRS via xAPI statements.
+
+See also: [SCORM](#scorm), [Experience API (xAPI)](concepts/xapi.md)
 
 #### Cognitive Load
 
@@ -87,11 +132,27 @@ real-time.
 
 Examples of content include web pages, lesson plans, MicroSims, animations, course content, assessments, formulas, equations and quizzes.
 
+#### Counts and Amounts
+
+The focus of legacy learning management systems where the focus was not on predicting learning paths, but storing and totaling courses, registrations and grading.
+
+**Example:** When describing a current LMS a teacher describes it a "good counts and amounts" system implying it does not have the capabilities to recommend learning paths for students.
+
 #### Data-Driven Instruction
 
 An approach where teaching is guided by analysis of student data to meet learning needs.
 
 In the graph LMS, data-driven instruction helps educators adjust content and methods for better outcomes.
+
+#### Decentralized Identifiers
+
+Decentralized Identifiers (DIDs) are a type of globally unique identifier that enables verifiable, self-sovereign digital identity. DIDs are owned and controlled by the individual or organization they represent, rather than being issued by a centralized authority.
+
+In the graph LMS, DIDs enable learners to own and control their educational records and credentials, supporting portable [Enterprise Learner Records](#enterprise-learner-records-elr) and verifiable credentials across institutional boundaries.
+
+**Example:** A learner uses their DID to access their learning record across multiple universities and share verified credentials with potential employers without requiring institutional intermediaries.
+
+See also: [Enterprise Learner Records (ELR)](concepts/elr.md), [Self-Sovereign Identity](#self-sovereign-identity)
 
 #### Diamond Age Primer
 
@@ -100,6 +161,36 @@ An inspiration from Neal Stephenson's novel "The Diamond Age," referring to an i
 In the graph LMS, the concept of the Diamond Age Primer influences the creation of hyper-personalized learning experiences.
 
 **Example:** The LMS acts like a modern Diamond Age Primer by adapting lessons in real-time based on student interactions.
+
+#### Digital Credentials
+
+Electronically-verifiable records of achievement, competency, or participation that can be cryptographically signed and shared across systems. Digital credentials include digital badges, certificates, diplomas, and micro-credentials.
+
+In the graph LMS, digital credentials provide tamper-proof, portable evidence of learning achievements that learners control and can share with employers, educational institutions, and other stakeholders.
+
+**Example:** A learner earns a digital badge for completing a Python programming course, which is cryptographically signed by the issuing institution and can be verified by potential employers.
+
+See also: [Badge](#badge), [Enterprise Learner Records (ELR)](concepts/elr.md), [Verifiable Credentials](#verifiable-credentials)
+
+#### Enterprise Learner Records
+
+Enterprise Learner Records (ELR) is an IEEE P2997 standard for comprehensive, portable learner records that go beyond traditional transcripts to include competencies, assessments, evidence, and lifelong learning achievements. ELR enables interoperability across educational institutions, employers, and credentialing organizations.
+
+In the graph LMS, ELR provides the verified credential layer that summarizes learning experiences, asserts competencies, and supports skills-based hiring and career development.
+
+**Example:** An ELR contains a learner's degrees, professional certifications, competency assertions with evidence, and work experience, all cryptographically signed and learner-controlled.
+
+See also: [Enterprise Learner Records (ELR)](concepts/elr.md), [Comprehensive Learner Record](#comprehensive-learner-record)
+
+#### Experience Index
+
+The Experience Index (XI) is the searchable repository for [Learning Activity Metadata](#learning-activity-metadata-lam) within the [Total Learning Architecture](#total-learning-architecture). It aggregates learning opportunity descriptions from multiple providers, enabling federated discovery and recommendation.
+
+In the graph LMS, the Experience Index allows learners and systems to search across all available learning activities, find content matching specific competencies, and generate personalized learning pathways.
+
+**Example:** A learner searches the Experience Index for "beginner Python programming" activities and receives results from multiple content providers, filtered by their current skill level and learning preferences.
+
+See also: [Learning Activity Metadata (LAM)](concepts/lam.md), [Total Learning Architecture](concepts/tla.md)
 
 #### Directed Graph
 
@@ -113,6 +204,14 @@ another concept (a prerequisite concept).
 A connection between two nodes in a graph representing the relationship between them.
 
 In a [Learning Graph](#learning-graph), edges depict prerequisites and dependencies between learning concepts.
+
+#### Five Levels of Intelligent Textbooks
+
+A five-level classification system for intelligent textbooks that places static textbooks a level 1, interactive textbooks at level 2, personalized textbooks at level 3, chatbot-assisted textbooks at level 4 and fully autonomous textbooks at level 5.
+
+Note that levels 3 to 5 contain student-specific data and are thus governed by privacy laws in each country.
+
+**Example:** An intelligent textbook with MicroSims, quizzes and in-browser recommendation systems might be at a level 2.9 as long as no student-specific data is persisted on servers.
 
 #### Foundation Concept
 
@@ -161,6 +260,12 @@ An advanced form of personalization that uses real-time data and AI to deliver h
 In the graph LMS, hyper-personalization tailors every aspect of the learning experience to individual student needs.
 
 **Example:** The LMS modifies simulations on-the-fly to match a student's learning style and pace.
+
+#### Intelligent Textbook
+
+An online electronic textbook that adapts to the needs of the student.
+
+Intelligent textbooks can be classified into [five levels](#file-levels-of-intelligent-textbooks)
 
 #### Journey Map
 
@@ -218,6 +323,42 @@ A concept that is assumed at the start of a course is called a [Foundation Conce
 The collection and analysis of data about learners to improve education.
 
 In the graph LMS, learning analytics inform decisions on content personalization and instructional strategies.
+
+#### Learning Activity Metadata
+
+Learning Activity Metadata (LAM) is the IEEE P2881 standard that defines comprehensive metadata for describing learning activities, resources, and content. LAM is one of the four foundational pillars of the [Total Learning Architecture](#total-learning-architecture), building upon [Learning Object Metadata](#learning-object-metadata-lom) with enhanced competency alignment and modern technical specifications.
+
+In the graph LMS, LAM enables intelligent discovery and recommendation of learning activities by describing what competencies they teach, prerequisites, difficulty levels, and relationships to other learning resources.
+
+**Example:** A Python programming tutorial's LAM metadata specifies it teaches "Python syntax" competency, requires "basic computer literacy" prerequisite, has "beginner" difficulty, and takes approximately 2.5 hours to complete.
+
+See also: [Learning Activity Metadata (LAM)](concepts/lam.md), [Experience Index](#experience-index), [Learning Object Metadata (LOM)](#learning-object-metadata-lom)
+
+#### Learning Object Metadata
+
+Learning Object Metadata (LOM) is the IEEE 1484.12.1 standard established in 2002 for describing educational resources. LOM defined foundational categories including general information, lifecycle, technical specifications, educational characteristics, rights, relations, annotations, and classifications. It serves as the predecessor to [Learning Activity Metadata](#learning-activity-metadata-lam).
+
+In the graph LMS, LOM provides the historical foundation for modern metadata standards, with many systems still using LOM-based descriptions for learning resources.
+
+See also: [Learning Activity Metadata (LAM)](concepts/lam.md)
+
+#### Learning Record Store
+
+A Learning Record Store (LRS) is a data repository that stores learning experience data in the form of xAPI statements. The LRS is a core component of the [Total Learning Architecture](#total-learning-architecture), providing persistent storage for detailed learner interaction data that can be analyzed, reported, and used as evidence for competency assertions.
+
+In the graph LMS, the LRS accumulates granular learning activity data that feeds into adaptive algorithms, competency tracking, and credential issuance.
+
+**Example:** An LRS stores xAPI statements recording that a learner completed a video lesson, scored 85% on a quiz, and spent 45 minutes on an interactive simulation.
+
+See also: [Learning Record Store (LRS)](concepts/lrs.md), [Experience API (xAPI)](concepts/xapi.md)
+
+#### Learning Tools Interoperability
+
+Learning Tools Interoperability (LTI) is an IMS Global (now 1EdTech) standard that enables seamless integration of external learning tools and content with learning management systems. LTI defines how LMS platforms launch external tools, pass user context, and receive results.
+
+In the graph LMS, LTI allows integration of specialized assessment tools, simulations, content libraries, and other applications while maintaining single sign-on and grade synchronization.
+
+**Example:** An LMS uses LTI to launch a third-party adaptive math tutor, automatically passing student information and receiving performance scores back into the gradebook.
 
 #### Learning Trajectories
 
@@ -332,6 +473,46 @@ A concept or course that must be understood before progressing to more advanced 
 
 In the graph LMS, prerequisites are mapped to ensure students have the necessary foundation before moving forward.
 
+#### Proficiency Level
+
+A defined stage of mastery or competence within a skill or competency, typically ranging from novice/beginner to expert/master. Proficiency levels are core components of [Reusable Competency Definitions](#reusable-competency-definitions-rcd) and [competency frameworks](#competency-framework).
+
+In the graph LMS, proficiency levels enable precise tracking of learner progress, appropriate activity recommendations, and evidence-based credential issuance.
+
+**Example:** A programming competency framework defines five proficiency levels: Awareness (Level 1), Basic (Level 2), Proficient (Level 3), Advanced (Level 4), and Expert (Level 5).
+
+See also: [Reusable Competency Definitions (RCD)](concepts/rcd.md), [Competency Framework](#competency-framework)
+
+#### Question and Test Interoperability
+
+Question and Test Interoperability (QTI) is an IMS Global (now 1EdTech) standard for representing assessment content, including questions, tests, response processing, and scoring rules. QTI enables interchange of assessment items and tests across different learning management systems and assessment platforms.
+
+In the graph LMS, QTI provides standardized assessment content that can be tagged with competencies, support adaptive testing, and generate evidence for [Enterprise Learner Records](#enterprise-learner-records-elr).
+
+**Example:** A QTI package contains multiple-choice questions, essay prompts, and interactive simulations that can be imported into any QTI-compliant LMS.
+
+See also: [Question and Test Interoperability (QTI)](concepts/qti.md), [Assessment Item](#assessment-item)
+
+#### Response Processing
+
+The computational rules and algorithms used to evaluate learner responses in assessments and determine scores, feedback, and outcomes. Response processing is a core component of [Question and Test Interoperability](#question-and-test-interoperability-qti) (QTI).
+
+In the graph LMS, response processing enables automated scoring, partial credit, adaptive feedback, and competency-level determination based on assessment performance.
+
+**Example:** A response processing template evaluates a learner's multiple-choice answer, assigns a score, and provides targeted feedback based on which distractor was selected.
+
+See also: [Question and Test Interoperability (QTI)](concepts/qti.md)
+
+#### Reusable Competency Definitions
+
+Reusable Competency Definitions (RCD) is the IEEE 1484.20.1 standard for describing knowledge, skills, abilities, and other behaviors (KSAOs) in a standardized, machine-readable format. RCD is one of the four foundational pillars of the [Total Learning Architecture](#total-learning-architecture), enabling common language for competencies across organizations.
+
+In the graph LMS, RCDs provide the vocabulary for tagging learning activities, assessments, and credentials with the specific competencies they teach, assess, or certify. This enables competency-based learning pathways, skills gap analysis, and alignment between education and workforce requirements.
+
+**Example:** An RCD defines "Python Programming" with specific proficiency levels, prerequisite competencies, and assessment criteria that can be referenced by multiple institutions and employers.
+
+See also: [Reusable Competency Definitions (RCD)](concepts/rcd.md), [Competency Framework](#competency-framework), [Proficiency Level](#proficiency-level)
+
 #### Retrieval Augmented Generation (RAG)
 
 A technique that enhances language model outputs by retrieving relevant information from a database.
@@ -354,7 +535,23 @@ In the graph LMS, recommendation systems propose the next best concepts or resou
 
 #### SCORM
 
+Sharable Content Object Reference Model (SCORM) is a set of technical standards for e-learning software products, developed by the Advanced Distributed Learning (ADL) initiative. SCORM defines how online learning content and Learning Management Systems communicate with each other, specifying content packaging, run-time communication, and sequencing.
 
+In the graph LMS, SCORM represents the legacy standard for LMS-content interoperability, now largely superseded by [cmi5](#cmi5) and [xAPI](#xapi), though still widely deployed in existing systems.
+
+**Example:** A SCORM package contains a training course that can be imported into any SCORM-compliant LMS, tracking completion status, time spent, and assessment scores.
+
+See also: [cmi5](#cmi5), [Experience API (xAPI)](concepts/xapi.md)
+
+#### Self-Sovereign Identity
+
+A model for digital identity where individuals or organizations have complete ownership and control over their identity data and credentials, without reliance on centralized authorities. Self-sovereign identity uses [Decentralized Identifiers](#decentralized-identifiers) (DIDs) and blockchain or distributed ledger technology.
+
+In the graph LMS, self-sovereign identity enables learners to own and control their educational records, credentials, and personal learning data, sharing only what they choose with specific institutions or employers.
+
+**Example:** A learner maintains their learning credentials in a personal digital wallet using self-sovereign identity, selectively sharing verified achievements with employers without requiring institutional intermediaries.
+
+See also: [Decentralized Identifiers](#decentralized-identifiers), [Enterprise Learner Records (ELR)](concepts/elr.md), [Verifiable Credentials](#verifiable-credentials)
 
 #### Similarity Analysis
 
@@ -375,6 +572,36 @@ In the graph LMS, simulations help students grasp complex concepts through exper
 A representation of a student's knowledge, skills, and preferences used to personalize learning.
 
 In the graph LMS, the student model is continuously updated based on interactions and assessments.
+
+#### Total Learning Architecture
+
+The Total Learning Architecture (TLA) is a comprehensive framework developed by the Advanced Distributed Learning (ADL) Initiative since 2016, built on four foundational data pillars: [Experience API (xAPI)](#xapi) for tracking learning experiences, [Learning Activity Metadata](#learning-activity-metadata-lam) (LAM) for describing learning opportunities, [Reusable Competency Definitions](#reusable-competency-definitions-rcd) (RCD) for defining skills and knowledge, and [Enterprise Learner Records](#enterprise-learner-records-elr) (ELR) for comprehensive learner credentials.
+
+In the graph LMS, TLA provides the standards-based architecture for interoperable, data-driven, adaptive learning systems that connect learning activities, competency development, and career advancement across organizational boundaries.
+
+**Example:** A TLA-compliant system uses xAPI to track learner activities in the LRS, matches them to competencies defined in RCDs, discovers appropriate learning activities through LAM metadata in the Experience Index, and issues verifiable credentials via ELR.
+
+See also: [Total Learning Architecture (TLA)](concepts/tla.md), [Experience API (xAPI)](concepts/xapi.md), [Learning Activity Metadata (LAM)](concepts/lam.md), [Reusable Competency Definitions (RCD)](concepts/rcd.md), [Enterprise Learner Records (ELR)](concepts/elr.md)
+
+#### Transcript
+
+A formal academic record documenting a learner's courses, grades, credits, degrees, and other educational achievements issued by an educational institution. Traditional transcripts are static documents (paper or PDF) that provide a snapshot of academic history at a point in time.
+
+In the graph LMS, transcripts are being superseded by dynamic, comprehensive digital records such as [Enterprise Learner Records](#enterprise-learner-records-elr) that include competencies, evidence, and lifelong learning achievements beyond traditional coursework.
+
+**Example:** A university transcript lists all courses taken, grades received, GPA, degree earned, and graduation date, typically provided to employers or other institutions upon request.
+
+See also: [Enterprise Learner Records (ELR)](concepts/elr.md), [Comprehensive Learner Record](#comprehensive-learner-record)
+
+#### Verifiable Credentials
+
+A W3C standard for tamper-proof, cryptographically-verifiable digital credentials that can be independently verified without contacting the issuing authority. Verifiable credentials use digital signatures and can include degrees, certifications, licenses, badges, or any attestation of achievement or qualification.
+
+In the graph LMS, verifiable credentials enable secure, portable, learner-controlled credentials that form the technical foundation for [Enterprise Learner Records](#enterprise-learner-records-elr) and [digital credentials](#digital-credentials).
+
+**Example:** A university issues a verifiable credential for a degree that includes the learner's cryptographic identifier, the credential details, and the university's digital signature, allowing anyone to verify authenticity without contacting the university.
+
+See also: [Enterprise Learner Records (ELR)](concepts/elr.md), [Digital Credentials](#digital-credentials), [Self-Sovereign Identity](#self-sovereign-identity)
 
 #### Vector Store
 

@@ -46,3 +46,5 @@ Question and Test Interoperability (QTI) is the most widely adopted standard, ma
     <qti-response-processing template="https://purl.imsglobal.org/spec/qti/v3p0/rptemplates/match_correct"/>
 </qti-assessment-item>
 ```
+
+See the chapter on [Question and Test Interoperability](./qti.md)
