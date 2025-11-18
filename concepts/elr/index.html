@@ -1,0 +1,4666 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Graph LMS Design Documents All content licensed Creative Commons ShareAlike Attribution Noncommercial">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/graph-lms/concepts/elr/">
+      
+      
+        <link rel="prev" href="../qti/">
+      
+      
+        <link rel="next" href="../adaptive-assessments/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Enterprise Learner Records (ELR) - Graph Learning Management System</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-JLDD8032H6"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-JLDD8032H6",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-JLDD8032H6",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#enterprise-learner-records" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Graph Learning Management System" class="md-header__button md-logo" aria-label="Graph Learning Management System" data-md-component="logo">
+      
+  <img src="../../img/logo-180.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Graph Learning Management System
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Enterprise Learner Records (ELR)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/graph-lms" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Graph Learning Management System" class="md-nav__button md-logo" aria-label="Graph Learning Management System" data-md-component="logo">
+      
+  <img src="../../img/logo-180.png" alt="logo">
+
+    </a>
+    Graph Learning Management System
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/graph-lms" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Concepts
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concept-graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../content-graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Content
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learning-trajectories/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learning Trajectories
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xapi.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Experience API (xAPI)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lrs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learning Record Store (LRS)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lam/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learning Activity Metadata (LAM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rcd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reusable Competency Definitions (RCD)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qti/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Question and Test Interoperability (QTI)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Enterprise Learner Records (ELR)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Enterprise Learner Records (ELR)
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-we-need-standards-for-enterprise-learner-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why We Need Standards for Enterprise Learner Records
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem-with-traditional-transcripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Problem with Traditional Transcripts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Problem with Traditional Transcripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#limited-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limited Information
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portability-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Portability Challenges
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relevance-gaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relevance Gaps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification-and-trust" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verification and Trust
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-enterprise-learner-record-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Enterprise Learner Record Solution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Enterprise Learner Record Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rich-competency-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rich Competency Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#universal-portability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Universal Portability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lifelong-learning-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lifelong Learning Support
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy-and-selective-disclosure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Privacy and Selective Disclosure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ieee-p2997-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      IEEE P2997 Standard
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IEEE P2997 Standard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Objectives
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learner-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learner Profile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#achievement-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      Achievement Records
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evidence-and-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evidence and Artifacts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verification Information
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-model-and-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Model and Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Model and Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Schema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#achievement-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Achievement Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Achievement Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#academic-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Academic Credentials
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#professional-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Professional Credentials
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-based-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency-Based Credentials
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experiential-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Experiential Learning
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-total-learning-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with Total Learning Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration with Total Learning Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integration-with-xapi-and-lrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with xAPI and LRS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-with-rcd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with RCD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-with-qti" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with QTI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-with-credentialing-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with Credentialing Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration with Credentialing Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-badges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open Badges
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verifiable-credentials-w3c" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verifiable Credentials (W3C)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprehensive-learner-record-clr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comprehensive Learner Record (CLR)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elr-in-graph-based-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      ELR in Graph-Based Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ELR in Graph-Based Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#graph-data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Data Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-query-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Query Capabilities
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph Query Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-all-learner-achievements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Find All Learner Achievements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discover-credential-pathways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discover Credential Pathways
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aggregate-competencies-across-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aggregate Competencies Across Credentials
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#match-job-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Match Job Requirements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases-and-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Cases and Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Cases and Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#higher-education" class="md-nav__link">
+    <span class="md-ellipsis">
+      Higher Education
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Higher Education">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#admissions-and-transfer-credit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Admissions and Transfer Credit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#student-success-and-advising" class="md-nav__link">
+    <span class="md-ellipsis">
+      Student Success and Advising
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alumni-engagement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alumni Engagement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#corporate-training-and-talent-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Corporate Training and Talent Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Corporate Training and Talent Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recruitment-and-hiring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recruitment and Hiring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workforce-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workforce Development
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#professional-certification-and-licensure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Professional Certification and Licensure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Professional Certification and Licensure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#credential-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credential Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification-and-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verification and Compliance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#government-and-military" class="md-nav__link">
+    <span class="md-ellipsis">
+      Government and Military
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Government and Military">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#military-to-civilian-transition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Military to Civilian Transition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workforce-development-programs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workforce Development Programs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#international-education" class="md-nav__link">
+    <span class="md-ellipsis">
+      International Education
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="International Education">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#credential-mobility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credential Mobility
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privacy-security-and-trust" class="md-nav__link">
+    <span class="md-ellipsis">
+      Privacy, Security, and Trust
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Privacy, Security, and Trust">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#privacy-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Privacy Principles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Privacy Principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learner-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learner Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy-enhancing-technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Privacy-Enhancing Technologies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-measures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Measures
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Measures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cryptographic-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cryptographic Verification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fraud-prevention" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fraud Prevention
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regulatory-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regulatory Compliance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Regulatory Compliance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-protection-regulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Protection Regulations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessibility-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessibility Standards
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-approaches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Approaches
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation Approaches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#centralized-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Centralized Systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#federated-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Federated Systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decentralizedblockchain-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decentralized/Blockchain Systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hybrid-approaches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hybrid Approaches
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools-and-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools and Platforms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tools and Platforms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elr-implementation-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      ELR Implementation Platforms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ELR Implementation Platforms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open Source
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commercial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commercial
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wallet-and-viewer-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wallet and Viewer Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wallet and Viewer Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digital-wallets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Digital Wallets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verification Services
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standards-and-specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standards and Specifications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#software-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Software Libraries
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#challenges-and-barriers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenges and Barriers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Challenges and Barriers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technical-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interoperability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interoperability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scalability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scalability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizational-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organizational Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Organizational Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Governance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#business-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Business Models
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adoption-barriers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adoption Barriers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adoption Barriers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cultural-resistance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cultural Resistance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#awareness-and-education" class="md-nav__link">
+    <span class="md-ellipsis">
+      Awareness and Education
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equity-and-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Equity and Access
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Equity and Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digital-divide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Digital Divide
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inclusion-concerns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inclusion Concerns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-directions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Directions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Future Directions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#emerging-trends" class="md-nav__link">
+    <span class="md-ellipsis">
+      Emerging Trends
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Emerging Trends">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#artificial-intelligence-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Artificial Intelligence Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expanded-evidence-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expanded Evidence Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-domain-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cross-Domain Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standards-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standards Evolution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Standards Evolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ieee-p2997-finalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      IEEE P2997 Finalization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convergence-with-other-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convergence with Other Standards
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#market-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Market Evolution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Market Evolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#credential-marketplace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credential Marketplace
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-business-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      New Business Models
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-graph-lms-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with Graph LMS Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration with Graph LMS Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-journey-capture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Journey Capture
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-enhanced-elr-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph-Enhanced ELR Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph-Enhanced ELR Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-credential-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Credential Assembly
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predictive-credentialing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Predictive Credentialing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-gap-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Gap Visualization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adaptive-assessments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adaptive Assessments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assessment-standards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assessment Standards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../arch/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Architecture
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../view-data-model/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    View Data Model
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../checklist.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Customization Checklist
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tla-glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TLA Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-we-need-standards-for-enterprise-learner-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why We Need Standards for Enterprise Learner Records
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem-with-traditional-transcripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Problem with Traditional Transcripts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Problem with Traditional Transcripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#limited-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limited Information
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portability-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Portability Challenges
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relevance-gaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relevance Gaps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification-and-trust" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verification and Trust
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-enterprise-learner-record-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Enterprise Learner Record Solution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Enterprise Learner Record Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rich-competency-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rich Competency Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#universal-portability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Universal Portability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lifelong-learning-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lifelong Learning Support
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy-and-selective-disclosure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Privacy and Selective Disclosure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ieee-p2997-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      IEEE P2997 Standard
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IEEE P2997 Standard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Objectives
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learner-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learner Profile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#achievement-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      Achievement Records
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evidence-and-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evidence and Artifacts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verification Information
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-model-and-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Model and Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Model and Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Schema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#achievement-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Achievement Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Achievement Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#academic-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Academic Credentials
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#professional-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Professional Credentials
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-based-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency-Based Credentials
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experiential-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Experiential Learning
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-total-learning-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with Total Learning Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration with Total Learning Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integration-with-xapi-and-lrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with xAPI and LRS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-with-rcd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with RCD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-with-qti" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with QTI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-with-credentialing-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with Credentialing Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration with Credentialing Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-badges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open Badges
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verifiable-credentials-w3c" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verifiable Credentials (W3C)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprehensive-learner-record-clr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comprehensive Learner Record (CLR)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elr-in-graph-based-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      ELR in Graph-Based Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ELR in Graph-Based Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#graph-data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Data Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-query-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Query Capabilities
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph Query Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-all-learner-achievements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Find All Learner Achievements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discover-credential-pathways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discover Credential Pathways
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aggregate-competencies-across-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aggregate Competencies Across Credentials
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#match-job-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Match Job Requirements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases-and-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Cases and Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Cases and Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#higher-education" class="md-nav__link">
+    <span class="md-ellipsis">
+      Higher Education
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Higher Education">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#admissions-and-transfer-credit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Admissions and Transfer Credit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#student-success-and-advising" class="md-nav__link">
+    <span class="md-ellipsis">
+      Student Success and Advising
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alumni-engagement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alumni Engagement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#corporate-training-and-talent-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Corporate Training and Talent Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Corporate Training and Talent Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recruitment-and-hiring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recruitment and Hiring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workforce-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workforce Development
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#professional-certification-and-licensure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Professional Certification and Licensure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Professional Certification and Licensure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#credential-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credential Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification-and-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verification and Compliance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#government-and-military" class="md-nav__link">
+    <span class="md-ellipsis">
+      Government and Military
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Government and Military">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#military-to-civilian-transition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Military to Civilian Transition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workforce-development-programs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workforce Development Programs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#international-education" class="md-nav__link">
+    <span class="md-ellipsis">
+      International Education
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="International Education">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#credential-mobility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credential Mobility
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privacy-security-and-trust" class="md-nav__link">
+    <span class="md-ellipsis">
+      Privacy, Security, and Trust
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Privacy, Security, and Trust">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#privacy-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Privacy Principles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Privacy Principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learner-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learner Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy-enhancing-technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Privacy-Enhancing Technologies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-measures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Measures
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Measures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cryptographic-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cryptographic Verification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fraud-prevention" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fraud Prevention
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regulatory-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regulatory Compliance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Regulatory Compliance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-protection-regulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Protection Regulations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessibility-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessibility Standards
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-approaches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Approaches
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation Approaches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#centralized-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Centralized Systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#federated-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Federated Systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decentralizedblockchain-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decentralized/Blockchain Systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hybrid-approaches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hybrid Approaches
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools-and-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools and Platforms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tools and Platforms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elr-implementation-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      ELR Implementation Platforms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ELR Implementation Platforms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open Source
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commercial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commercial
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wallet-and-viewer-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wallet and Viewer Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wallet and Viewer Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digital-wallets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Digital Wallets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verification Services
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standards-and-specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standards and Specifications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#software-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Software Libraries
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#challenges-and-barriers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenges and Barriers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Challenges and Barriers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technical-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interoperability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interoperability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scalability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scalability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizational-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organizational Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Organizational Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Governance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#business-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Business Models
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adoption-barriers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adoption Barriers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adoption Barriers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cultural-resistance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cultural Resistance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#awareness-and-education" class="md-nav__link">
+    <span class="md-ellipsis">
+      Awareness and Education
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equity-and-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Equity and Access
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Equity and Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digital-divide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Digital Divide
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inclusion-concerns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inclusion Concerns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-directions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Directions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Future Directions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#emerging-trends" class="md-nav__link">
+    <span class="md-ellipsis">
+      Emerging Trends
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Emerging Trends">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#artificial-intelligence-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Artificial Intelligence Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expanded-evidence-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expanded Evidence Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-domain-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cross-Domain Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standards-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standards Evolution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Standards Evolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ieee-p2997-finalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      IEEE P2997 Finalization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convergence-with-other-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convergence with Other Standards
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#market-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Market Evolution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Market Evolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#credential-marketplace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credential Marketplace
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-business-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      New Business Models
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-graph-lms-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with Graph LMS Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration with Graph LMS Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-journey-capture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Journey Capture
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-enhanced-elr-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph-Enhanced ELR Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph-Enhanced ELR Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-credential-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Credential Assembly
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predictive-credentialing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Predictive Credentialing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-gap-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Gap Visualization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="enterprise-learner-records">Enterprise Learner Records</h1>
+<p>Enterprise Learner Records (ELR) is a proposed IEEE standard (P2997) for storing student learning
+records that are standardized and portable between systems. You can think of an
+ELR as a way to make student transcripts fully electronic and portable.</p>
+<h2 id="why-we-need-standards-for-enterprise-learner-records">Why We Need Standards for Enterprise Learner Records</h2>
+<p>Today when you take a course at any institution such as a high school, college, or university, a record of your taking and perhaps even passing the course is maintained in legacy LMS systems. After you graduate
+from a learning organization you can request a <a href="../../glossary/#transcript">transcript</a>. However,
+these transcripts are currently documents that are not easily machine readable. Today your
+personal learning history of the classes you took in high school can't be used to predict what
+courses you can take at a college or university.</p>
+<p><strong>Focus</strong>: Enterprise-level, portable learner record that includes assessments</p>
+<p><strong>Goal</strong>: Go beyond just grades → full performance + competency evaluation</p>
+<p><strong>Relevance</strong>: Designed to integrate assessment data across LMS, <a href="../lrs/">LRS</a>, HR systems, training platforms, and credentialing systems in both academia and corporate enterprise learning systems.</p>
+<p>ELR is designed to be part of the <a href="../tla/">Total Learning Architecture</a>.</p>
+<h2 id="the-problem-with-traditional-transcripts">The Problem with Traditional Transcripts</h2>
+<p>Traditional academic transcripts have significant limitations in today's dynamic learning ecosystem:</p>
+<h3 id="limited-information">Limited Information</h3>
+<ul>
+<li><strong>Course titles and grades only</strong>: No insight into specific competencies acquired</li>
+<li><strong>Aggregate scores</strong>: Hides strengths and weaknesses within courses</li>
+<li><strong>No learning evidence</strong>: Missing artifacts, projects, or portfolios demonstrating mastery</li>
+<li><strong>Opaque grading</strong>: Different institutions use different scales and standards</li>
+</ul>
+<h3 id="portability-challenges">Portability Challenges</h3>
+<ul>
+<li><strong>Paper-based or PDF</strong>: Not machine-readable or easily verified</li>
+<li><strong>Institutional silos</strong>: Each institution maintains separate, disconnected records</li>
+<li><strong>Manual verification</strong>: Employers and institutions must request and validate individually</li>
+<li><strong>No interoperability</strong>: Can't aggregate learning across multiple providers</li>
+<li><strong>Difficult to update</strong>: Static snapshots that don't reflect continued learning</li>
+</ul>
+<h3 id="relevance-gaps">Relevance Gaps</h3>
+<ul>
+<li><strong>Outdated skills</strong>: No way to show recent professional development</li>
+<li><strong>Missing context</strong>: Doesn't capture informal, experiential, or workplace learning</li>
+<li><strong>Poor job matching</strong>: Can't easily map academic achievements to job requirements</li>
+<li><strong>Credential inflation</strong>: Degree titles become proxies for skills they may not represent</li>
+</ul>
+<h3 id="verification-and-trust">Verification and Trust</h3>
+<ul>
+<li><strong>Fraud vulnerability</strong>: Easy to forge paper or PDF transcripts</li>
+<li><strong>Time-consuming validation</strong>: Manual processes delay hiring and enrollment</li>
+<li><strong>Privacy concerns</strong>: Sharing full transcripts exposes unnecessary information</li>
+<li><strong>International barriers</strong>: Different systems across countries complicate mobility</li>
+</ul>
+<h2 id="the-enterprise-learner-record-solution">The Enterprise Learner Record Solution</h2>
+<p>ELR addresses these limitations through a comprehensive, standardized, machine-readable approach:</p>
+<h3 id="rich-competency-data">Rich Competency Data</h3>
+<ul>
+<li>Detailed skill and competency assertions linked to <a href="../rcd/">RCDs</a></li>
+<li>Evidence-based credentials with supporting artifacts</li>
+<li>Granular assessment results showing proficiency levels</li>
+<li>Learning progressions and growth over time</li>
+</ul>
+<h3 id="universal-portability">Universal Portability</h3>
+<ul>
+<li>Standardized data format (JSON-LD)</li>
+<li>Cryptographic verification (digital signatures)</li>
+<li>Learner-owned and controlled records</li>
+<li>Cross-platform interoperability</li>
+</ul>
+<h3 id="lifelong-learning-support">Lifelong Learning Support</h3>
+<ul>
+<li>Continuous updating as new learning occurs</li>
+<li>Integration of formal, informal, and experiential learning</li>
+<li>Stackable micro-credentials and badges</li>
+<li>Career-long skill portfolios</li>
+</ul>
+<h3 id="privacy-and-selective-disclosure">Privacy and Selective Disclosure</h3>
+<ul>
+<li>Learner controls what to share</li>
+<li>Granular permission management</li>
+<li>Zero-knowledge proofs for selective disclosure</li>
+<li>GDPR and privacy regulation compliance</li>
+</ul>
+<h2 id="ieee-p2997-standard">IEEE P2997 Standard</h2>
+<p>The IEEE P2997 working group is developing a comprehensive standard for Enterprise Learner Records:</p>
+<h3 id="standard-objectives">Standard Objectives</h3>
+<ol>
+<li><strong>Interoperability</strong>: Enable exchange of learner records across systems and organizations</li>
+<li><strong>Comprehensiveness</strong>: Capture academic, professional, and lifelong learning achievements</li>
+<li><strong>Verifiability</strong>: Provide cryptographic proof of authenticity</li>
+<li><strong>Privacy</strong>: Protect learner information while enabling appropriate sharing</li>
+<li><strong>Extensibility</strong>: Allow customization for specific domains and use cases</li>
+</ol>
+<h3 id="key-components">Key Components</h3>
+<h4 id="learner-profile">Learner Profile</h4>
+<p>Basic identification and demographic information:
+- Unique learner identifier (decentralized ID)
+- Name, contact information
+- Demographic data (optional, privacy-protected)
+- Affiliations with institutions and organizations</p>
+<h4 id="achievement-records">Achievement Records</h4>
+<p>Detailed records of learning accomplishments:
+- <strong>Credentials</strong>: Degrees, certificates, diplomas, badges
+- <strong>Courses</strong>: Individual course completions with grades
+- <strong>Competencies</strong>: Skill and knowledge assertions
+- <strong>Assessments</strong>: Detailed test results and proficiency levels
+- <strong>Projects</strong>: Portfolio artifacts and work samples
+- <strong>Experiences</strong>: Internships, apprenticeships, work experience</p>
+<h4 id="evidence-and-artifacts">Evidence and Artifacts</h4>
+<p>Supporting materials that validate achievements:
+- Assessment results and score reports
+- Project portfolios and work samples
+- Peer and instructor evaluations
+- Performance observations
+- Third-party endorsements</p>
+<h4 id="metadata">Metadata</h4>
+<p>Contextual information about achievements:
+- Issuing institution or organization
+- Issue date and expiration (if applicable)
+- Competency frameworks and standards
+- Credit values and equivalencies
+- Accreditation status</p>
+<h4 id="verification-information">Verification Information</h4>
+<p>Cryptographic proof of authenticity:
+- Digital signatures from issuers
+- Blockchain anchors or timestamps
+- Revocation status and mechanisms
+- Verification endpoints and APIs</p>
+<h2 id="data-model-and-structure">Data Model and Structure</h2>
+<p>ELR uses a flexible, extensible data model based on JSON-LD (Linked Data):</p>
+<h3 id="core-schema">Core Schema</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;@context&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;https://www.w3.org/2018/credentials/v1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://purl.imsglobal.org/spec/elr/v1/context&quot;</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:uuid:elr-12345678&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;VerifiableCredential&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;EnterpriseLearnerRecord&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;issuer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://university.edu&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Example University&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EducationalOrganization&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;issuanceDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-05-15T00:00:00Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;credentialSubject&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;did:example:learner123&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Jane Smith&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Person&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;achievements&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:uuid:achievement-001&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Degree&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bachelor of Science in Computer Science&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Undergraduate degree program in computer science&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;awardedDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-05-15&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;competencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:uuid:comp-programming&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Software Programming&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;framework&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IEEE 1484.20.1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Advanced&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;evidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">              </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Assessment&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Capstone Project&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                  </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">92</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;maxScore&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;scaledScore&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.92</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">              </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;credits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;scheme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SemesterCreditHours&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;proof&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Ed25519Signature2020&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;created&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-05-15T10:30:00Z&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;verificationMethod&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://university.edu/keys/1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;proofPurpose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;assertionMethod&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;proofValue&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;z3FXQzJ...abc123&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="achievement-types">Achievement Types</h3>
+<p>ELRs can represent various types of learning achievements:</p>
+<h4 id="academic-credentials">Academic Credentials</h4>
+<ul>
+<li><strong>Degrees</strong>: Associate, Bachelor's, Master's, Doctoral</li>
+<li><strong>Diplomas</strong>: High school, vocational, specialized programs</li>
+<li><strong>Certificates</strong>: Academic certificates and certificate programs</li>
+<li><strong>Course Credits</strong>: Individual course completions</li>
+</ul>
+<h4 id="professional-credentials">Professional Credentials</h4>
+<ul>
+<li><strong>Certifications</strong>: Industry and professional certifications</li>
+<li><strong>Licenses</strong>: Professional licenses and registrations</li>
+<li><strong>Continuing Education Units (CEUs)</strong>: Professional development credits</li>
+<li><strong>Training Completions</strong>: Corporate and professional training programs</li>
+</ul>
+<h4 id="competency-based-credentials">Competency-Based Credentials</h4>
+<ul>
+<li><strong>Skill Badges</strong>: Micro-credentials for specific skills</li>
+<li><strong>Competency Assertions</strong>: Direct skill and knowledge claims</li>
+<li><strong>Portfolio Evidence</strong>: Demonstrated capabilities through work products</li>
+<li><strong>Performance Assessments</strong>: Evaluated practical demonstrations</li>
+</ul>
+<h4 id="experiential-learning">Experiential Learning</h4>
+<ul>
+<li><strong>Work Experience</strong>: Job roles and responsibilities</li>
+<li><strong>Internships</strong>: Practical work-based learning</li>
+<li><strong>Apprenticeships</strong>: Formal apprenticeship programs</li>
+<li><strong>Volunteer Service</strong>: Community service and volunteering</li>
+<li><strong>Military Service</strong>: Military training and experience</li>
+</ul>
+<h2 id="integration-with-total-learning-architecture">Integration with Total Learning Architecture</h2>
+<p>ELR works seamlessly with other TLA components to create a comprehensive learning ecosystem:</p>
+<h3 id="integration-with-xapi-and-lrs">Integration with xAPI and LRS</h3>
+<p>While <a href="xapi.md">xAPI</a> captures granular learning experiences and a <a href="../lrs/">Learning Record Store</a> stores them, ELR provides the summarized, verified credentials:</p>
+<p><strong>Relationship Flow</strong>:
+1. <strong>Learning Activities</strong>: Captured via xAPI statements
+2. <strong>Storage</strong>: Accumulated in LRS over time
+3. <strong>Evidence Compilation</strong>: LRS data analyzed to determine competency achievement
+4. <strong>Credential Issuance</strong>: ELR credential issued based on evidence
+5. <strong>Verification</strong>: ELR links back to LRS evidence for validation</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Competency&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Python Programming&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;evidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;xAPIEvidence&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://lrs.university.edu/statements&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;actor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;did:example:learner123&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;verb&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/verbs/completed&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;activity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://university.edu/courses/python-101&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;statementCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">245</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;dateRange&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-01-15&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-05-15&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="integration-with-rcd">Integration with RCD</h3>
+<p><a href="../rcd/">Reusable Competency Definitions</a> provide the vocabulary for competency assertions in ELR:</p>
+<ul>
+<li><strong>Standardized terminology</strong>: Use RCD identifiers for competencies</li>
+<li><strong>Interoperable meaning</strong>: Common understanding across organizations</li>
+<li><strong>Proficiency levels</strong>: Map achievement to defined proficiency scales</li>
+<li><strong>Competency frameworks</strong>: Align to industry and academic standards</li>
+</ul>
+<p><strong>Example</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;competency&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:ieee:rcd:1484.20.1:programming:python&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Python Programming&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;framework&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IEEE 1484.20.1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;frameworkVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Advanced&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;scale&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="integration-with-qti">Integration with QTI</h3>
+<p><a href="../qti/">QTI assessments</a> provide detailed evidence for competency claims:</p>
+<ul>
+<li><strong>Assessment results</strong>: Link to specific QTI test outcomes</li>
+<li><strong>Item-level data</strong>: Reference individual item responses</li>
+<li><strong>Performance analytics</strong>: Include psychometric data</li>
+<li><strong>Adaptive test reports</strong>: Show personalized assessment paths</li>
+</ul>
+<h3 id="integration-with-credentialing-systems">Integration with Credentialing Systems</h3>
+<p>ELR supports modern digital credentialing approaches:</p>
+<h4 id="open-badges">Open Badges</h4>
+<p>IMS/1EdTech Open Badges can be embedded in ELRs:
+- Badge assertions as achievements
+- Visual badge images for recognition
+- Badge criteria and evidence
+- Issuer endorsements</p>
+<h4 id="verifiable-credentials-w3c">Verifiable Credentials (W3C)</h4>
+<p>ELR aligns with W3C Verifiable Credentials:
+- JSON-LD format compatibility
+- Cryptographic signatures
+- Decentralized identifiers (DIDs)
+- Selective disclosure capabilities</p>
+<h4 id="comprehensive-learner-record-clr">Comprehensive Learner Record (CLR)</h4>
+<p>IMS Global CLR standard complements ELR:
+- Academic focus vs. enterprise scope
+- Similar data models
+- Interoperable formats
+- Cross-standard compatibility</p>
+<h2 id="elr-in-graph-based-systems">ELR in Graph-Based Systems</h2>
+<p>Graph databases provide powerful capabilities for managing and querying learner records:</p>
+<h3 id="graph-data-model">Graph Data Model</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;learner:jane-smith&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Learner&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Jane Smith&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;did&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;did:example:learner123&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;credential:bsc-cs&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Credential&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BS Computer Science&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;issuer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;university.edu&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;issueDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-05-15&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;competency:python&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Competency&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Python Programming&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;framework&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IEEE 1484.20.1&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;org:university&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Organization&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Example University&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;edges&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;learner:jane-smith&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;credential:bsc-cs&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EARNED&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-05-15&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;credential:bsc-cs&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;competency:python&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ASSERTS&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Advanced&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;org:university&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;credential:bsc-cs&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ISSUED&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-05-15&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="graph-query-capabilities">Graph Query Capabilities</h3>
+<h4 id="find-all-learner-achievements">Find All Learner Achievements</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">learner</span><span class="p">:</span><span class="n">Learner</span><span class="w"> </span><span class="p">{</span><span class="n">did</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="n">learnerId</span><span class="p">})</span><span class="o">-[</span><span class="p">:</span><span class="n">EARNED</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">credential</span><span class="p">:</span><span class="n">Credential</span><span class="p">)</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">credential</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">ASSERTS</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">competency</span><span class="p">:</span><span class="n">Competency</span><span class="p">)</span>
+<span class="k">RETURN</span><span class="w"> </span><span class="n">learner</span><span class="p">,</span><span class="w"> </span><span class="n">credential</span><span class="p">,</span><span class="w"> </span><span class="n">competency</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">credential</span><span class="p">.</span><span class="n">issueDate</span><span class="w"> </span><span class="k">DESC</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="discover-credential-pathways">Discover Credential Pathways</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">MATCH</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="n">current</span><span class="p">:</span><span class="n">Credential</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">PREREQUISITE_FOR</span><span class="p">*</span><span class="m">1</span><span class="p">..</span><span class="m">3</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">target</span><span class="p">:</span><span class="n">Credential</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">current</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="err">$</span><span class="n">currentCredentialId</span>
+<span class="k">RETURN</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">target</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">length</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="aggregate-competencies-across-credentials">Aggregate Competencies Across Credentials</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">learner</span><span class="p">:</span><span class="n">Learner</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="n">learnerId</span><span class="p">})</span><span class="o">-[</span><span class="p">:</span><span class="n">EARNED</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">cred</span><span class="p">:</span><span class="n">Credential</span><span class="p">)</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">cred</span><span class="p">)</span><span class="o">-[</span><span class="n">a</span><span class="p">:</span><span class="n">ASSERTS</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">comp</span><span class="p">:</span><span class="n">Competency</span><span class="p">)</span>
+<span class="k">WITH</span><span class="w"> </span><span class="n">comp</span><span class="p">,</span>
+<span class="w">     </span><span class="n">max</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">level</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">highestLevel</span><span class="p">,</span>
+<span class="w">     </span><span class="n">count</span><span class="p">(</span><span class="n">cred</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">assertionCount</span><span class="p">,</span>
+<span class="w">     </span><span class="k">collect</span><span class="p">(</span><span class="n">cred</span><span class="p">.</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">sources</span>
+<span class="k">RETURN</span><span class="w"> </span><span class="n">comp</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">highestLevel</span><span class="p">,</span><span class="w"> </span><span class="n">assertionCount</span><span class="p">,</span><span class="w"> </span><span class="n">sources</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">assertionCount</span><span class="w"> </span><span class="k">DESC</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="match-job-requirements">Match Job Requirements</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">job</span><span class="p">:</span><span class="n">JobPosting</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">REQUIRES</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">req</span><span class="p">:</span><span class="n">Competency</span><span class="p">)</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">learner</span><span class="p">:</span><span class="n">Learner</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="n">learnerId</span><span class="p">})</span><span class="o">-[</span><span class="p">:</span><span class="n">EARNED</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">cred</span><span class="p">:</span><span class="n">Credential</span><span class="p">)</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">cred</span><span class="p">)</span><span class="o">-[</span><span class="n">a</span><span class="p">:</span><span class="n">ASSERTS</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">level</span><span class="w"> </span><span class="p">&gt;=</span><span class="w"> </span><span class="n">job</span><span class="p">.</span><span class="n">minimumLevel</span>
+<span class="k">WITH</span><span class="w"> </span><span class="n">job</span><span class="p">,</span>
+<span class="w">     </span><span class="n">count</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">req</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">matchedCompetencies</span><span class="p">,</span>
+<span class="w">     </span><span class="n">size</span><span class="p">((</span><span class="n">job</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">REQUIRES</span><span class="o">]-&gt;</span><span class="p">())</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">totalRequired</span>
+<span class="k">RETURN</span><span class="w"> </span><span class="n">job</span><span class="p">,</span>
+<span class="w">       </span><span class="n">matchedCompetencies</span><span class="p">,</span>
+<span class="w">       </span><span class="n">totalRequired</span><span class="p">,</span>
+<span class="w">       </span><span class="n">toFloat</span><span class="p">(</span><span class="n">matchedCompetencies</span><span class="p">)</span><span class="w"> </span><span class="err">/</span><span class="w"> </span><span class="n">totalRequired</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">matchPercentage</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">matchPercentage</span><span class="w"> </span><span class="p">&gt;=</span><span class="w"> </span><span class="m">0</span><span class="p">.</span><span class="m">70</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">matchPercentage</span><span class="w"> </span><span class="k">DESC</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="use-cases-and-applications">Use Cases and Applications</h2>
+<h3 id="higher-education">Higher Education</h3>
+<h4 id="admissions-and-transfer-credit">Admissions and Transfer Credit</h4>
+<ul>
+<li><strong>Competency-based admissions</strong>: Evaluate applicants by skills, not just GPA</li>
+<li><strong>Automated transfer credit</strong>: Map prior learning to institutional requirements</li>
+<li><strong>Prior learning assessment</strong>: Recognize experiential and informal learning</li>
+<li><strong>International credential evaluation</strong>: Standardized format simplifies foreign credential assessment</li>
+</ul>
+<h4 id="student-success-and-advising">Student Success and Advising</h4>
+<ul>
+<li><strong>Personalized advising</strong>: Recommend courses based on demonstrated competencies</li>
+<li><strong>Gap analysis</strong>: Identify missing competencies for degree completion</li>
+<li><strong>Career pathway mapping</strong>: Connect academic achievements to career options</li>
+<li><strong>Competency tracking</strong>: Monitor skill development throughout program</li>
+</ul>
+<h4 id="alumni-engagement">Alumni Engagement</h4>
+<ul>
+<li><strong>Lifelong learning records</strong>: Continue adding post-graduation achievements</li>
+<li><strong>Alumni networks</strong>: Connect based on competencies and career paths</li>
+<li><strong>Continuing education</strong>: Build on prior credentials with new micro-credentials</li>
+<li><strong>Career services</strong>: Support job placement with comprehensive skill records</li>
+</ul>
+<h3 id="corporate-training-and-talent-management">Corporate Training and Talent Management</h3>
+<h4 id="recruitment-and-hiring">Recruitment and Hiring</h4>
+<ul>
+<li><strong>Skills-based hiring</strong>: Match candidates to roles based on competencies</li>
+<li><strong>Automated screening</strong>: Filter applicants by required skill assertions</li>
+<li><strong>Credential verification</strong>: Instantly verify claimed qualifications</li>
+<li><strong>Reduced bias</strong>: Focus on demonstrated capabilities over proxies</li>
+</ul>
+<h4 id="workforce-development">Workforce Development</h4>
+<ul>
+<li><strong>Skills gap analysis</strong>: Identify organization-wide competency gaps</li>
+<li><strong>Personalized learning paths</strong>: Recommend training based on current skills and career goals</li>
+<li><strong>Training ROI</strong>: Track competency acquisition from learning programs</li>
+<li><strong>Succession planning</strong>: Identify high-potential employees based on skill trajectories</li>
+</ul>
+<h4 id="performance-management">Performance Management</h4>
+<ul>
+<li><strong>Competency-based reviews</strong>: Evaluate performance against defined skill standards</li>
+<li><strong>Development planning</strong>: Create targeted growth plans based on gaps</li>
+<li><strong>Promotion criteria</strong>: Transparent skill requirements for advancement</li>
+<li><strong>Cross-functional mobility</strong>: Enable internal moves based on transferable skills</li>
+</ul>
+<h3 id="professional-certification-and-licensure">Professional Certification and Licensure</h3>
+<h4 id="credential-management">Credential Management</h4>
+<ul>
+<li><strong>Centralized record</strong>: Single source of truth for professional credentials</li>
+<li><strong>Expiration tracking</strong>: Automated reminders for renewal requirements</li>
+<li><strong>Continuing education</strong>: Track CEUs and professional development</li>
+<li><strong>Multi-state licensure</strong>: Portable records across jurisdictions</li>
+</ul>
+<h4 id="verification-and-compliance">Verification and Compliance</h4>
+<ul>
+<li><strong>Real-time verification</strong>: Employers can instantly verify credentials</li>
+<li><strong>Audit trails</strong>: Complete history of credential issuance and renewals</li>
+<li><strong>Revocation management</strong>: Immediate updates when credentials are revoked</li>
+<li><strong>Regulatory compliance</strong>: Meet state and federal reporting requirements</li>
+</ul>
+<h3 id="government-and-military">Government and Military</h3>
+<h4 id="military-to-civilian-transition">Military to Civilian Transition</h4>
+<ul>
+<li><strong>Skills translation</strong>: Map military occupational specialties to civilian competencies</li>
+<li><strong>Credential recognition</strong>: Document military training equivalents</li>
+<li><strong>Education benefits</strong>: Streamline GI Bill and education program enrollment</li>
+<li><strong>Employment support</strong>: Connect veterans to civilian jobs matching their skills</li>
+</ul>
+<h4 id="workforce-development-programs">Workforce Development Programs</h4>
+<ul>
+<li><strong>Training program outcomes</strong>: Track skill acquisition from government-funded programs</li>
+<li><strong>Employment placement</strong>: Match program graduates to job opportunities</li>
+<li><strong>Program evaluation</strong>: Measure effectiveness of training investments</li>
+<li><strong>Equity tracking</strong>: Ensure underserved populations gain market-relevant skills</li>
+</ul>
+<h3 id="international-education">International Education</h3>
+<h4 id="credential-mobility">Credential Mobility</h4>
+<ul>
+<li><strong>Cross-border recognition</strong>: Standardized format facilitates international credential evaluation</li>
+<li><strong>Bologna Process</strong>: Support European Higher Education Area objectives</li>
+<li><strong>Student mobility</strong>: Simplify study abroad and international enrollment</li>
+<li><strong>Refugee education</strong>: Portable records for displaced learners</li>
+</ul>
+<h2 id="privacy-security-and-trust">Privacy, Security, and Trust</h2>
+<h3 id="privacy-principles">Privacy Principles</h3>
+<h4 id="learner-control">Learner Control</h4>
+<ul>
+<li><strong>Self-sovereign identity</strong>: Learners own and control their records</li>
+<li><strong>Consent management</strong>: Explicit permission required for sharing</li>
+<li><strong>Selective disclosure</strong>: Share only necessary information</li>
+<li><strong>Data minimization</strong>: Collect and store only essential data</li>
+</ul>
+<h4 id="privacy-enhancing-technologies">Privacy-Enhancing Technologies</h4>
+<ul>
+<li><strong>Zero-knowledge proofs</strong>: Prove attributes without revealing data</li>
+<li><strong>Differential privacy</strong>: Aggregate analytics without individual exposure</li>
+<li><strong>Homomorphic encryption</strong>: Compute on encrypted data</li>
+<li><strong>Decentralized storage</strong>: Avoid centralized data honeypots</li>
+</ul>
+<h3 id="security-measures">Security Measures</h3>
+<h4 id="cryptographic-verification">Cryptographic Verification</h4>
+<ul>
+<li><strong>Digital signatures</strong>: Prove issuer authenticity</li>
+<li><strong>Hash chains</strong>: Ensure record integrity</li>
+<li><strong>Blockchain anchoring</strong>: Timestamped immutable records</li>
+<li><strong>Public key infrastructure (PKI)</strong>: Distributed trust model</li>
+</ul>
+<h4 id="fraud-prevention">Fraud Prevention</h4>
+<ul>
+<li><strong>Multi-factor verification</strong>: Multiple proof points for high-stakes decisions</li>
+<li><strong>Issuer reputation</strong>: Trust scores for credential issuers</li>
+<li><strong>Anomaly detection</strong>: AI-powered fraud identification</li>
+<li><strong>Revocation checking</strong>: Real-time validation of credential status</li>
+</ul>
+<h3 id="regulatory-compliance">Regulatory Compliance</h3>
+<h4 id="data-protection-regulations">Data Protection Regulations</h4>
+<ul>
+<li><strong>GDPR (Europe)</strong>: Right to access, portability, erasure</li>
+<li><strong>FERPA (US Education)</strong>: Student educational record protections</li>
+<li><strong>CCPA (California)</strong>: Consumer privacy rights</li>
+<li><strong>Sectoral requirements</strong>: Healthcare (HIPAA), financial services, etc.</li>
+</ul>
+<h4 id="accessibility-standards">Accessibility Standards</h4>
+<ul>
+<li><strong>WCAG compliance</strong>: Web Content Accessibility Guidelines</li>
+<li><strong>Section 508 (US)</strong>: Electronic and information technology accessibility</li>
+<li><strong>EN 301 549 (EU)</strong>: European accessibility standard</li>
+<li><strong>Universal design</strong>: Inclusive by default</li>
+</ul>
+<h2 id="implementation-approaches">Implementation Approaches</h2>
+<h3 id="centralized-systems">Centralized Systems</h3>
+<p><strong>Model</strong>: Single institutional or organizational system manages all ELRs</p>
+<p><strong>Advantages</strong>:
+- Simple governance and control
+- Easier to implement initially
+- Consistent user experience
+- Lower technical complexity</p>
+<p><strong>Disadvantages</strong>:
+- Single point of failure
+- Vendor lock-in risks
+- Limited interoperability
+- Privacy concerns with centralized data</p>
+<p><strong>Use cases</strong>: Single institution, corporate training department, government agency</p>
+<h3 id="federated-systems">Federated Systems</h3>
+<p><strong>Model</strong>: Multiple interconnected systems with trust agreements and standards</p>
+<p><strong>Advantages</strong>:
+- Distributed control
+- Organization autonomy
+- Reduced single-point risks
+- Cross-organizational interoperability</p>
+<p><strong>Disadvantages</strong>:
+- Complex governance
+- Trust agreements required
+- Technical integration challenges
+- Potential inconsistencies</p>
+<p><strong>Use cases</strong>: Regional higher education consortia, industry associations, multi-national corporations</p>
+<h3 id="decentralizedblockchain-systems">Decentralized/Blockchain Systems</h3>
+<p><strong>Model</strong>: Distributed ledger technology with learner-controlled wallets</p>
+<p><strong>Advantages</strong>:
+- True learner ownership
+- No central authority needed
+- Tamper-proof records
+- Universal accessibility</p>
+<p><strong>Disadvantages</strong>:
+- Technical complexity
+- Scalability challenges
+- User experience friction
+- Regulatory uncertainty</p>
+<p><strong>Use cases</strong>: Global credentials, refugee education, lifelong learning across many providers</p>
+<h3 id="hybrid-approaches">Hybrid Approaches</h3>
+<p><strong>Model</strong>: Combine centralized issuance with decentralized storage and verification</p>
+<p><strong>Advantages</strong>:
+- Balance control and autonomy
+- Flexibility for different use cases
+- Pragmatic transition path
+- Leverage existing systems</p>
+<p><strong>Disadvantages</strong>:
+- More complex architecture
+- Multiple integration points
+- Governance complexity
+- Higher development costs</p>
+<p><strong>Use cases</strong>: Large enterprises, higher education with continuing education, multi-sector applications</p>
+<h2 id="tools-and-platforms">Tools and Platforms</h2>
+<h3 id="elr-implementation-platforms">ELR Implementation Platforms</h3>
+<h4 id="open-source">Open Source</h4>
+<ul>
+<li><strong>Learning Economy Foundation</strong>: Blockchain-based credential wallet and verification</li>
+<li><strong>Blockcerts</strong>: Open standard for blockchain credentials</li>
+<li><strong>Velocity Network</strong>: Decentralized career credential network</li>
+<li><strong>Educational Credential Engine</strong>: Credential transparency and discovery</li>
+</ul>
+<h4 id="commercial">Commercial</h4>
+<ul>
+<li><strong>Credly</strong>: Digital credential platform with badges and pathways</li>
+<li><strong>Accredible</strong>: Digital certificate and badge management</li>
+<li><strong>Parchment</strong>: Digital credential and transcript management</li>
+<li><strong>Digitary</strong>: International credential verification and management</li>
+<li><strong>National Student Clearinghouse</strong>: US-based credential and enrollment verification</li>
+</ul>
+<h3 id="wallet-and-viewer-applications">Wallet and Viewer Applications</h3>
+<h4 id="digital-wallets">Digital Wallets</h4>
+<ul>
+<li><strong>uPort</strong>: Self-sovereign identity wallet</li>
+<li><strong>Evernym</strong>: Enterprise identity and credential wallet</li>
+<li><strong>Microsoft Authenticator</strong>: Verifiable credential support</li>
+<li><strong>Digital Credentials Wallet</strong>: Open source learner wallet</li>
+</ul>
+<h4 id="verification-services">Verification Services</h4>
+<ul>
+<li><strong>Dock.io</strong>: Credential verification platform</li>
+<li><strong>Trinsic</strong>: Verifiable credential infrastructure</li>
+<li><strong>Spherity</strong>: Industrial and educational credential verification</li>
+<li><strong>Velocity Network Validator</strong>: Career credential verification</li>
+</ul>
+<h3 id="development-tools">Development Tools</h3>
+<h4 id="standards-and-specifications">Standards and Specifications</h4>
+<ul>
+<li>IEEE P2997 - Enterprise Learner Records (in development)</li>
+<li>IMS Comprehensive Learner Record (CLR)</li>
+<li>W3C Verifiable Credentials Data Model</li>
+<li>IMS Open Badges 3.0</li>
+</ul>
+<h4 id="software-libraries">Software Libraries</h4>
+<ul>
+<li><strong>jsonld.js</strong>: JSON-LD processing for JavaScript</li>
+<li><strong>vc-js</strong>: W3C Verifiable Credentials JavaScript library</li>
+<li><strong>DidKit</strong>: Decentralized identifier toolkit</li>
+<li><strong>PyLD</strong>: Python JSON-LD processor</li>
+</ul>
+<h2 id="challenges-and-barriers">Challenges and Barriers</h2>
+<h3 id="technical-challenges">Technical Challenges</h3>
+<h4 id="interoperability">Interoperability</h4>
+<ul>
+<li><strong>Multiple standards</strong>: CLR, Open Badges, VC all compete/overlap</li>
+<li><strong>Vendor variations</strong>: Proprietary extensions reduce portability</li>
+<li><strong>Legacy systems</strong>: Existing student information systems not designed for ELR</li>
+<li><strong>Data mapping</strong>: Converting existing records to standard format</li>
+</ul>
+<h4 id="scalability">Scalability</h4>
+<ul>
+<li><strong>Blockchain limitations</strong>: Transaction costs and speed constraints</li>
+<li><strong>Storage requirements</strong>: Rich multimedia evidence increases size</li>
+<li><strong>Verification load</strong>: Real-time checking at scale requires infrastructure</li>
+<li><strong>Performance</strong>: Complex graph queries on large datasets</li>
+</ul>
+<h3 id="organizational-challenges">Organizational Challenges</h3>
+<h4 id="governance">Governance</h4>
+<ul>
+<li><strong>Authority questions</strong>: Who can issue credentials? What standards apply?</li>
+<li><strong>Quality assurance</strong>: Ensuring credential rigor and validity</li>
+<li><strong>Accreditation</strong>: Relationship to traditional accreditation processes</li>
+<li><strong>Policy alignment</strong>: Institutional policies may not support new models</li>
+</ul>
+<h4 id="business-models">Business Models</h4>
+<ul>
+<li><strong>Sustainability</strong>: Who pays for infrastructure and maintenance?</li>
+<li><strong>Pricing models</strong>: Fee structures for issuers, verifiers, learners</li>
+<li><strong>Revenue protection</strong>: Traditional credential issuers resist disruption</li>
+<li><strong>Market fragmentation</strong>: Multiple competing platforms reduce network effects</li>
+</ul>
+<h3 id="adoption-barriers">Adoption Barriers</h3>
+<h4 id="cultural-resistance">Cultural Resistance</h4>
+<ul>
+<li><strong>Tradition</strong>: "We've always done it this way" mentality</li>
+<li><strong>Credential prestige</strong>: Institutions protective of brand value</li>
+<li><strong>Complexity</strong>: Learning new systems and processes</li>
+<li><strong>Trust</strong>: Skepticism about digital credentials vs. traditional documents</li>
+</ul>
+<h4 id="awareness-and-education">Awareness and Education</h4>
+<ul>
+<li><strong>Limited understanding</strong>: Many stakeholders unfamiliar with ELR concepts</li>
+<li><strong>Training needs</strong>: Faculty, staff, employers need education</li>
+<li><strong>Change management</strong>: Organizational transformation required</li>
+<li><strong>Communication</strong>: Articulating benefits to diverse audiences</li>
+</ul>
+<h3 id="equity-and-access">Equity and Access</h3>
+<h4 id="digital-divide">Digital Divide</h4>
+<ul>
+<li><strong>Technology access</strong>: Not all learners have smartphones or computers</li>
+<li><strong>Digital literacy</strong>: Some learners struggle with digital tools</li>
+<li><strong>Internet connectivity</strong>: Rural and underserved areas lack reliable access</li>
+<li><strong>Cost barriers</strong>: Device and data costs for lower-income learners</li>
+</ul>
+<h4 id="inclusion-concerns">Inclusion Concerns</h4>
+<ul>
+<li><strong>Language support</strong>: Multilingual records and interfaces needed</li>
+<li><strong>Accessibility</strong>: Universal design for diverse abilities</li>
+<li><strong>Cultural relevance</strong>: Records meaningful across cultural contexts</li>
+<li><strong>Historical disadvantage</strong>: Prior educational barriers not addressed</li>
+</ul>
+<h2 id="future-directions">Future Directions</h2>
+<h3 id="emerging-trends">Emerging Trends</h3>
+<h4 id="artificial-intelligence-integration">Artificial Intelligence Integration</h4>
+<ul>
+<li><strong>Auto-transcription</strong>: AI converts traditional transcripts to ELR format</li>
+<li><strong>Competency extraction</strong>: NLP derives competencies from course descriptions</li>
+<li><strong>Evidence synthesis</strong>: AI compiles supporting evidence from learning data</li>
+<li><strong>Skill prediction</strong>: Forecasting future competencies from learning patterns</li>
+<li><strong>Career guidance</strong>: AI-powered matching to opportunities</li>
+</ul>
+<h4 id="expanded-evidence-types">Expanded Evidence Types</h4>
+<ul>
+<li><strong>Biometric data</strong>: Heart rate variability, eye tracking, brain activity (ethical considerations required)</li>
+<li><strong>Social learning</strong>: Contributions to online communities and peer learning</li>
+<li><strong>Creativity metrics</strong>: Originality and innovation measures</li>
+<li><strong>Soft skills</strong>: Validated assessments of communication, teamwork, leadership</li>
+<li><strong>Real-world impact</strong>: Measuring actual performance in authentic contexts</li>
+</ul>
+<h4 id="cross-domain-integration">Cross-Domain Integration</h4>
+<ul>
+<li><strong>Health records</strong>: Learning in health and medical contexts</li>
+<li><strong>Financial records</strong>: Financial literacy and capability credentials</li>
+<li><strong>Civic participation</strong>: Community engagement and citizenship credentials</li>
+<li><strong>Creative portfolios</strong>: Arts, design, and creative work</li>
+<li><strong>Athletic achievement</strong>: Sports and physical performance credentials</li>
+</ul>
+<h3 id="standards-evolution">Standards Evolution</h3>
+<h4 id="ieee-p2997-finalization">IEEE P2997 Finalization</h4>
+<ul>
+<li><strong>Standard publication</strong>: Expected completion and adoption timeline</li>
+<li><strong>Implementation guides</strong>: Practical guidance for adopters</li>
+<li><strong>Conformance testing</strong>: Certification programs for compliance</li>
+<li><strong>Version management</strong>: Update processes and backward compatibility</li>
+</ul>
+<h4 id="convergence-with-other-standards">Convergence with Other Standards</h4>
+<ul>
+<li><strong>CLR/ELR harmonization</strong>: Aligning academic and enterprise approaches</li>
+<li><strong>Open Badges 3.0</strong>: Integration with badge ecosystems</li>
+<li><strong>Verifiable Credentials</strong>: Full W3C VC compliance</li>
+<li><strong>xAPI Profile</strong>: Standard xAPI vocabulary for ELR-related statements</li>
+</ul>
+<h3 id="market-evolution">Market Evolution</h3>
+<h4 id="credential-marketplace">Credential Marketplace</h4>
+<ul>
+<li><strong>Issuer platforms</strong>: Tools for easy credential creation and issuance</li>
+<li><strong>Verification as a service</strong>: API-based credential checking</li>
+<li><strong>Analytics platforms</strong>: Insight generation from credential data</li>
+<li><strong>Credential brokerage</strong>: Intermediaries connecting learners and opportunities</li>
+</ul>
+<h4 id="new-business-models">New Business Models</h4>
+<ul>
+<li><strong>Freemium</strong>: Basic services free, premium features paid</li>
+<li><strong>Transaction fees</strong>: Micro-payments for issuance and verification</li>
+<li><strong>Subscription</strong>: Annual fees for platform access</li>
+<li><strong>Advertising</strong>: Free services supported by relevant job/education ads</li>
+<li><strong>Data monetization</strong>: Anonymized aggregate data for labor market intelligence (with consent)</li>
+</ul>
+<h2 id="integration-with-graph-lms-architecture">Integration with Graph LMS Architecture</h2>
+<p>ELR provides the permanent, portable record layer for graph-based learning management systems:</p>
+<h3 id="learning-journey-capture">Learning Journey Capture</h3>
+<p><strong>Flow</strong>:
+1. <strong>Learning Activities</strong>: Tracked via xAPI and stored in LRS
+2. <strong>Competency Achievement</strong>: Determined through assessment and evidence
+3. <strong>Graph Analysis</strong>: Pathways and relationships analyzed
+4. <strong>Credential Issuance</strong>: ELR credential generated when criteria met
+5. <strong>Verification</strong>: Credential references underlying graph data for evidence</p>
+<h3 id="graph-enhanced-elr-features">Graph-Enhanced ELR Features</h3>
+<h4 id="dynamic-credential-assembly">Dynamic Credential Assembly</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Generate comprehensive learner record on demand</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">learner</span><span class="p">:</span><span class="n">Learner</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="n">learnerId</span><span class="p">})</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">learner</span><span class="p">)</span><span class="o">-[</span><span class="n">e</span><span class="p">:</span><span class="n">EARNED</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">cred</span><span class="p">:</span><span class="n">Credential</span><span class="p">)</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">cred</span><span class="p">)</span><span class="o">-[</span><span class="n">a</span><span class="p">:</span><span class="n">ASSERTS</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">comp</span><span class="p">:</span><span class="n">Competency</span><span class="p">)</span>
+<span class="k">OPTIONAL</span><span class="w"> </span><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">comp</span><span class="p">)</span><span class="o">&lt;-[</span><span class="p">:</span><span class="n">ASSESSES</span><span class="o">]-</span><span class="p">(</span><span class="n">assessment</span><span class="p">:</span><span class="n">Assessment</span><span class="p">)</span><span class="o">&lt;-[</span><span class="n">r</span><span class="p">:</span><span class="n">COMPLETED</span><span class="o">]-</span><span class="p">(</span><span class="n">learner</span><span class="p">)</span>
+<span class="k">RETURN</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">learner</span><span class="p">:</span><span class="w"> </span><span class="n">learner</span><span class="p">,</span>
+<span class="w">  </span><span class="n">credentials</span><span class="p">:</span><span class="w"> </span><span class="k">collect</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">credential</span><span class="p">:</span><span class="w"> </span><span class="n">cred</span><span class="p">,</span>
+<span class="w">    </span><span class="n">issueDate</span><span class="p">:</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">date</span><span class="p">,</span>
+<span class="w">    </span><span class="n">competencies</span><span class="p">:</span><span class="w"> </span><span class="k">collect</span><span class="p">({</span>
+<span class="w">      </span><span class="n">competency</span><span class="p">:</span><span class="w"> </span><span class="n">comp</span><span class="p">,</span>
+<span class="w">      </span><span class="n">level</span><span class="p">:</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">level</span><span class="p">,</span>
+<span class="w">      </span><span class="n">evidence</span><span class="p">:</span><span class="w"> </span><span class="k">collect</span><span class="p">({</span>
+<span class="w">        </span><span class="n">assessment</span><span class="p">:</span><span class="w"> </span><span class="n">assessment</span><span class="p">,</span>
+<span class="w">        </span><span class="n">score</span><span class="p">:</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score</span><span class="p">,</span>
+<span class="w">        </span><span class="n">date</span><span class="p">:</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">date</span>
+<span class="w">      </span><span class="p">})</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">}</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">enterpriseLearnerRecord</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="predictive-credentialing">Predictive Credentialing</h4>
+<p>Use graph patterns to predict which credentials a learner is close to achieving:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">learner</span><span class="p">:</span><span class="n">Learner</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="n">learnerId</span><span class="p">})</span><span class="o">-[</span><span class="p">:</span><span class="n">DEMONSTRATED</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">comp</span><span class="p">:</span><span class="n">Competency</span><span class="p">)</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">targetCred</span><span class="p">:</span><span class="n">Credential</span><span class="p">)</span><span class="o">-[</span><span class="n">req</span><span class="p">:</span><span class="n">REQUIRES</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">requiredComp</span><span class="p">:</span><span class="n">Competency</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="p">(</span><span class="n">learner</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">EARNED</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">targetCred</span><span class="p">)</span>
+<span class="k">WITH</span><span class="w"> </span><span class="n">targetCred</span><span class="p">,</span>
+<span class="w">     </span><span class="n">count</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">requiredComp</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">totalRequired</span><span class="p">,</span>
+<span class="w">     </span><span class="n">count</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">requiredComp</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">collect</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">requiredComp</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">achieved</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">toFloat</span><span class="p">(</span><span class="n">achieved</span><span class="p">)</span><span class="w"> </span><span class="err">/</span><span class="w"> </span><span class="n">totalRequired</span><span class="w"> </span><span class="p">&gt;=</span><span class="w"> </span><span class="m">0</span><span class="p">.</span><span class="m">75</span>
+<span class="k">RETURN</span><span class="w"> </span><span class="n">targetCred</span><span class="p">,</span><span class="w"> </span><span class="n">achieved</span><span class="p">,</span><span class="w"> </span><span class="n">totalRequired</span><span class="p">,</span>
+<span class="w">       </span><span class="n">toFloat</span><span class="p">(</span><span class="n">achieved</span><span class="p">)</span><span class="w"> </span><span class="err">/</span><span class="w"> </span><span class="n">totalRequired</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">completionPercentage</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">completionPercentage</span><span class="w"> </span><span class="k">DESC</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="m">10</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="competency-gap-visualization">Competency Gap Visualization</h4>
+<p>Show what's missing for desired credentials:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">learner</span><span class="p">:</span><span class="n">Learner</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="n">learnerId</span><span class="p">})</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">targetCred</span><span class="p">:</span><span class="n">Credential</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="n">targetCredentialId</span><span class="p">})</span><span class="o">-[</span><span class="p">:</span><span class="n">REQUIRES</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">req</span><span class="p">:</span><span class="n">Competency</span><span class="p">)</span>
+<span class="k">OPTIONAL</span><span class="w"> </span><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">learner</span><span class="p">)</span><span class="o">-[</span><span class="n">d</span><span class="p">:</span><span class="n">DEMONSTRATED</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+<span class="k">RETURN</span><span class="w"> </span><span class="n">req</span><span class="p">.</span><span class="n">name</span><span class="p">,</span>
+<span class="w">       </span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="n">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">level</span><span class="w"> </span><span class="n">ELSE</span><span class="w"> </span><span class="s">&#39;Not Achieved&#39;</span><span class="w"> </span><span class="k">END</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">currentLevel</span><span class="p">,</span>
+<span class="w">       </span><span class="n">targetCred</span><span class="p">.</span><span class="n">requiredLevel</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">targetLevel</span><span class="p">,</span>
+<span class="w">       </span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s">&#39;Gap&#39;</span>
+<span class="w">            </span><span class="k">WHEN</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">level</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="n">targetCred</span><span class="p">.</span><span class="n">requiredLevel</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s">&#39;Developing&#39;</span>
+<span class="w">            </span><span class="n">ELSE</span><span class="w"> </span><span class="s">&#39;Achieved&#39;</span><span class="w"> </span><span class="k">END</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">status</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">req</span><span class="p">.</span><span class="n">name</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="conclusion">Conclusion</h2>
+<p>Enterprise Learner Records represent a transformative approach to capturing, managing, and sharing learning achievements across the lifespan and across organizational boundaries. By providing:</p>
+<ul>
+<li><strong>Comprehensive records</strong> that go beyond traditional transcripts to include competencies, evidence, and diverse achievement types</li>
+<li><strong>Universal portability</strong> through standardized formats and cryptographic verification</li>
+<li><strong>Learner control</strong> via self-sovereign identity and selective disclosure</li>
+<li><strong>System interoperability</strong> enabling exchange across LMS, talent management, credentialing, and hiring platforms</li>
+</ul>
+<p>ELR addresses fundamental limitations of current credential systems while opening new possibilities for personalized learning, skills-based hiring, and lifelong learning support.</p>
+<p>As part of the <a href="../tla/">Total Learning Architecture</a>, ELR serves as the verified credential layer that:
+- Summarizes detailed <a href="xapi.md">xAPI</a> learning experiences from the <a href="../lrs/">LRS</a>
+- Asserts competencies defined through <a href="../rcd/">RCD</a> standards
+- References assessment results from <a href="../qti/">QTI</a> evaluations
+- Integrates with graph databases for powerful querying and pathway analysis</p>
+<p>While challenges remain—technical interoperability, organizational governance, adoption barriers, and equity concerns—the benefits of standardized, portable, comprehensive learner records are driving continued development and adoption. The finalization of IEEE P2997, convergence with related standards like CLR and Verifiable Credentials, and growing market support from both open-source and commercial platforms signal a maturing ecosystem.</p>
+<p>For graph-based learning management systems, ELR provides the essential capability to generate portable, verifiable credentials that reflect the rich, competency-based learning pathways captured in the learning graph. This integration enables institutions and organizations to issue meaningful credentials while giving learners true ownership of their learning achievements throughout their lifelong learning journey.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://sagroups.ieee.org/2997/">IEEE P2997 Working Group</a> - Enterprise Learner Records standard development</li>
+<li><a href="https://www.imsglobal.org/activity/comprehensive-learner-record">IMS Comprehensive Learner Record (CLR)</a> - Related academic credential standard</li>
+<li><a href="https://www.w3.org/TR/vc-data-model/">W3C Verifiable Credentials</a> - Underlying credential format standard</li>
+<li><a href="https://www.imsglobal.org/spec/ob/v3p0/">IMS Open Badges 3.0</a> - Micro-credential specification</li>
+<li><a href="../tla/">Total Learning Architecture (TLA)</a> - Architectural context</li>
+<li><a href="xapi.md">Experience API (xAPI)</a> - Learning activity tracking</li>
+<li><a href="../lrs/">Learning Record Store (LRS)</a> - Experience data storage</li>
+<li><a href="../rcd/">Reusable Competency Definitions (RCD)</a> - Competency vocabulary</li>
+<li><a href="../qti/">Question and Test Interoperability (QTI)</a> - Assessment evidence</li>
+<li><a href="https://www.w3.org/TR/did-core/">Decentralized Identifiers (DIDs)</a> - Identity layer for ELR</li>
+<li><a href="https://sovrin.org/principles-of-ssi/">Self-Sovereign Identity Principles</a> - Learner control framework</li>
+</ul>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../qti/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Question and Test Interoperability (QTI)">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Question and Test Interoperability (QTI)
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../adaptive-assessments/" class="md-footer__link md-footer__link--next" aria-label="Next: Adaptive Assessments">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Adaptive Assessments
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

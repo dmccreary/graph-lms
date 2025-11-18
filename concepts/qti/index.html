@@ -1,0 +1,4882 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Graph LMS Design Documents All content licensed Creative Commons ShareAlike Attribution Noncommercial">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/graph-lms/concepts/qti/">
+      
+      
+        <link rel="prev" href="../rcd/">
+      
+      
+        <link rel="next" href="../elr/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Question and Test Interoperability (QTI) - Graph Learning Management System</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-JLDD8032H6"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-JLDD8032H6",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-JLDD8032H6",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#question-and-test-interoperability" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Graph Learning Management System" class="md-header__button md-logo" aria-label="Graph Learning Management System" data-md-component="logo">
+      
+  <img src="../../img/logo-180.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Graph Learning Management System
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Question and Test Interoperability (QTI)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/graph-lms" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Graph Learning Management System" class="md-nav__button md-logo" aria-label="Graph Learning Management System" data-md-component="logo">
+      
+  <img src="../../img/logo-180.png" alt="logo">
+
+    </a>
+    Graph Learning Management System
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/graph-lms" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Concepts
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concept-graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../content-graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Content
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learning-trajectories/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learning Trajectories
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xapi.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Experience API (xAPI)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lrs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learning Record Store (LRS)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lam/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learning Activity Metadata (LAM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rcd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reusable Competency Definitions (RCD)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Question and Test Interoperability (QTI)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Question and Test Interoperability (QTI)
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-we-need-qti-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why We Need QTI Standards
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relevance-to-lms-interoperability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relevance to LMS Interoperability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#history-and-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      History and Evolution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="History and Evolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qti-1x-2000-2005" class="md-nav__link">
+    <span class="md-ellipsis">
+      QTI 1.x (2000-2005)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qti-20-and-21-2005-2012" class="md-nav__link">
+    <span class="md-ellipsis">
+      QTI 2.0 and 2.1 (2005-2012)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qti-22-2015" class="md-nav__link">
+    <span class="md-ellipsis">
+      QTI 2.2 (2015)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qti-30-2019-present" class="md-nav__link">
+    <span class="md-ellipsis">
+      QTI 3.0 (2019-Present)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-components-and-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Components and Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Components and Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assessment-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment Items
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Assessment Items">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#item-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Item Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#item-example-conceptual" class="md-nav__link">
+    <span class="md-ellipsis">
+      Item Example (Conceptual)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assessment-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment Tests
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Assessment Tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-structure-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Structure Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response Processing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Response Processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#built-in-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Built-in Templates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Processing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#item-types-and-interactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Item Types and Interactions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Item Types and Interactions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-interactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Interactions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Interactions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#choice-interaction-multiple-choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choice Interaction (Multiple Choice)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-entry-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Text Entry Interaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extended-text-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extended Text Interaction
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-interactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Interactions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Interactions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hotspot-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hotspot Interaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphic-order-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graphic Order Interaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphic-associate-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graphic Associate Interaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Order Interaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#match-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Match Interaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gap-match-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gap Match Interaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inline-choice-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inline Choice Interaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slider-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slider Interaction
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-interactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Interactions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scoring-and-response-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scoring and Response Processing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scoring and Response Processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scoring-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scoring Models
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scoring Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dichotomous-scoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dichotomous Scoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polytomous-scoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Polytomous Scoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weighted-scoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Weighted Scoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-processing-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response Processing Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Response Processing Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template-based-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template-Based Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-based-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rule-Based Processing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outcome-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outcome Variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feedback-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feedback Mechanisms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Feedback Mechanisms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modal-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modal Feedback
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inline-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inline Feedback
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution-display" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution Display
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adaptive-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adaptive Feedback
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-and-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata and Classification
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metadata and Classification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lom-learning-object-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      LOM (Learning Object Metadata)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-tagging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Tagging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessibility-metadata-apip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessibility Metadata (APIP)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adaptive-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adaptive Assessment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adaptive Assessment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#item-level-adaptation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Item-Level Adaptation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-level-adaptation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test-Level Adaptation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test-Level Adaptation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#computerized-adaptive-testing-cat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computerized Adaptive Testing (CAT)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-based-branching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rule-Based Branching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#item-selection-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Item Selection Rules
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-stage-adaptive-tests-mst" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Stage Adaptive Tests (MST)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qti-in-graph-based-learning-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      QTI in Graph-Based Learning Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QTI in Graph-Based Learning Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assessment-graph-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment Graph Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-enabled-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph-Enabled Capabilities
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph-Enabled Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intelligent-test-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intelligent Test Assembly
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-path-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Path Optimization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#item-bank-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Item Bank Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predictive-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Predictive Analytics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-other-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with Other Standards
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration with Other Standards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lti-learning-tools-interoperability" class="md-nav__link">
+    <span class="md-ellipsis">
+      LTI (Learning Tools Interoperability)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xapi-experience-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      xAPI (Experience API)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caliper-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Caliper Analytics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-cartridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Cartridge
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packaging-and-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packaging and Deployment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Packaging and Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#content-package-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Package Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manifest-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manifest Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment Options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lms-import" class="md-nav__link">
+    <span class="md-ellipsis">
+      LMS Import
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assessment-delivery-engines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment Delivery Engines
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-based-delivery" class="md-nav__link">
+    <span class="md-ellipsis">
+      API-Based Delivery
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools-and-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools and Platforms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tools and Platforms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authoring-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authoring Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authoring Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open Source
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commercial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commercial
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation Tools
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-repositories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Repositories
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#item-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Item Development
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Item Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#write-clear-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Write Clear Prompts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-effective-distractors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Effective Distractors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consider-cognitive-load" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consider Cognitive Load
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#align-to-competencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Align to Competencies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Construction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Construction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#balance-content-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Balance Content Coverage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimize-test-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimize Test Length
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implement-quality-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implement Quality Control
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessibility
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Accessibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#universal-design-for-learning-udl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Universal Design for Learning (UDL)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wcag-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      WCAG Compliance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accommodation-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accommodation Support
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#challenges-and-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenges and Limitations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Challenges and Limitations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technical-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation-complexity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Complexity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-at-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance at Scale
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#educational-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Educational Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manual-scoring-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Scoring Requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limited-context-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limited Context Assessment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adoption-barriers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adoption Barriers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adoption Barriers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#legacy-content-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Legacy Content Migration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vendor-lock-in-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vendor Lock-In Persistence
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-directions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Directions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Future Directions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#emerging-trends" class="md-nav__link">
+    <span class="md-ellipsis">
+      Emerging Trends
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Emerging Trends">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ai-powered-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI-Powered Assessment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#immersive-assessments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Immersive Assessments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evidence-centered-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evidence-Centered Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-based-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency-Based Assessment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interoperability-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interoperability Evolution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interoperability Evolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json-ld-and-semantic-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON-LD and Semantic Web
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blockchain-for-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blockchain for Credentials
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-time-collaboration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-Time Collaboration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-graph-lms-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with Graph LMS Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration with Graph LMS Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assessment-driven-personalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment-Driven Personalization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Assessment-Driven Personalization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagnostic-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagnostic Testing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuous-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous Assessment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summative-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summative Evaluation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-queries-for-assessment-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Queries for Assessment Intelligence
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph Queries for Assessment Intelligence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-next-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Find Next Assessment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-progress-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate Progress Report
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommend-learning-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommend Learning Resources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Enterprise Learner Records (ELR)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adaptive-assessments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adaptive Assessments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assessment-standards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assessment Standards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../arch/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Architecture
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../view-data-model/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    View Data Model
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../checklist.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Customization Checklist
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tla-glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TLA Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-we-need-qti-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why We Need QTI Standards
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relevance-to-lms-interoperability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relevance to LMS Interoperability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#history-and-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      History and Evolution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="History and Evolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qti-1x-2000-2005" class="md-nav__link">
+    <span class="md-ellipsis">
+      QTI 1.x (2000-2005)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qti-20-and-21-2005-2012" class="md-nav__link">
+    <span class="md-ellipsis">
+      QTI 2.0 and 2.1 (2005-2012)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qti-22-2015" class="md-nav__link">
+    <span class="md-ellipsis">
+      QTI 2.2 (2015)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qti-30-2019-present" class="md-nav__link">
+    <span class="md-ellipsis">
+      QTI 3.0 (2019-Present)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-components-and-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Components and Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Components and Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assessment-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment Items
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Assessment Items">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#item-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Item Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#item-example-conceptual" class="md-nav__link">
+    <span class="md-ellipsis">
+      Item Example (Conceptual)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assessment-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment Tests
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Assessment Tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-structure-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Structure Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response Processing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Response Processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#built-in-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Built-in Templates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Processing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#item-types-and-interactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Item Types and Interactions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Item Types and Interactions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-interactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Interactions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Interactions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#choice-interaction-multiple-choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choice Interaction (Multiple Choice)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-entry-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Text Entry Interaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extended-text-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extended Text Interaction
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-interactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Interactions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Interactions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hotspot-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hotspot Interaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphic-order-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graphic Order Interaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphic-associate-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graphic Associate Interaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Order Interaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#match-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Match Interaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gap-match-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gap Match Interaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inline-choice-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inline Choice Interaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slider-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slider Interaction
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-interactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Interactions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scoring-and-response-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scoring and Response Processing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scoring and Response Processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scoring-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scoring Models
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scoring Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dichotomous-scoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dichotomous Scoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polytomous-scoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Polytomous Scoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weighted-scoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Weighted Scoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-processing-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response Processing Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Response Processing Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template-based-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template-Based Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-based-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rule-Based Processing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outcome-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outcome Variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feedback-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feedback Mechanisms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Feedback Mechanisms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modal-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modal Feedback
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inline-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inline Feedback
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution-display" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution Display
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adaptive-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adaptive Feedback
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-and-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata and Classification
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metadata and Classification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lom-learning-object-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      LOM (Learning Object Metadata)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-tagging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Tagging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessibility-metadata-apip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessibility Metadata (APIP)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adaptive-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adaptive Assessment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adaptive Assessment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#item-level-adaptation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Item-Level Adaptation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-level-adaptation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test-Level Adaptation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test-Level Adaptation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#computerized-adaptive-testing-cat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computerized Adaptive Testing (CAT)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-based-branching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rule-Based Branching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#item-selection-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Item Selection Rules
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-stage-adaptive-tests-mst" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Stage Adaptive Tests (MST)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qti-in-graph-based-learning-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      QTI in Graph-Based Learning Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QTI in Graph-Based Learning Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assessment-graph-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment Graph Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-enabled-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph-Enabled Capabilities
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph-Enabled Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intelligent-test-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intelligent Test Assembly
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-path-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Path Optimization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#item-bank-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Item Bank Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predictive-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Predictive Analytics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-other-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with Other Standards
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration with Other Standards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lti-learning-tools-interoperability" class="md-nav__link">
+    <span class="md-ellipsis">
+      LTI (Learning Tools Interoperability)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xapi-experience-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      xAPI (Experience API)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caliper-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Caliper Analytics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-cartridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Cartridge
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packaging-and-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packaging and Deployment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Packaging and Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#content-package-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Package Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manifest-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manifest Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment Options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lms-import" class="md-nav__link">
+    <span class="md-ellipsis">
+      LMS Import
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assessment-delivery-engines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment Delivery Engines
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-based-delivery" class="md-nav__link">
+    <span class="md-ellipsis">
+      API-Based Delivery
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools-and-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools and Platforms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tools and Platforms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authoring-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authoring Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authoring Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open Source
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commercial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commercial
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation Tools
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-repositories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Repositories
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#item-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Item Development
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Item Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#write-clear-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Write Clear Prompts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-effective-distractors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Effective Distractors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consider-cognitive-load" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consider Cognitive Load
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#align-to-competencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Align to Competencies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Construction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Construction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#balance-content-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Balance Content Coverage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimize-test-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimize Test Length
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implement-quality-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implement Quality Control
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessibility
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Accessibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#universal-design-for-learning-udl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Universal Design for Learning (UDL)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wcag-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      WCAG Compliance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accommodation-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accommodation Support
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#challenges-and-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenges and Limitations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Challenges and Limitations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technical-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation-complexity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Complexity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-at-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance at Scale
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#educational-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Educational Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manual-scoring-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Scoring Requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limited-context-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limited Context Assessment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adoption-barriers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adoption Barriers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adoption Barriers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#legacy-content-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Legacy Content Migration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vendor-lock-in-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vendor Lock-In Persistence
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-directions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Directions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Future Directions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#emerging-trends" class="md-nav__link">
+    <span class="md-ellipsis">
+      Emerging Trends
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Emerging Trends">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ai-powered-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI-Powered Assessment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#immersive-assessments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Immersive Assessments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evidence-centered-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evidence-Centered Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-based-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency-Based Assessment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interoperability-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interoperability Evolution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interoperability Evolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json-ld-and-semantic-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON-LD and Semantic Web
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blockchain-for-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blockchain for Credentials
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-time-collaboration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-Time Collaboration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-graph-lms-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with Graph LMS Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration with Graph LMS Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assessment-driven-personalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment-Driven Personalization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Assessment-Driven Personalization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagnostic-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagnostic Testing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuous-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous Assessment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summative-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summative Evaluation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-queries-for-assessment-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Queries for Assessment Intelligence
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph Queries for Assessment Intelligence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-next-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Find Next Assessment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-progress-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate Progress Report
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommend-learning-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommend Learning Resources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="question-and-test-interoperability">Question and Test Interoperability</h1>
+<p>This chapter is an overview of the IMS Question and Test Interoperability (QTI)
+standard. It describes the need for storing interactive online assessments
+that can be created by a course content provider and loaded into multiple
+learning management systems from different vendors.</p>
+<p><strong>Focus:</strong> Assessment content, test items, test structure, scoring rules
+<strong>Maintained by:</strong> IMS Global (now 1EdTech)</p>
+<h2 id="why-we-need-qti-standards">Why We Need QTI Standards</h2>
+<ul>
+<li>Standard way to represent <strong>questions</strong>, <strong>tests</strong>, <strong>response processing</strong>, and <strong>scores</strong></li>
+<li>Used by LMSs and assessment tools to <strong>exchange quizzes and test banks</strong></li>
+<li>Supports item types, scoring models, feedback, metadata, and adaptive tests</li>
+<li>Allows intelligent textbook content providers to interoperate with a wide range of LMS systems</li>
+<li>Prevents lock-in to specific LMS systems</li>
+<li>Encourages textbook authors to generate high-quality assessment tools that accurately place new students' knowledge in a course-specific learning graph</li>
+</ul>
+<h2 id="relevance-to-lms-interoperability">Relevance to LMS Interoperability</h2>
+<ul>
+<li>QTI packages can be imported/exported across LMSs</li>
+<li>Forms the backbone for portable <strong>assessment content</strong>, not just results</li>
+</ul>
+<h2 id="history-and-evolution">History and Evolution</h2>
+<h3 id="qti-1x-2000-2005">QTI 1.x (2000-2005)</h3>
+<p>The first generation of QTI established the foundational concepts for assessment interoperability:
+- Initial XML-based format for questions and tests
+- Basic item types (multiple choice, true/false, fill-in-blank)
+- Simple response processing
+- Limited adoption due to complexity and implementation variations</p>
+<h3 id="qti-20-and-21-2005-2012">QTI 2.0 and 2.1 (2005-2012)</h3>
+<p>A major redesign that significantly improved the standard:
+- Cleaner XML schema with better separation of concerns
+- Enhanced item types including hotspot, order, and match interactions
+- Sophisticated response processing with template variables
+- Improved feedback mechanisms
+- Better support for accessibility (APIP - Accessible Portable Item Protocol)
+- Widespread adoption by major LMS platforms</p>
+<h3 id="qti-22-2015">QTI 2.2 (2015)</h3>
+<p>Incremental improvements focusing on:
+- Enhanced media support (audio, video)
+- Improved mathematical notation (MathML integration)
+- Better support for adaptive items
+- Clarifications and bug fixes from implementation experience</p>
+<h3 id="qti-30-2019-present">QTI 3.0 (2019-Present)</h3>
+<p>The latest major version with significant modernization:
+- JSON-based alternative to XML for easier web integration
+- Simplified schema and reduced complexity
+- Enhanced support for evidence-centered design
+- Better integration with other IMS standards (LTI, Caliper)
+- Improved support for innovative item types and simulations
+- Native support for competency-based assessment</p>
+<h2 id="core-components-and-architecture">Core Components and Architecture</h2>
+<p>QTI defines a comprehensive assessment ecosystem with several key components:</p>
+<h3 id="assessment-items">Assessment Items</h3>
+<p>The fundamental unit in QTI is the <strong>Assessment Item</strong> - a single question or task that can be presented independently:</p>
+<h4 id="item-structure">Item Structure</h4>
+<ul>
+<li><strong>Item Body</strong>: The question prompt, including text, media, and interactive elements</li>
+<li><strong>Response Declaration</strong>: Defines what type of response is expected</li>
+<li><strong>Outcome Declaration</strong>: Specifies variables to store results (scores, correctness)</li>
+<li><strong>Response Processing</strong>: Rules for evaluating responses and calculating outcomes</li>
+<li><strong>Modal Feedback</strong>: Conditional feedback shown based on response</li>
+<li><strong>Stylesheet</strong>: Presentation and rendering information</li>
+</ul>
+<h4 id="item-example-conceptual">Item Example (Conceptual)</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;assessmentItem</span><span class="w"> </span><span class="na">identifier=</span><span class="s">&quot;item001&quot;</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;Python Basics&quot;</span><span class="w"> </span><span class="na">adaptive=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;responseDeclaration</span><span class="w"> </span><span class="na">identifier=</span><span class="s">&quot;RESPONSE&quot;</span><span class="w"> </span><span class="na">cardinality=</span><span class="s">&quot;single&quot;</span><span class="w"> </span><span class="na">baseType=</span><span class="s">&quot;identifier&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;correctResponse&gt;</span>
+<span class="w">      </span><span class="nt">&lt;value&gt;</span>choice_c<span class="nt">&lt;/value&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/correctResponse&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/responseDeclaration&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;outcomeDeclaration</span><span class="w"> </span><span class="na">identifier=</span><span class="s">&quot;SCORE&quot;</span><span class="w"> </span><span class="na">cardinality=</span><span class="s">&quot;single&quot;</span><span class="w"> </span><span class="na">baseType=</span><span class="s">&quot;float&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;defaultValue&gt;</span>
+<span class="w">      </span><span class="nt">&lt;value&gt;</span>0<span class="nt">&lt;/value&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/defaultValue&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/outcomeDeclaration&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;itemBody&gt;</span>
+<span class="w">    </span><span class="nt">&lt;p&gt;</span>What<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>correct<span class="w"> </span>way<span class="w"> </span>to<span class="w"> </span>define<span class="w"> </span>a<span class="w"> </span>function<span class="w"> </span>in<span class="w"> </span>Python?<span class="nt">&lt;/p&gt;</span>
+<span class="w">    </span><span class="nt">&lt;choiceInteraction</span><span class="w"> </span><span class="na">responseIdentifier=</span><span class="s">&quot;RESPONSE&quot;</span><span class="w"> </span><span class="na">shuffle=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="na">maxChoices=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;simpleChoice</span><span class="w"> </span><span class="na">identifier=</span><span class="s">&quot;choice_a&quot;</span><span class="nt">&gt;</span>function<span class="w"> </span>myFunc():<span class="nt">&lt;/simpleChoice&gt;</span>
+<span class="w">      </span><span class="nt">&lt;simpleChoice</span><span class="w"> </span><span class="na">identifier=</span><span class="s">&quot;choice_b&quot;</span><span class="nt">&gt;</span>func<span class="w"> </span>myFunc():<span class="nt">&lt;/simpleChoice&gt;</span>
+<span class="w">      </span><span class="nt">&lt;simpleChoice</span><span class="w"> </span><span class="na">identifier=</span><span class="s">&quot;choice_c&quot;</span><span class="nt">&gt;</span>def<span class="w"> </span>myFunc():<span class="nt">&lt;/simpleChoice&gt;</span>
+<span class="w">      </span><span class="nt">&lt;simpleChoice</span><span class="w"> </span><span class="na">identifier=</span><span class="s">&quot;choice_d&quot;</span><span class="nt">&gt;</span>define<span class="w"> </span>myFunc():<span class="nt">&lt;/simpleChoice&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/choiceInteraction&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/itemBody&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;responseProcessing</span><span class="w"> </span><span class="na">template=</span><span class="s">&quot;http://www.imsglobal.org/question/qti_v2p1/rptemplates/match_correct&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/assessmentItem&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="assessment-tests">Assessment Tests</h3>
+<p>An <strong>Assessment Test</strong> combines multiple items into a complete assessment:</p>
+<h4 id="test-structure-elements">Test Structure Elements</h4>
+<ul>
+<li><strong>Test Parts</strong>: Major sections of a test that can have different rules</li>
+<li><strong>Sections</strong>: Logical groupings of items within test parts</li>
+<li><strong>Item References</strong>: Links to individual assessment items</li>
+<li><strong>Pre-conditions</strong>: Rules determining when sections/items are presented</li>
+<li><strong>Branch Rules</strong>: Logic for adaptive test navigation</li>
+<li><strong>Test Feedback</strong>: Overall feedback based on test-level outcomes</li>
+</ul>
+<h4 id="test-configuration">Test Configuration</h4>
+<ul>
+<li><strong>Navigation Mode</strong>: Linear (sequential) or non-linear (free navigation)</li>
+<li><strong>Submission Mode</strong>: Individual (per item) or simultaneous (all at once)</li>
+<li><strong>Time Limits</strong>: Test-level and item-level timing constraints</li>
+<li><strong>Selection and Ordering</strong>: Random selection and shuffling of items</li>
+</ul>
+<h3 id="response-processing">Response Processing</h3>
+<p>The heart of QTI's scoring mechanism:</p>
+<h4 id="built-in-templates">Built-in Templates</h4>
+<p>QTI provides standard templates for common scenarios:
+- <strong>match_correct</strong>: Simple right/wrong matching
+- <strong>map_response</strong>: Mapping responses to predefined scores
+- <strong>map_response_point</strong>: For spatial/coordinate-based responses</p>
+<h4 id="custom-processing">Custom Processing</h4>
+<p>For complex scenarios, custom response processing rules can:
+- Implement partial credit scoring
+- Evaluate multiple criteria simultaneously
+- Apply conditional logic based on response patterns
+- Calculate derived variables and intermediate outcomes</p>
+<h2 id="item-types-and-interactions">Item Types and Interactions</h2>
+<p>QTI supports a rich variety of interaction types to assess different competencies:</p>
+<h3 id="basic-interactions">Basic Interactions</h3>
+<h4 id="choice-interaction-multiple-choice">Choice Interaction (Multiple Choice)</h4>
+<ul>
+<li>Single or multiple correct answers</li>
+<li>Shuffle options to prevent memorization</li>
+<li>Orientation (vertical/horizontal)</li>
+<li>Radio buttons or checkboxes</li>
+</ul>
+<p><strong>Use cases</strong>: Factual recall, concept identification, best practice selection</p>
+<h4 id="text-entry-interaction">Text Entry Interaction</h4>
+<ul>
+<li>Short text responses</li>
+<li>Pattern matching for validation</li>
+<li>Case-sensitive or insensitive comparison</li>
+<li>Support for multiple acceptable answers</li>
+</ul>
+<p><strong>Use cases</strong>: Fill-in-blank, short answer, terminology</p>
+<h4 id="extended-text-interaction">Extended Text Interaction</h4>
+<ul>
+<li>Essay responses requiring manual scoring</li>
+<li>Word count limits</li>
+<li>Rich text formatting</li>
+<li>File upload capabilities in some implementations</li>
+</ul>
+<p><strong>Use cases</strong>: Written explanations, critical thinking, analysis</p>
+<h3 id="advanced-interactions">Advanced Interactions</h3>
+<h4 id="hotspot-interaction">Hotspot Interaction</h4>
+<ul>
+<li>Image-based questions where learners click regions</li>
+<li>Supports polygonal, circular, and rectangular areas</li>
+<li>Single or multiple hotspot selection</li>
+<li>Spatial reasoning assessment</li>
+</ul>
+<p><strong>Use cases</strong>: Anatomy diagrams, geography, circuit identification, UI element selection</p>
+<h4 id="graphic-order-interaction">Graphic Order Interaction</h4>
+<ul>
+<li>Drag-and-drop sequencing on images</li>
+<li>Spatial arrangement tasks</li>
+<li>Visual sorting and categorization</li>
+</ul>
+<p><strong>Use cases</strong>: Process flows, timeline ordering, priority ranking</p>
+<h4 id="graphic-associate-interaction">Graphic Associate Interaction</h4>
+<ul>
+<li>Connect related items on an image</li>
+<li>Draw associations between concepts</li>
+<li>Network and relationship mapping</li>
+</ul>
+<p><strong>Use cases</strong>: Matching definitions to diagrams, circuit connections, relationship identification</p>
+<h4 id="order-interaction">Order Interaction</h4>
+<ul>
+<li>Arrange text items in correct sequence</li>
+<li>Drag-and-drop or button-based reordering</li>
+<li>Partial credit for partially correct sequences</li>
+</ul>
+<p><strong>Use cases</strong>: Procedural steps, chronological ordering, priority ranking</p>
+<h4 id="match-interaction">Match Interaction</h4>
+<ul>
+<li>Connect items from two sets</li>
+<li>One-to-one or one-to-many matching</li>
+<li>Matrix/grid-based presentation</li>
+</ul>
+<p><strong>Use cases</strong>: Term-to-definition, cause-to-effect, concept relationships</p>
+<h4 id="gap-match-interaction">Gap Match Interaction</h4>
+<ul>
+<li>Drag items into text gaps</li>
+<li>Multiple draggable options</li>
+<li>Supports complex cloze tests</li>
+</ul>
+<p><strong>Use cases</strong>: Sentence completion, code completion, formula construction</p>
+<h4 id="inline-choice-interaction">Inline Choice Interaction</h4>
+<ul>
+<li>Dropdown selections within text</li>
+<li>Embedded choices in reading passages</li>
+<li>Multiple gaps with independent choices</li>
+</ul>
+<p><strong>Use cases</strong>: Grammar exercises, reading comprehension, contextual selection</p>
+<h4 id="slider-interaction">Slider Interaction</h4>
+<ul>
+<li>Continuous or discrete value selection</li>
+<li>Visual numeric input</li>
+<li>Range-based responses</li>
+</ul>
+<p><strong>Use cases</strong>: Confidence ratings, probability estimates, preference scales</p>
+<h3 id="custom-interactions">Custom Interactions</h3>
+<p>QTI 3.0 provides a portable custom interaction (PCI) framework for:
+- Simulations and interactive demonstrations
+- Game-based assessments
+- Virtual labs and experiments
+- Domain-specific tools (music notation, chemical structures, mathematical proofs)</p>
+<p><strong>Requirements</strong>: JavaScript-based with standard interface for data exchange</p>
+<h2 id="scoring-and-response-processing">Scoring and Response Processing</h2>
+<h3 id="scoring-models">Scoring Models</h3>
+<h4 id="dichotomous-scoring">Dichotomous Scoring</h4>
+<p>Simple correct/incorrect evaluation:
+- Binary outcome (0 or 1)
+- No partial credit
+- Appropriate for objective questions</p>
+<h4 id="polytomous-scoring">Polytomous Scoring</h4>
+<p>Multiple levels of correctness:
+- Partial credit models
+- Graduated scoring based on response quality
+- Useful for complex constructed responses</p>
+<h4 id="weighted-scoring">Weighted Scoring</h4>
+<p>Different point values for different items:
+- Difficulty-based weighting
+- Importance-based weighting
+- Combined with partial credit</p>
+<h3 id="response-processing-strategies">Response Processing Strategies</h3>
+<h4 id="template-based-processing">Template-Based Processing</h4>
+<p>Uses predefined algorithms:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;responseProcessing</span><span class="w"> </span><span class="na">template=</span><span class="s">&quot;http://www.imsglobal.org/question/qti_v2p1/rptemplates/match_correct&quot;</span><span class="nt">/&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+<p>Common templates:
+- <strong>match_correct</strong>: Binary scoring (right/wrong)
+- <strong>map_response</strong>: Map each choice to a score
+- <strong>map_response_point</strong>: For coordinate-based responses</p>
+<h4 id="rule-based-processing">Rule-Based Processing</h4>
+<p>Custom logic using response rules:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;responseProcessing&gt;</span>
+<span class="w">  </span><span class="nt">&lt;responseCondition&gt;</span>
+<span class="w">    </span><span class="nt">&lt;responseIf&gt;</span>
+<span class="w">      </span><span class="nt">&lt;match&gt;</span>
+<span class="w">        </span><span class="nt">&lt;variable</span><span class="w"> </span><span class="na">identifier=</span><span class="s">&quot;RESPONSE&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;correct</span><span class="w"> </span><span class="na">identifier=</span><span class="s">&quot;RESPONSE&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/match&gt;</span>
+<span class="w">      </span><span class="nt">&lt;setOutcomeValue</span><span class="w"> </span><span class="na">identifier=</span><span class="s">&quot;SCORE&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;baseValue</span><span class="w"> </span><span class="na">baseType=</span><span class="s">&quot;float&quot;</span><span class="nt">&gt;</span>1.0<span class="nt">&lt;/baseValue&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/setOutcomeValue&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/responseIf&gt;</span>
+<span class="w">    </span><span class="nt">&lt;responseElse&gt;</span>
+<span class="w">      </span><span class="nt">&lt;setOutcomeValue</span><span class="w"> </span><span class="na">identifier=</span><span class="s">&quot;SCORE&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;baseValue</span><span class="w"> </span><span class="na">baseType=</span><span class="s">&quot;float&quot;</span><span class="nt">&gt;</span>0.0<span class="nt">&lt;/baseValue&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/setOutcomeValue&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/responseElse&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/responseCondition&gt;</span>
+<span class="nt">&lt;/responseProcessing&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="outcome-variables">Outcome Variables</h3>
+<p>QTI uses outcome variables to track:
+- <strong>SCORE</strong>: Numeric score for the item/test
+- <strong>MAXSCORE</strong>: Maximum possible score
+- <strong>MINSCORE</strong>: Minimum possible score
+- <strong>COMPLETIONSSTATUS</strong>: Whether the item was attempted
+- <strong>numAttempts</strong>: Number of attempts made
+- Custom variables for advanced analytics</p>
+<h2 id="feedback-mechanisms">Feedback Mechanisms</h2>
+<p>QTI supports multiple feedback types to enhance learning:</p>
+<h3 id="modal-feedback">Modal Feedback</h3>
+<p>Shown in dialog or popup format:
+- <strong>Correct feedback</strong>: Reinforces correct responses
+- <strong>Incorrect feedback</strong>: Provides correction information
+- <strong>Partial feedback</strong>: Acknowledges partial understanding
+- <strong>Hint feedback</strong>: Progressive hints for struggling learners</p>
+<h3 id="inline-feedback">Inline Feedback</h3>
+<p>Embedded within the question content:
+- Immediate visual indicators (checkmarks, X marks)
+- Highlighting of correct/incorrect choices
+- Explanatory text appearing near response areas</p>
+<h3 id="solution-display">Solution Display</h3>
+<p>Shows the correct answer and explanation:
+- Complete worked solutions
+- Step-by-step explanations
+- References to learning resources</p>
+<h3 id="adaptive-feedback">Adaptive Feedback</h3>
+<p>Context-sensitive responses based on:
+- Specific incorrect choices (addressing misconceptions)
+- Response patterns across multiple items
+- Performance thresholds
+- Time on task</p>
+<h2 id="metadata-and-classification">Metadata and Classification</h2>
+<p>QTI integrates with learning resource metadata standards:</p>
+<h3 id="lom-learning-object-metadata">LOM (Learning Object Metadata)</h3>
+<ul>
+<li>Educational level (grade, difficulty)</li>
+<li>Subject classification</li>
+<li>Language and accessibility</li>
+<li>Intended user role</li>
+<li>Learning resource type</li>
+<li>Typical learning time</li>
+</ul>
+<h3 id="competency-tagging">Competency Tagging</h3>
+<p>Link items to competencies:
+- IEEE RCD identifiers
+- Custom competency framework references
+- Proficiency level indication
+- Prerequisite competencies</p>
+<p><strong>Integration with RCDs</strong>: Assessment items can be tagged with <a href="../rcd/">Reusable Competency Definitions</a> to enable:
+- Competency-based test assembly
+- Diagnostic assessments for placement
+- Gap analysis and personalized learning paths
+- Skills-based reporting</p>
+<h3 id="accessibility-metadata-apip">Accessibility Metadata (APIP)</h3>
+<p>Accessibility features and accommodations:
+- Screen reader compatibility
+- Alternative text for images
+- Text-to-speech requirements
+- Simplified language versions
+- Extended time allowances
+- Color contrast and font size adjustments</p>
+<h2 id="adaptive-assessment">Adaptive Assessment</h2>
+<p>QTI supports multiple adaptive assessment strategies:</p>
+<h3 id="item-level-adaptation">Item-Level Adaptation</h3>
+<p>Individual items that change based on responses:
+- <strong>Adaptive Items</strong>: Items with multiple interaction paths
+- <strong>Progressive Hints</strong>: Revealing hints based on attempts
+- <strong>Scaffolded Questions</strong>: Breaking complex questions into steps</p>
+<h3 id="test-level-adaptation">Test-Level Adaptation</h3>
+<p>Dynamic test assembly and navigation:</p>
+<h4 id="computerized-adaptive-testing-cat">Computerized Adaptive Testing (CAT)</h4>
+<ul>
+<li>Item selection based on estimated ability</li>
+<li>Real-time difficulty adjustment</li>
+<li>Efficient assessment with fewer items</li>
+<li>Requires item calibration (IRT parameters)</li>
+</ul>
+<h4 id="rule-based-branching">Rule-Based Branching</h4>
+<p>Navigate test paths based on performance:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;branchRule</span><span class="w"> </span><span class="na">target=</span><span class="s">&quot;SECTION_ADVANCED&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;gte&gt;</span>
+<span class="w">    </span><span class="nt">&lt;variable</span><span class="w"> </span><span class="na">identifier=</span><span class="s">&quot;SECTION_BASIC_SCORE&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;baseValue</span><span class="w"> </span><span class="na">baseType=</span><span class="s">&quot;float&quot;</span><span class="nt">&gt;</span>0.80<span class="nt">&lt;/baseValue&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/gte&gt;</span>
+<span class="nt">&lt;/branchRule&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+<h4 id="item-selection-rules">Item Selection Rules</h4>
+<p>Dynamically choose items from pools:
+- Random selection within difficulty bands
+- Selection based on previous responses
+- Ensuring content coverage across domains
+- Avoiding item overexposure</p>
+<h3 id="multi-stage-adaptive-tests-mst">Multi-Stage Adaptive Tests (MST)</h3>
+<p>Hybrid approach combining:
+- Fixed stages with multiple modules per stage
+- Routing between modules based on performance
+- Balance between adaptivity and test security
+- Easier to implement than full CAT</p>
+<h2 id="qti-in-graph-based-learning-systems">QTI in Graph-Based Learning Systems</h2>
+<p>Graph databases provide powerful capabilities for assessment management:</p>
+<h3 id="assessment-graph-model">Assessment Graph Model</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;item:python-functions-01&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AssessmentItem&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Python Function Definition&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;difficulty&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.42</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;discrimination&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.2</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;competencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;comp:python-syntax&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;comp:function-basics&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;cognitive_level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;remember&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;estimated_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;comp:python-syntax&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Competency&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Python Syntax Fundamentals&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;edges&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;item:python-functions-01&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;comp:python-syntax&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ASSESSES&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;weight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;item:python-functions-01&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;item:python-parameters-01&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PREREQUISITE_FOR&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="graph-enabled-capabilities">Graph-Enabled Capabilities</h3>
+<h4 id="intelligent-test-assembly">Intelligent Test Assembly</h4>
+<p>Use graph queries to:
+- Find items assessing specific competency combinations
+- Balance test difficulty and content coverage
+- Avoid item dependencies and give-aways
+- Maximize information for diagnostic assessment</p>
+<p><strong>Example Cypher Query</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="p">:</span><span class="n">Competency</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;python-functions&#39;</span><span class="p">})</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">item</span><span class="p">:</span><span class="n">AssessmentItem</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">ASSESSES</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="n">difficulty</span><span class="w"> </span><span class="n">BETWEEN</span><span class="w"> </span><span class="m">0</span><span class="p">.</span><span class="m">3</span><span class="w"> </span><span class="n">AND</span><span class="w"> </span><span class="m">0</span><span class="p">.</span><span class="m">7</span>
+<span class="w">  </span><span class="n">AND</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="n">discrimination</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="m">1</span><span class="p">.</span><span class="m">0</span>
+<span class="k">RETURN</span><span class="w"> </span><span class="n">item</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="n">lastUsed</span><span class="w"> </span><span class="k">ASC</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="m">5</span>
+</code></pre></div></td></tr></table></div></p>
+<h4 id="learning-path-optimization">Learning Path Optimization</h4>
+<p>Based on assessment results:
+- Identify competency gaps through diagnostic tests
+- Recommend next learning activities
+- Adapt content difficulty to learner's zone of proximal development
+- Track mastery progression over time</p>
+<h4 id="item-bank-management">Item Bank Management</h4>
+<p>Graph relationships support:
+- Version control and item lineage
+- Usage statistics and performance metrics
+- Content tagging and multi-dimensional classification
+- Collaborative authoring and review workflows</p>
+<h4 id="predictive-analytics">Predictive Analytics</h4>
+<p>Use historical data to:
+- Predict item difficulty and discrimination
+- Identify items needing revision
+- Detect potential bias or cultural sensitivity issues
+- Forecast assessment completion times</p>
+<h2 id="integration-with-other-standards">Integration with Other Standards</h2>
+<p>QTI works alongside other educational technology standards:</p>
+<h3 id="lti-learning-tools-interoperability">LTI (Learning Tools Interoperability)</h3>
+<p>QTI assessments can be delivered via LTI:
+- Launch assessments from any LTI-compliant LMS
+- Pass user context and return scores
+- Enable single sign-on
+- Support deep linking to specific items</p>
+<p><strong>Integration Flow</strong>:
+1. LMS launches QTI player via LTI
+2. Player retrieves QTI content
+3. Learner completes assessment
+4. Scores posted back to LMS via LTI Outcomes
+5. Detailed results stored in LRS via xAPI</p>
+<h3 id="xapi-experience-api">xAPI (Experience API)</h3>
+<p>QTI results can generate rich xAPI statements:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;actor&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;mbox&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mailto:student@university.edu&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Jane Smith&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;verb&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/verbs/answered&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;answered&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://example.com/qti/items/python-functions-01&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/activities/cmi.interaction&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Python Function Definition&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;interactionType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;choice&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;correctResponsesPattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;choice_c&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;raw&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;scaled&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PT45S&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;response&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;choice_c&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;contextActivities&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;parent&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://example.com/qti/tests/python-midterm&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;objectType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Activity&quot;</span>
+<span class="w">      </span><span class="p">}],</span>
+<span class="w">      </span><span class="nt">&quot;grouping&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://example.com/courses/intro-python&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;objectType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Activity&quot;</span>
+<span class="w">      </span><span class="p">}]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;http://example.com/extensions/competency&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;urn:uuid:comp-python-syntax&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;http://example.com/extensions/bloom-level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;remember&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;http://example.com/extensions/attempt-number&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Benefits</strong>:
+- Granular tracking of each item response
+- Long-term learning record storage
+- Cross-system analytics
+- Support for competency-based reporting</p>
+<h3 id="caliper-analytics">Caliper Analytics</h3>
+<p>IMS Caliper provides standardized assessment event tracking:
+- Assessment started/completed events
+- Item viewed/responded events
+- Navigation and timing data
+- Aggregated test metrics</p>
+<h3 id="common-cartridge">Common Cartridge</h3>
+<p>Package QTI content with other learning resources:
+- Combine assessments with instructional content
+- Include metadata and organization
+- Single importable package for LMS
+- Supports web content, discussions, and assignments alongside QTI</p>
+<h2 id="packaging-and-deployment">Packaging and Deployment</h2>
+<h3 id="content-package-structure">Content Package Structure</h3>
+<p>QTI content is typically packaged using IMS Content Packaging:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code>assessment-package.zip
+├── imsmanifest.xml          # Package manifest
+├── items/
+│   ├── item001.xml          # Individual item files
+│   ├── item002.xml
+│   └── item003.xml
+├── tests/
+│   └── test001.xml          # Test definition
+├── resources/
+│   ├── images/
+│   │   ├── diagram1.png
+│   │   └── photo1.jpg
+│   ├── audio/
+│   │   └── pronunciation.mp3
+│   └── stylesheets/
+│       └── custom.css
+└── metadata.xml             # Optional LOM metadata
+</code></pre></div></td></tr></table></div>
+<h3 id="manifest-example">Manifest Example</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;manifest</span><span class="w"> </span><span class="na">identifier=</span><span class="s">&quot;MANIFEST01&quot;</span>
+<span class="w">          </span><span class="na">xmlns=</span><span class="s">&quot;http://www.imsglobal.org/xsd/imscp_v1p1&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;metadata&gt;</span>
+<span class="w">    </span><span class="nt">&lt;schema&gt;</span>IMS<span class="w"> </span>Content<span class="nt">&lt;/schema&gt;</span>
+<span class="w">    </span><span class="nt">&lt;schemaversion&gt;</span>1.1.3<span class="nt">&lt;/schemaversion&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/metadata&gt;</span>
+<span class="w">  </span><span class="nt">&lt;organizations/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;resources&gt;</span>
+<span class="w">    </span><span class="nt">&lt;resource</span><span class="w"> </span><span class="na">identifier=</span><span class="s">&quot;TEST001&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;imsqti_test_xmlv2p1&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;file</span><span class="w"> </span><span class="na">href=</span><span class="s">&quot;tests/test001.xml&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;dependency</span><span class="w"> </span><span class="na">identifierref=</span><span class="s">&quot;ITEM001&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;dependency</span><span class="w"> </span><span class="na">identifierref=</span><span class="s">&quot;ITEM002&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/resource&gt;</span>
+<span class="w">    </span><span class="nt">&lt;resource</span><span class="w"> </span><span class="na">identifier=</span><span class="s">&quot;ITEM001&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;imsqti_item_xmlv2p1&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;file</span><span class="w"> </span><span class="na">href=</span><span class="s">&quot;items/item001.xml&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;file</span><span class="w"> </span><span class="na">href=</span><span class="s">&quot;resources/images/diagram1.png&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/resource&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/resources&gt;</span>
+<span class="nt">&lt;/manifest&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="deployment-options">Deployment Options</h3>
+<h4 id="lms-import">LMS Import</h4>
+<ul>
+<li>Upload QTI packages through LMS interface</li>
+<li>Automatic parsing and integration</li>
+<li>Item bank organization</li>
+<li>Test creation from imported items</li>
+</ul>
+<h4 id="assessment-delivery-engines">Assessment Delivery Engines</h4>
+<p>Specialized QTI players:
+- <strong>TAO (Testing Assisté par Ordinateur)</strong>: Open-source QTI platform
+- <strong>Questionmark</strong>: Commercial assessment platform
+- <strong>Canvas Quiz Engine</strong>: Built-in QTI support
+- <strong>Moodle Quiz</strong>: QTI import/export capabilities</p>
+<h4 id="api-based-delivery">API-Based Delivery</h4>
+<p>Modern approaches using REST APIs:
+- Retrieve QTI content dynamically
+- Deliver items via web services
+- Real-time response processing
+- Integration with microservices architecture</p>
+<h2 id="tools-and-platforms">Tools and Platforms</h2>
+<h3 id="authoring-tools">Authoring Tools</h3>
+<h4 id="open-source">Open Source</h4>
+<ul>
+<li><strong>TAO Item Creator</strong>: Web-based QTI authoring</li>
+<li><strong>ONYX Editor</strong>: Desktop QTI item authoring</li>
+<li><strong>QTIWorks</strong>: Java-based QTI development and testing environment</li>
+<li><strong>Concerto</strong>: Adaptive testing platform with QTI support</li>
+</ul>
+<h4 id="commercial">Commercial</h4>
+<ul>
+<li><strong>Questionmark QTI Studio</strong>: Professional item authoring</li>
+<li><strong>ExamSoft</strong>: Assessment creation with QTI export</li>
+<li><strong>Learnosity</strong>: Cloud-based assessment authoring</li>
+<li><strong>Respondus</strong>: Quiz and test creation tool</li>
+</ul>
+<h3 id="validation-tools">Validation Tools</h3>
+<ul>
+<li><strong>QTI Schema Validators</strong>: Check XML syntax and structure</li>
+<li><strong>IMS QTI Conformance Tests</strong>: Official test suites</li>
+<li><strong>QTI Migration Tools</strong>: Convert between QTI versions</li>
+</ul>
+<h3 id="content-repositories">Content Repositories</h3>
+<ul>
+<li><strong>Gooru</strong>: Open educational resources with QTI assessments</li>
+<li><strong>Open Assessment Technologies</strong>: QTI item banks</li>
+<li><strong>National repositories</strong>: Country-specific assessment databases</li>
+</ul>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="item-development">Item Development</h3>
+<h4 id="write-clear-prompts">Write Clear Prompts</h4>
+<ul>
+<li>Use precise, unambiguous language</li>
+<li>Avoid trick questions that don't assess understanding</li>
+<li>State questions positively when possible</li>
+<li>Provide adequate context</li>
+</ul>
+<h4 id="design-effective-distractors">Design Effective Distractors</h4>
+<p>For multiple choice items:
+- Make all options plausible
+- Base distractors on common misconceptions
+- Keep length and complexity consistent
+- Avoid "all of the above" and "none of the above"</p>
+<h4 id="consider-cognitive-load">Consider Cognitive Load</h4>
+<ul>
+<li>One concept per item when possible</li>
+<li>Minimize extraneous information</li>
+<li>Use clear, simple language</li>
+<li>Provide scaffolding for complex tasks</li>
+</ul>
+<h4 id="align-to-competencies">Align to Competencies</h4>
+<ul>
+<li>Tag items with specific <a href="../rcd/">competencies</a></li>
+<li>Specify Bloom's Taxonomy level</li>
+<li>Indicate prerequisite knowledge</li>
+<li>Define target proficiency level</li>
+</ul>
+<h3 id="test-construction">Test Construction</h3>
+<h4 id="balance-content-coverage">Balance Content Coverage</h4>
+<ul>
+<li>Blueprint aligned to learning objectives</li>
+<li>Representative sampling across domains</li>
+<li>Appropriate difficulty distribution</li>
+<li>Mixture of item types</li>
+</ul>
+<h4 id="optimize-test-length">Optimize Test Length</h4>
+<ul>
+<li>Balance reliability with test-taking burden</li>
+<li>Consider fatigue effects</li>
+<li>Use adaptive approaches when possible</li>
+<li>Pilot test to establish timing</li>
+</ul>
+<h4 id="implement-quality-control">Implement Quality Control</h4>
+<ul>
+<li>Peer review of items</li>
+<li>Statistical analysis after administration</li>
+<li>Regular item revision cycles</li>
+<li>Remove or revise problematic items</li>
+</ul>
+<h3 id="accessibility">Accessibility</h3>
+<h4 id="universal-design-for-learning-udl">Universal Design for Learning (UDL)</h4>
+<ul>
+<li>Multiple means of representation</li>
+<li>Various interaction modalities</li>
+<li>Flexible time limits</li>
+<li>Screen reader compatibility</li>
+</ul>
+<h4 id="wcag-compliance">WCAG Compliance</h4>
+<ul>
+<li>Alternative text for all images</li>
+<li>Sufficient color contrast</li>
+<li>Keyboard navigation support</li>
+<li>Clear focus indicators</li>
+</ul>
+<h4 id="accommodation-support">Accommodation Support</h4>
+<ul>
+<li>Text-to-speech integration</li>
+<li>Adjustable font sizes</li>
+<li>High contrast themes</li>
+<li>Extended time options</li>
+</ul>
+<h2 id="challenges-and-limitations">Challenges and Limitations</h2>
+<h3 id="technical-challenges">Technical Challenges</h3>
+<h4 id="implementation-complexity">Implementation Complexity</h4>
+<ul>
+<li>QTI specification is extensive and detailed</li>
+<li>Subtle variations in vendor implementations</li>
+<li>Testing compatibility requires significant effort</li>
+<li>Custom interactions may not be portable</li>
+</ul>
+<h4 id="performance-at-scale">Performance at Scale</h4>
+<ul>
+<li>Large item banks require optimization</li>
+<li>Complex response processing can be slow</li>
+<li>Media-rich items increase bandwidth requirements</li>
+<li>Concurrent user handling needs careful architecture</li>
+</ul>
+<h3 id="educational-challenges">Educational Challenges</h3>
+<h4 id="manual-scoring-requirements">Manual Scoring Requirements</h4>
+<ul>
+<li>Essay questions require human judgment</li>
+<li>Partial credit decisions can be subjective</li>
+<li>Grading consistency across raters</li>
+<li>Time-intensive feedback provision</li>
+</ul>
+<h4 id="limited-context-assessment">Limited Context Assessment</h4>
+<ul>
+<li>Standardized format may not capture authentic performance</li>
+<li>Some competencies difficult to assess via QTI</li>
+<li>Portfolio and project-based assessment gaps</li>
+<li>Collaborative work not well supported</li>
+</ul>
+<h3 id="adoption-barriers">Adoption Barriers</h3>
+<h4 id="legacy-content-migration">Legacy Content Migration</h4>
+<ul>
+<li>Converting existing assessments to QTI</li>
+<li>Loss of custom features not in standard</li>
+<li>Training content creators on QTI</li>
+<li>Quality assurance of converted content</li>
+</ul>
+<h4 id="vendor-lock-in-persistence">Vendor Lock-In Persistence</h4>
+<ul>
+<li>Proprietary extensions to QTI</li>
+<li>Export functionality may be limited</li>
+<li>Platform-specific features create dependencies</li>
+<li>Economic incentives against portability</li>
+</ul>
+<h2 id="future-directions">Future Directions</h2>
+<h3 id="emerging-trends">Emerging Trends</h3>
+<h4 id="ai-powered-assessment">AI-Powered Assessment</h4>
+<ul>
+<li>Automated item generation from learning objectives</li>
+<li>Natural language processing for essay scoring</li>
+<li>Adaptive feedback based on response analysis</li>
+<li>Predictive analytics for learner support</li>
+</ul>
+<h4 id="immersive-assessments">Immersive Assessments</h4>
+<ul>
+<li>Virtual reality scenarios</li>
+<li>Augmented reality interactions</li>
+<li>Game-based assessments</li>
+<li>Simulation-based testing</li>
+</ul>
+<h4 id="evidence-centered-design">Evidence-Centered Design</h4>
+<ul>
+<li>Formal claims, evidence, and task models</li>
+<li>Bayesian inference for competency estimation</li>
+<li>Multiple evidence sources integration</li>
+<li>Diagnostic cognitive models</li>
+</ul>
+<h4 id="competency-based-assessment">Competency-Based Assessment</h4>
+<p>Deeper integration with competency frameworks:
+- Direct <a href="../rcd/">RCD</a> tagging in QTI 3.0+
+- Multi-dimensional scoring
+- Growth modeling and learning progressions
+- Skills-based transcripts and badges</p>
+<h3 id="interoperability-evolution">Interoperability Evolution</h3>
+<h4 id="json-ld-and-semantic-web">JSON-LD and Semantic Web</h4>
+<ul>
+<li>Linked data for assessment metadata</li>
+<li>Ontology-based competency mapping</li>
+<li>Cross-institutional data sharing</li>
+<li>Discovery and reuse at scale</li>
+</ul>
+<h4 id="blockchain-for-credentials">Blockchain for Credentials</h4>
+<ul>
+<li>Verifiable assessment results</li>
+<li>Tamper-proof transcripts</li>
+<li>Decentralized credential verification</li>
+<li>Learner-owned assessment portfolios</li>
+</ul>
+<h4 id="real-time-collaboration">Real-Time Collaboration</h4>
+<ul>
+<li>Synchronous group assessments</li>
+<li>Peer evaluation frameworks</li>
+<li>Collaborative problem-solving tasks</li>
+<li>Social learning analytics</li>
+</ul>
+<h2 id="integration-with-graph-lms-architecture">Integration with Graph LMS Architecture</h2>
+<p>In a graph-based learning management system, QTI assessments provide critical data for personalizing learning paths:</p>
+<h3 id="assessment-driven-personalization">Assessment-Driven Personalization</h3>
+<h4 id="diagnostic-testing">Diagnostic Testing</h4>
+<p>Use QTI assessments to:
+1. <strong>Placement</strong>: Determine starting point in learning graph
+2. <strong>Gap Analysis</strong>: Identify missing prerequisite competencies
+3. <strong>Proficiency Mapping</strong>: Establish current competency levels
+4. <strong>Learning Style</strong>: Assess preferences through interaction patterns</p>
+<h4 id="continuous-assessment">Continuous Assessment</h4>
+<p>Embedded assessments throughout learning:
+- <strong>Formative checks</strong>: Quick competency verification
+- <strong>Mastery gates</strong>: Prerequisite validation before progression
+- <strong>Retrieval practice</strong>: Spaced repetition optimization
+- <strong>Metacognitive reflection</strong>: Self-assessment prompts</p>
+<h4 id="summative-evaluation">Summative Evaluation</h4>
+<p>Comprehensive competency demonstration:
+- <strong>Capstone assessments</strong>: Integration across multiple competencies
+- <strong>Certification exams</strong>: Proficiency verification for credentials
+- <strong>Adaptive finals</strong>: Efficient comprehensive testing
+- <strong>Portfolio reviews</strong>: Evidence-based evaluation</p>
+<h3 id="graph-queries-for-assessment-intelligence">Graph Queries for Assessment Intelligence</h3>
+<h4 id="find-next-assessment">Find Next Assessment</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">learner</span><span class="p">:</span><span class="n">Student</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="n">studentId</span><span class="p">})</span><span class="o">-[</span><span class="p">:</span><span class="n">MASTERED</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">comp</span><span class="p">:</span><span class="n">Competency</span><span class="p">)</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">targetComp</span><span class="p">:</span><span class="n">Competency</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">PREREQUISITE</span><span class="p">*</span><span class="m">0</span><span class="p">..</span><span class="m">2</span><span class="o">]-</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">item</span><span class="p">:</span><span class="n">AssessmentItem</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">ASSESSES</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">targetComp</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="p">(</span><span class="n">learner</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">ATTEMPTED</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="w">  </span><span class="n">AND</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="n">difficulty</span><span class="w"> </span><span class="n">BETWEEN</span><span class="w"> </span><span class="err">$</span><span class="n">minDiff</span><span class="w"> </span><span class="n">AND</span><span class="w"> </span><span class="err">$</span><span class="n">maxDiff</span>
+<span class="k">RETURN</span><span class="w"> </span><span class="n">item</span><span class="p">,</span><span class="w"> </span><span class="n">targetComp</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="n">discriminationIndex</span><span class="w"> </span><span class="k">DESC</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="m">5</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="generate-progress-report">Generate Progress Report</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">learner</span><span class="p">:</span><span class="n">Student</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="n">studentId</span><span class="p">})</span><span class="o">-[</span><span class="n">a</span><span class="p">:</span><span class="n">ATTEMPTED</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">item</span><span class="p">:</span><span class="n">AssessmentItem</span><span class="p">)</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">ASSESSES</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">comp</span><span class="p">:</span><span class="n">Competency</span><span class="p">)</span>
+<span class="k">WITH</span><span class="w"> </span><span class="n">comp</span><span class="p">,</span>
+<span class="w">     </span><span class="n">count</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">totalAttempts</span><span class="p">,</span>
+<span class="w">     </span><span class="n">sum</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score</span><span class="w"> </span><span class="p">&gt;=</span><span class="w"> </span><span class="m">0</span><span class="p">.</span><span class="m">7</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="n">ELSE</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">mastered</span><span class="p">,</span>
+<span class="w">     </span><span class="n">avg</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">avgScore</span>
+<span class="k">RETURN</span><span class="w"> </span><span class="n">comp</span><span class="p">.</span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">totalAttempts</span><span class="p">,</span><span class="w"> </span><span class="n">mastered</span><span class="p">,</span><span class="w"> </span><span class="n">avgScore</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">avgScore</span><span class="w"> </span><span class="k">DESC</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="recommend-learning-resources">Recommend Learning Resources</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">learner</span><span class="p">:</span><span class="n">Student</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="n">studentId</span><span class="p">})</span><span class="o">-[</span><span class="n">a</span><span class="p">:</span><span class="n">ATTEMPTED</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">item</span><span class="p">:</span><span class="n">AssessmentItem</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="m">0</span><span class="p">.</span><span class="m">6</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">ASSESSES</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">comp</span><span class="p">:</span><span class="n">Competency</span><span class="p">)</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">resource</span><span class="p">:</span><span class="n">LearningResource</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">TEACHES</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="p">(</span><span class="n">learner</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">COMPLETED</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span>
+<span class="k">RETURN</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">resource</span><span class="p">,</span><span class="w"> </span><span class="n">comp</span><span class="p">,</span>
+<span class="w">       </span><span class="n">count</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">itemsNeedingHelp</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">itemsNeedingHelp</span><span class="w"> </span><span class="k">DESC</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="m">10</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="conclusion">Conclusion</h2>
+<p>The IMS Question and Test Interoperability (QTI) standard represents a mature and comprehensive approach to assessment interoperability in digital learning environments. By providing a standardized format for assessment content, QTI enables:</p>
+<ul>
+<li><strong>Portability</strong>: Content creators can develop assessments once and deploy across multiple platforms</li>
+<li><strong>Investment Protection</strong>: Institutions avoid vendor lock-in and preserve assessment assets</li>
+<li><strong>Innovation</strong>: Standardization enables tool specialization and ecosystem development</li>
+<li><strong>Quality</strong>: Shared best practices and validated items improve assessment effectiveness</li>
+<li><strong>Analytics</strong>: Consistent data formats enable sophisticated learning analytics and research</li>
+</ul>
+<p>When integrated with graph-based learning architectures, QTI assessments become powerful instruments for:
+- Diagnosing learner competencies and gaps
+- Personalizing learning paths based on demonstrated mastery
+- Tracking learning progressions over time
+- Connecting assessment results to competency frameworks
+- Generating actionable insights for learners and educators</p>
+<p>The evolution toward QTI 3.0, with its JSON support and enhanced competency integration, positions the standard well for next-generation learning ecosystems. Combined with <a href="xapi.md">xAPI</a> for experience tracking, <a href="../lrs/">LRS</a> for data persistence, <a href="../rcd/">RCD</a> for competency definition, and <a href="../tla/">TLA</a> for architectural integration, QTI forms a critical component of interoperable, learner-centered educational technology.</p>
+<p>As assessment practices continue to evolve toward competency-based, adaptive, and authentic evaluation methods, QTI provides the technical foundation for innovation while maintaining the interoperability that protects educational investments and enables learner mobility across systems and institutions.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="http://www.imsglobal.org/question/">IMS Global QTI Specification</a> - Official standard documentation</li>
+<li><a href="https://www.imsglobal.org/spec/qti/v3p0/">QTI 3.0 Overview</a> - Latest version specification</li>
+<li><a href="xapi.md">Experience API (xAPI)</a> - Integration with learning records</li>
+<li><a href="../lrs/">Learning Record Store (LRS)</a> - Assessment data persistence</li>
+<li><a href="../rcd/">Reusable Competency Definitions (RCD)</a> - Competency tagging for assessments</li>
+<li><a href="../tla/">Total Learning Architecture (TLA)</a> - Architectural context</li>
+<li>TAO Testing Platform - Open source QTI implementation</li>
+<li>Accessible Portable Item Protocol (APIP) - Accessibility guidelines</li>
+<li>Evidence-Centered Design (ECD) - Assessment design framework</li>
+</ul>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../rcd/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Reusable Competency Definitions (RCD)">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Reusable Competency Definitions (RCD)
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../elr/" class="md-footer__link md-footer__link--next" aria-label="Next: Enterprise Learner Records (ELR)">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Enterprise Learner Records (ELR)
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>
