@@ -1,5 +1,9 @@
 {
     "cSpell.words": [
+        "Autoencoders",
+        "Butterworth",
+        "Chebyshev",
+        "Convolutional",
         "elearning",
         "Moodle",
         "SCORM",
@@ -12,5 +16,18 @@
         "Morelli",
         "Vygotsky",
         "wordcloud"
+        "Ergodicity",
+        "Kalman",
+        "KSAOs",
+        "Multiresolution",
+        "Nyquist",
+        "Phasors",
+        "Polyphase",
+        "SCORM",
+        "Stationarity",
+        "STFT",
+        "Subband",
+        "Undersampling",
+        "xapi"
     ]
 }
