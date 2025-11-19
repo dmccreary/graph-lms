@@ -35,3 +35,5 @@
 16. [ADL TLA Quick-Start Services](https://www.adlnet.gov/guides/tla/service-definitions/#document-scope-and-intended-audience)
 
 17. [Veracity Learning](https://lrs.io/home) - Learning Record Store As a Service. LRS.io is a SaaS LRS with a rich feature set and an excellent free service tier.
+
+18. [TLA CMM](https://www.adlnet.gov/guides/tla/service-definitions/The-TLA-Capability-Maturity-Model.html)
