@@ -1,0 +1,4580 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Graph LMS Design Documents All content licensed Creative Commons ShareAlike Attribution Noncommercial">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/graph-lms/concepts/lam/">
+      
+      
+        <link rel="prev" href="../lrs/">
+      
+      
+        <link rel="next" href="../rcd/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Learning Activity Metadata (LAM) - Graph Learning Management System</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-JLDD8032H6"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-JLDD8032H6",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-JLDD8032H6",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#learning-activity-metadata" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Graph Learning Management System" class="md-header__button md-logo" aria-label="Graph Learning Management System" data-md-component="logo">
+      
+  <img src="../../img/logo-180.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Graph Learning Management System
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Learning Activity Metadata (LAM)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/graph-lms" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Graph Learning Management System" class="md-nav__button md-logo" aria-label="Graph Learning Management System" data-md-component="logo">
+      
+  <img src="../../img/logo-180.png" alt="logo">
+
+    </a>
+    Graph Learning Management System
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/graph-lms" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Concepts
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concept-graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../content-graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Content
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learning-trajectories/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learning Trajectories
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xapi.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Experience API (xAPI)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lrs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learning Record Store (LRS)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Learning Activity Metadata (LAM)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Learning Activity Metadata (LAM)
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-need-for-learning-activity-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Need for Learning Activity Metadata
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Need for Learning Activity Metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-learning-resource-discovery-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Learning Resource Discovery Problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Learning Resource Discovery Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fragmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fragmentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poor-discoverability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Poor Discoverability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Challenges
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-lam-addresses-these-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      How LAM Addresses These Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How LAM Addresses These Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standardized-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standardized Description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rich-semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rich Semantics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#federated-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Federated Discovery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intelligent-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intelligent Matching
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ieee-p2881-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      IEEE P2881 Standard
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IEEE P2881 Standard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Objectives
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship-to-learning-object-metadata-lom" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationship to Learning Object Metadata (LOM)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Relationship to Learning Object Metadata (LOM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-lam-inherits-from-lom" class="md-nav__link">
+    <span class="md-ellipsis">
+      What LAM Inherits from LOM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-lam-enhances-beyond-lom" class="md-nav__link">
+    <span class="md-ellipsis">
+      What LAM Enhances Beyond LOM
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-metadata-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Metadata Elements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Metadata Elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Information
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lifecycle-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lifecycle Information
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technical-specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Specifications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#educational-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Alignment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rights-and-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rights and Access
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationships
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assessment-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment Information
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessibility-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessibility Metadata
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-experience-index-xi" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Experience Index (XI)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Experience Index (XI)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Capabilities
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadata-harvesting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Harvesting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search-and-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search and Discovery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-assurance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Assurance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-tla-pillars" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with TLA Pillars
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration with TLA Pillars">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integration-with-xapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with xAPI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-with-rcd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with RCD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-with-qti" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with QTI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-with-elr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with ELR
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lam-in-graph-based-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      LAM in Graph-Based Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LAM in Graph-Based Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#graph-data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Data Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-query-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Query Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph Query Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-activities-teaching-specific-competency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Find Activities Teaching Specific Competency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discover-learning-pathway" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discover Learning Pathway
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommend-activities-for-learner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommend Activities for Learner
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-alternative-activities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Find Alternative Activities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-coverage-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Coverage Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases-and-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Cases and Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Cases and Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-resource-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Resource Discovery
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Learning Resource Discovery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learner-self-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learner Self-Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intelligent-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intelligent Recommendations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adaptive-learning-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adaptive Learning Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adaptive Learning Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#personalized-pathways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Personalized Pathways
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-sequencing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Sequencing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curriculum-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Curriculum Development
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Curriculum Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#course-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Course Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-assurance_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Assurance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enterprise-learning-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enterprise Learning Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enterprise Learning Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#training-catalog-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Training Catalog Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skills-gap-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skills Gap Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-provider-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Provider Services
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Content Provider Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#content-marketing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Marketing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics-and-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analytics and Insights
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools-and-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools and Platforms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tools and Platforms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadata-authoring-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Authoring Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metadata Authoring Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-object-repository-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Object Repository Systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata-editors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Editors
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experience-index-implementations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Experience Index Implementations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Experience Index Implementations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open Source
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commercial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commercial
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata-harvesting-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Harvesting Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metadata Harvesting Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oai-pmh-harvesters" class="md-nav__link">
+    <span class="md-ellipsis">
+      OAI-PMH Harvesters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#challenges-and-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenges and Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Challenges and Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technical-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadata-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Quality
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scalability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scalability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interoperability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interoperability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizational-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organizational Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Organizational Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Governance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-investment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Investment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adoption-barriers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adoption Barriers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adoption Barriers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cultural-resistance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cultural Resistance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#incentive-misalignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Incentive Misalignment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-assurance_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Assurance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quality Assurance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validation-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation Challenges
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-alignment_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Alignment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-directions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Directions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Future Directions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ai-and-machine-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI and Machine Learning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI and Machine Learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automated-metadata-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automated Metadata Generation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intelligent-enhancement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intelligent Enhancement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semantic-web-and-linked-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Semantic Web and Linked Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semantic Web and Linked Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#knowledge-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Knowledge Graphs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schemaorg-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schema.org Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#personalization-and-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Personalization and Context
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Personalization and Context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learner-centric-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learner-Centric Metadata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Metadata
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expanded-metadata-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expanded Metadata Domains
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Expanded Metadata Domains">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-engineering-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Engineering Metadata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#social-learning-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Social Learning Metadata
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-graph-lms-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with Graph LMS Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration with Graph LMS Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#content-space-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Space Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathway-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pathway Generation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adaptive-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adaptive Recommendations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rcd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reusable Competency Definitions (RCD)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qti/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Question and Test Interoperability (QTI)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Enterprise Learner Records (ELR)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adaptive-assessments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adaptive Assessments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assessment-standards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assessment Standards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../arch/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Architecture
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../view-data-model/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    View Data Model
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../checklist.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Customization Checklist
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tla-glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TLA Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-need-for-learning-activity-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Need for Learning Activity Metadata
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Need for Learning Activity Metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-learning-resource-discovery-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Learning Resource Discovery Problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Learning Resource Discovery Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fragmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fragmentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poor-discoverability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Poor Discoverability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Challenges
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-lam-addresses-these-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      How LAM Addresses These Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How LAM Addresses These Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standardized-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standardized Description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rich-semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rich Semantics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#federated-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Federated Discovery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intelligent-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intelligent Matching
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ieee-p2881-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      IEEE P2881 Standard
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IEEE P2881 Standard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Objectives
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship-to-learning-object-metadata-lom" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationship to Learning Object Metadata (LOM)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Relationship to Learning Object Metadata (LOM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-lam-inherits-from-lom" class="md-nav__link">
+    <span class="md-ellipsis">
+      What LAM Inherits from LOM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-lam-enhances-beyond-lom" class="md-nav__link">
+    <span class="md-ellipsis">
+      What LAM Enhances Beyond LOM
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-metadata-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Metadata Elements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Metadata Elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Information
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lifecycle-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lifecycle Information
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technical-specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Specifications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#educational-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Alignment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rights-and-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rights and Access
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationships
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assessment-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment Information
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessibility-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessibility Metadata
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-experience-index-xi" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Experience Index (XI)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Experience Index (XI)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Capabilities
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadata-harvesting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Harvesting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search-and-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search and Discovery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-assurance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Assurance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-tla-pillars" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with TLA Pillars
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration with TLA Pillars">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integration-with-xapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with xAPI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-with-rcd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with RCD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-with-qti" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with QTI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-with-elr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with ELR
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lam-in-graph-based-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      LAM in Graph-Based Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LAM in Graph-Based Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#graph-data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Data Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-query-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Query Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph Query Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-activities-teaching-specific-competency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Find Activities Teaching Specific Competency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discover-learning-pathway" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discover Learning Pathway
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommend-activities-for-learner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommend Activities for Learner
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-alternative-activities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Find Alternative Activities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-coverage-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Coverage Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases-and-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Cases and Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Cases and Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-resource-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Resource Discovery
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Learning Resource Discovery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learner-self-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learner Self-Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intelligent-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intelligent Recommendations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adaptive-learning-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adaptive Learning Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adaptive Learning Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#personalized-pathways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Personalized Pathways
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-sequencing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Sequencing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curriculum-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Curriculum Development
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Curriculum Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#course-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Course Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-assurance_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Assurance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enterprise-learning-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enterprise Learning Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enterprise Learning Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#training-catalog-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Training Catalog Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skills-gap-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skills Gap Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-provider-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Provider Services
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Content Provider Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#content-marketing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Marketing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics-and-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analytics and Insights
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools-and-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools and Platforms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tools and Platforms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadata-authoring-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Authoring Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metadata Authoring Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-object-repository-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Object Repository Systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata-editors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Editors
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experience-index-implementations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Experience Index Implementations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Experience Index Implementations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open Source
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commercial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commercial
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata-harvesting-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Harvesting Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metadata Harvesting Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oai-pmh-harvesters" class="md-nav__link">
+    <span class="md-ellipsis">
+      OAI-PMH Harvesters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#challenges-and-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenges and Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Challenges and Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technical-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadata-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Quality
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scalability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scalability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interoperability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interoperability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizational-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organizational Challenges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Organizational Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Governance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-investment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Investment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adoption-barriers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adoption Barriers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adoption Barriers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cultural-resistance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cultural Resistance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#incentive-misalignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Incentive Misalignment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-assurance_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Assurance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quality Assurance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validation-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation Challenges
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-alignment_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Alignment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-directions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Directions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Future Directions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ai-and-machine-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI and Machine Learning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI and Machine Learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automated-metadata-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automated Metadata Generation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intelligent-enhancement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intelligent Enhancement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semantic-web-and-linked-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Semantic Web and Linked Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semantic Web and Linked Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#knowledge-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Knowledge Graphs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schemaorg-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schema.org Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#personalization-and-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Personalization and Context
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Personalization and Context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learner-centric-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learner-Centric Metadata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Metadata
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expanded-metadata-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expanded Metadata Domains
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Expanded Metadata Domains">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-engineering-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Engineering Metadata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#social-learning-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Social Learning Metadata
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-graph-lms-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with Graph LMS Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration with Graph LMS Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#content-space-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Space Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathway-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pathway Generation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adaptive-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adaptive Recommendations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="learning-activity-metadata">Learning Activity Metadata</h1>
+<p><strong>IEEE P2881 Standard</strong></p>
+<p><strong>Part of</strong>: <a href="../tla/">Total Learning Architecture</a> - Second Data Pillar</p>
+<h2 id="overview">Overview</h2>
+<p>Learning Activity Metadata (LAM) is one of the four foundational data pillars of the IEEE Total Learning Architecture (TLA). The IEEE P2881 standard defines a comprehensive framework for describing learning activities and their associated content, enabling discovery, recommendation, and interoperability across learning ecosystems.</p>
+<p>While <a href="xapi.md">xAPI</a> captures what learners do, LAM describes what learning opportunities are available. This metadata enables intelligent systems to match learners with appropriate activities, understand relationships between learning resources, and support adaptive learning pathways.</p>
+<p><strong>Focus</strong>: Describing learning activities, resources, and content with rich, structured metadata</p>
+<p><strong>Goal</strong>: Enable discovery, recommendation, and intelligent matching of learning opportunities to learner needs</p>
+<p><strong>Repository</strong>: Experience Index (XI) - the searchable catalog of learning activities</p>
+<h2 id="the-need-for-learning-activity-metadata">The Need for Learning Activity Metadata</h2>
+<h3 id="the-learning-resource-discovery-problem">The Learning Resource Discovery Problem</h3>
+<p>Modern learning ecosystems face significant challenges in managing and discovering learning content:</p>
+<h4 id="fragmentation">Fragmentation</h4>
+<ul>
+<li><strong>Multiple sources</strong>: Content spread across LMS platforms, repositories, vendors, open resources</li>
+<li><strong>Inconsistent descriptions</strong>: Each provider uses different terminology and structure</li>
+<li><strong>No common catalog</strong>: Learners and systems can't search across providers</li>
+<li><strong>Duplicate content</strong>: Same learning objectives taught multiple ways, hard to compare</li>
+</ul>
+<h4 id="poor-discoverability">Poor Discoverability</h4>
+<ul>
+<li><strong>Keyword-only search</strong>: Simple text matching misses semantic relationships</li>
+<li><strong>Missing context</strong>: Can't tell if content matches learner's level, prerequisites, goals</li>
+<li><strong>No personalization</strong>: Search results same for all learners regardless of background</li>
+<li><strong>Hidden relationships</strong>: Unclear which activities are complementary or redundant</li>
+</ul>
+<h4 id="integration-challenges">Integration Challenges</h4>
+<ul>
+<li><strong>Manual data entry</strong>: Learning catalogs require repeated manual input</li>
+<li><strong>No standardization</strong>: Each system has proprietary metadata schemas</li>
+<li><strong>Update burden</strong>: Changes must be propagated across multiple systems</li>
+<li><strong>Limited semantics</strong>: Difficult to reason about content relationships</li>
+</ul>
+<h3 id="how-lam-addresses-these-challenges">How LAM Addresses These Challenges</h3>
+<p>Learning Activity Metadata provides:</p>
+<h4 id="standardized-description">Standardized Description</h4>
+<ul>
+<li>Common vocabulary and schema for all learning resources</li>
+<li>Consistent field definitions across providers</li>
+<li>Extensible framework for domain-specific needs</li>
+<li>Machine-readable format for automated processing</li>
+</ul>
+<h4 id="rich-semantics">Rich Semantics</h4>
+<ul>
+<li>Detailed competency alignment via <a href="../rcd/">RCD</a> references</li>
+<li>Prerequisite and learning outcome relationships</li>
+<li>Difficulty levels and typical learning times</li>
+<li>Multiple categorization schemes</li>
+</ul>
+<h4 id="federated-discovery">Federated Discovery</h4>
+<ul>
+<li>The Experience Index aggregates metadata from multiple sources</li>
+<li>Learners search once, find content anywhere</li>
+<li>Providers maintain control of their content</li>
+<li>Real-time updates propagate automatically</li>
+</ul>
+<h4 id="intelligent-matching">Intelligent Matching</h4>
+<ul>
+<li>Systems can recommend content based on learner profiles</li>
+<li>Adaptive pathways use metadata to sequence activities</li>
+<li>Gap analysis identifies missing learning opportunities</li>
+<li>Competency-based search finds activities teaching specific skills</li>
+</ul>
+<h2 id="ieee-p2881-standard">IEEE P2881 Standard</h2>
+<p>The IEEE P2881 standard builds upon the foundation of Learning Object Metadata (LOM - IEEE 1484.12.1) while addressing modern requirements for granularity, competency alignment, and system interoperability.</p>
+<h3 id="standard-objectives">Standard Objectives</h3>
+<ol>
+<li><strong>Comprehensive Description</strong>: Capture all relevant characteristics of learning activities</li>
+<li><strong>Interoperability</strong>: Enable exchange across systems and organizations</li>
+<li><strong>Discovery</strong>: Support sophisticated search and recommendation</li>
+<li><strong>Granularity</strong>: Describe activities at multiple levels (courses, modules, lessons, interactions)</li>
+<li><strong>Extensibility</strong>: Allow domain-specific metadata additions</li>
+<li><strong>Integration</strong>: Connect to other TLA pillars (xAPI, RCD, ELR)</li>
+</ol>
+<h3 id="relationship-to-learning-object-metadata-lom">Relationship to Learning Object Metadata (LOM)</h3>
+<p>Learning Object Metadata (IEEE 1484.12.1) was the pioneering standard for educational resource description, established in 2002. LAM builds on LOM's foundation while modernizing for contemporary needs:</p>
+<h4 id="what-lam-inherits-from-lom">What LAM Inherits from LOM</h4>
+<p><strong>Core Categories</strong>:
+- <strong>General</strong>: Title, language, description, keywords
+- <strong>Lifecycle</strong>: Version, status, contributors
+- <strong>Technical</strong>: Format, size, location, requirements
+- <strong>Educational</strong>: Learning resource type, intended audience, difficulty
+- <strong>Rights</strong>: Cost, copyright, terms of use
+- <strong>Relation</strong>: Links to other learning objects
+- <strong>Annotation</strong>: Comments and reviews
+- <strong>Classification</strong>: Taxonomic categorization</p>
+<h4 id="what-lam-enhances-beyond-lom">What LAM Enhances Beyond LOM</h4>
+<p><strong>Competency Integration</strong>:
+- Native support for <a href="../rcd/">RCD</a> competency frameworks
+- Explicit prerequisite competencies
+- Learning outcome competencies with proficiency levels
+- Multiple competency framework alignment</p>
+<p><strong>Activity Modeling</strong>:
+- Detailed activity types beyond static content
+- Expected learner interactions
+- Assessment types and scoring models
+- Collaboration and social learning metadata</p>
+<p><strong>TLA Integration</strong>:
+- xAPI activity identifiers for tracking
+- Links to assessment items (<a href="../qti/">QTI</a>)
+- Credential relationships (<a href="../elr/">ELR</a>)
+- Discovery and recommendation metadata</p>
+<p><strong>Modern Technical Metadata</strong>:
+- API endpoints and integration methods
+- Adaptive behavior specifications
+- Accessibility features (WCAG, APIP)
+- Mobile and responsive design indicators</p>
+<h2 id="core-metadata-elements">Core Metadata Elements</h2>
+<p>LAM organizes metadata into logical categories:</p>
+<h3 id="general-information">General Information</h3>
+<p><strong>Required Fields</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:uuid:activity-12345&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Introduction to Python Programming&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;es&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Introducción a la Programación en Python&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;language&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;en&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;es&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Learn Python fundamentals including variables, control structures, functions, and basic data structures&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;keywords&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;programming&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;computer science&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;coding&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;beginner&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Optional Fields</strong>:
+- <strong>Coverage</strong>: Time period, geographic scope, or topic range
+- <strong>Structure</strong>: Atomic, collection, networked, hierarchical
+- <strong>Aggregation Level</strong>: 1 (raw media) to 4 (course/program)</p>
+<h3 id="lifecycle-information">Lifecycle Information</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.1&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;final&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;contributors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;author&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;entity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Dr. Jane Smith&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-01-15&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;instructional_designer&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;entity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Learning Design Team&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-02-01&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="technical-specifications">Technical Specifications</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;text/html&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2457600</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://learning.example.com/activities/python-intro&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;requirements&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;browser&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Chrome 90+&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Firefox 88+&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Safari 14+&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;plugins&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="nt">&quot;bandwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1 Mbps minimum&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;installationRemarks&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;No installation required - web-based&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;platform&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;web&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;mobile&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;tablet&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PT2H30M&quot;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="educational-characteristics">Educational Characteristics</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;learningResourceType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;interactive_tutorial&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;interactivityType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;active&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;interactivityLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;high&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;intendedEndUserRole&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;learner&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;self-directed&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;higher_education&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;professional_development&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;typicalAgeRange&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;18-65&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;difficulty&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;beginner&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;typicalLearningTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PT2H30M&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hands-on introduction with interactive coding exercises and immediate feedback&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;language&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en&quot;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="competency-alignment">Competency Alignment</h3>
+<p>This is where LAM integrates deeply with <a href="../rcd/">RCD</a>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;prerequisites&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;competency&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:rcd:basic-computer-literacy&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;minimumLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;proficient&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;framework&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IEEE 1484.20.1&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;teaches&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;competency&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:rcd:python-syntax&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;targetLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;proficient&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;framework&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IEEE 1484.20.1&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;bloomLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;apply&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;competency&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:rcd:python-control-structures&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;targetLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;proficient&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;framework&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IEEE 1484.20.1&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;bloomLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;analyze&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;assesses&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;competency&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:rcd:python-syntax&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;assessmentType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;formative&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;qtiReference&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:qti:python-syntax-quiz-01&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="rights-and-access">Rights and Access</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;cost&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;no&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;copyrightAndOtherRestrictions&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yes&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;license&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Creative Commons&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://creativecommons.org/licenses/by-sa/4.0/&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CC BY-SA 4.0&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;accessRights&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;requiresAuthentication&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;requiresPayment&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;accessibilityFeatures&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;captions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;transcripts&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;keyboard_navigation&quot;</span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="relationships">Relationships</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;isPartOf&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:uuid:course-cs101&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;hasVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:uuid:activity-12345-v1&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;isVersionOf&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:uuid:activity-12345-original&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;isRequiredBy&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:uuid:activity-python-advanced&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:uuid:activity-computer-basics&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;isReferencedBy&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;urn:uuid:pathway-web-development&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;references&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;supplemental&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://docs.python.org/3/&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="assessment-information">Assessment Information</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;hasAssessment&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;assessmentTypes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;formative&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;summative&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;assessmentFormat&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;qti_3.0&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;assessmentLocation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://assessment.example.com/python-intro-final&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;passingScore&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.70</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;maxAttempts&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;timeLimit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PT60M&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;providesCredential&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;badge&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:badge:python-basics&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="accessibility-metadata">Accessibility Metadata</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;accessMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;textual&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;visual&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;auditory&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;accessModeSufficient&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;textual,visual&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;auditory,textual&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;accessibilityFeature&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;captions&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;transcripts&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;audioDescription&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;largePrint&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;highContrast&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;keyboardNavigation&quot;</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;accessibilityHazard&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;noFlashing&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;noSound&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;accessibilityAPI&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ARIA&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;wcagLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AA&quot;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="the-experience-index-xi">The Experience Index (XI)</h2>
+<p>The Experience Index is the TLA's searchable repository for learning activity metadata. Think of it as a "learning opportunity search engine" that federates content across multiple providers.</p>
+<h3 id="architecture">Architecture</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code>┌─────────────────────────────────────────────────────────┐
+│                   Experience Index (XI)                  │
+│                                                           │
+│  ┌─────────────────────────────────────────────────┐   │
+│  │         Metadata Aggregation Layer              │   │
+│  │  - Harvest from multiple sources                │   │
+│  │  - Normalize to P2881 schema                    │   │
+│  │  - Validate and quality check                   │   │
+│  └─────────────────────────────────────────────────┘   │
+│                         │                                │
+│  ┌─────────────────────────────────────────────────┐   │
+│  │           Search &amp; Discovery Engine             │   │
+│  │  - Full-text search                             │   │
+│  │  - Faceted navigation                           │   │
+│  │  - Semantic search                              │   │
+│  │  - Competency-based filtering                   │   │
+│  └─────────────────────────────────────────────────┘   │
+│                         │                                │
+│  ┌─────────────────────────────────────────────────┐   │
+│  │         Recommendation Engine                    │   │
+│  │  - Learner profile matching                     │   │
+│  │  - Collaborative filtering                      │   │
+│  │  - Content-based recommendations                │   │
+│  │  - Adaptive pathway generation                  │   │
+│  └─────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────┘
+              │              │              │
+      ┌───────┴──────┬───────┴──────┬──────┴───────┐
+      │              │              │              │
+  ┌───▼───┐      ┌──▼───┐      ┌──▼───┐      ┌──▼───┐
+  │ LMS A │      │ LMS B│      │Vendor│      │  OER │
+  │Content│      │Content│     │Content│     │Repos │
+  └───────┘      └──────┘      └──────┘      └──────┘
+</code></pre></div></td></tr></table></div>
+<h3 id="key-capabilities">Key Capabilities</h3>
+<h4 id="metadata-harvesting">Metadata Harvesting</h4>
+<ul>
+<li><strong>OAI-PMH</strong>: Open Archives Initiative Protocol for Metadata Harvesting</li>
+<li><strong>REST APIs</strong>: Modern API-based metadata exchange</li>
+<li><strong>Scheduled sync</strong>: Periodic updates from source systems</li>
+<li><strong>Change notifications</strong>: Real-time updates for modified content</li>
+</ul>
+<h4 id="search-and-discovery">Search and Discovery</h4>
+<ul>
+<li><strong>Full-text search</strong>: Search across all metadata fields</li>
+<li><strong>Faceted navigation</strong>: Filter by type, difficulty, duration, etc.</li>
+<li><strong>Semantic search</strong>: Understand intent and relationships</li>
+<li><strong>Competency-based</strong>: Find activities teaching specific skills</li>
+<li><strong>Prerequisite-aware</strong>: Show only activities learner is ready for</li>
+</ul>
+<h4 id="quality-assurance">Quality Assurance</h4>
+<ul>
+<li><strong>Metadata validation</strong>: Ensure conformance to P2881</li>
+<li><strong>Completeness scoring</strong>: Identify gaps in metadata</li>
+<li><strong>Consistency checking</strong>: Flag contradictions</li>
+<li><strong>Link validation</strong>: Verify URLs and references</li>
+</ul>
+<h2 id="integration-with-tla-pillars">Integration with TLA Pillars</h2>
+<p>LAM serves as the connective tissue linking all TLA components:</p>
+<h3 id="integration-with-xapi">Integration with xAPI</h3>
+<p>LAM provides the activity definitions that xAPI statements reference:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;actor&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;mbox&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mailto:learner@example.com&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;verb&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/verbs/completed&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:uuid:activity-12345&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Introduction to Python Programming&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Learn Python fundamentals...&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/activities/course&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;http://example.com/lam/metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;competencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;urn:rcd:python-syntax&quot;</span><span class="p">],</span>
+<span class="w">          </span><span class="nt">&quot;difficulty&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;beginner&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PT2H30M&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Benefits</strong>:
+- xAPI statements include rich context from LAM
+- LRS can filter/analyze by activity characteristics
+- Reporting systems understand what activities represent</p>
+<h3 id="integration-with-rcd">Integration with RCD</h3>
+<p>LAM explicitly links activities to competencies:</p>
+<p><strong>Activity teaches competencies</strong> → Learners acquire competencies through activities</p>
+<p><strong>Flow</strong>:
+1. LAM describes which competencies an activity teaches
+2. Learner completes activity (tracked via xAPI)
+3. System infers competency achievement
+4. <a href="../elr/">ELR</a> credential issued with evidence</p>
+<h3 id="integration-with-qti">Integration with QTI</h3>
+<p>LAM references assessments that measure learning:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;assessments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;formative&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:qti:python-checkpoint-01&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://assessment.example.com/qti/python-01.xml&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;competenciesAssessed&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;urn:rcd:python-syntax&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;summative&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:qti:python-final-exam&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://assessment.example.com/qti/python-final.xml&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;weight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.40</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;passingScore&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.70</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="integration-with-elr">Integration with ELR</h3>
+<p>LAM specifies what credentials activities can lead to:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;credentials&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;badge&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:badge:python-basics&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;issuer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://university.edu&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;criteria&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;completionRequired&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;minimumScore&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.80</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;timeLimit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;P90D&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="lam-in-graph-based-systems">LAM in Graph-Based Systems</h2>
+<p>Graph databases provide powerful capabilities for managing and querying learning activity metadata:</p>
+<h3 id="graph-data-model">Graph Data Model</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;activity:python-intro&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LearningActivity&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Introduction to Python&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;difficulty&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;beginner&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;interactive&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;comp:python-syntax&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Competency&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Python Syntax&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;comp:computer-basics&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Competency&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Computer Basics&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;activity:python-advanced&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LearningActivity&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Advanced Python&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;difficulty&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;advanced&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;edges&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;activity:python-intro&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;comp:python-syntax&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TEACHES&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;proficiencyLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;proficient&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;comp:computer-basics&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;activity:python-intro&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PREREQUISITE_FOR&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;activity:python-intro&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;activity:python-advanced&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PREPARES_FOR&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="graph-query-examples">Graph Query Examples</h3>
+<h4 id="find-activities-teaching-specific-competency">Find Activities Teaching Specific Competency</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">activity</span><span class="p">:</span><span class="n">LearningActivity</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">TEACHES</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">comp</span><span class="p">:</span><span class="n">Competency</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">comp</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="err">$</span><span class="n">competencyId</span>
+<span class="w">  </span><span class="n">AND</span><span class="w"> </span><span class="n">activity</span><span class="p">.</span><span class="n">difficulty</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="err">$</span><span class="n">difficultyLevel</span>
+<span class="k">RETURN</span><span class="w"> </span><span class="n">activity</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">activity</span><span class="p">.</span><span class="n">rating</span><span class="w"> </span><span class="k">DESC</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="m">10</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="discover-learning-pathway">Discover Learning Pathway</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">MATCH</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="k">start</span><span class="p">:</span><span class="n">LearningActivity</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">PREPARES_FOR</span><span class="p">*</span><span class="m">1</span><span class="p">..</span><span class="m">5</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">target</span><span class="p">:</span><span class="n">LearningActivity</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="k">start</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="err">$</span><span class="n">currentActivity</span>
+<span class="w">  </span><span class="n">AND</span><span class="w"> </span><span class="n">target</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="err">$</span><span class="n">goalActivity</span>
+<span class="k">RETURN</span><span class="w"> </span><span class="n">path</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">length</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="m">3</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="recommend-activities-for-learner">Recommend Activities for Learner</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">learner</span><span class="p">:</span><span class="n">Learner</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="n">learnerId</span><span class="p">})</span><span class="o">-[</span><span class="p">:</span><span class="n">HAS_MASTERED</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">masteredComp</span><span class="p">:</span><span class="n">Competency</span><span class="p">)</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">activity</span><span class="p">:</span><span class="n">LearningActivity</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">REQUIRES</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">prereq</span><span class="p">:</span><span class="n">Competency</span><span class="p">)</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">activity</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">TEACHES</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">targetComp</span><span class="p">:</span><span class="n">Competency</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">prereq</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">collect</span><span class="p">(</span><span class="n">masteredComp</span><span class="p">)</span>
+<span class="w">  </span><span class="n">AND</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="p">(</span><span class="n">learner</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">HAS_MASTERED</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">targetComp</span><span class="p">)</span>
+<span class="w">  </span><span class="n">AND</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="p">(</span><span class="n">learner</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">HAS_COMPLETED</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">activity</span><span class="p">)</span>
+<span class="k">WITH</span><span class="w"> </span><span class="n">activity</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">targetComp</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">newCompetencies</span>
+<span class="k">RETURN</span><span class="w"> </span><span class="n">activity</span><span class="p">,</span><span class="w"> </span><span class="n">newCompetencies</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">newCompetencies</span><span class="w"> </span><span class="k">DESC</span><span class="p">,</span><span class="w"> </span><span class="n">activity</span><span class="p">.</span><span class="n">rating</span><span class="w"> </span><span class="k">DESC</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="m">5</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="find-alternative-activities">Find Alternative Activities</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">activity</span><span class="p">:</span><span class="n">LearningActivity</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="n">activityId</span><span class="p">})</span><span class="o">-[</span><span class="p">:</span><span class="n">TEACHES</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">comp</span><span class="p">:</span><span class="n">Competency</span><span class="p">)</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">alternative</span><span class="p">:</span><span class="n">LearningActivity</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">TEACHES</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">alternative</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="p">&lt;&gt;</span><span class="w"> </span><span class="n">activity</span><span class="p">.</span><span class="n">id</span>
+<span class="w">  </span><span class="n">AND</span><span class="w"> </span><span class="n">alternative</span><span class="p">.</span><span class="n">difficulty</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">activity</span><span class="p">.</span><span class="n">difficulty</span>
+<span class="k">WITH</span><span class="w"> </span><span class="n">alternative</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">sharedCompetencies</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">sharedCompetencies</span><span class="w"> </span><span class="k">DESC</span>
+<span class="k">RETURN</span><span class="w"> </span><span class="n">alternative</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="m">5</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="competency-coverage-analysis">Competency Coverage Analysis</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">comp</span><span class="p">:</span><span class="n">Competency</span><span class="p">)</span><span class="o">&lt;-[</span><span class="p">:</span><span class="n">REQUIRES</span><span class="o">]-</span><span class="p">(</span><span class="n">job</span><span class="p">:</span><span class="n">JobRole</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">job</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="err">$</span><span class="n">jobRoleId</span>
+<span class="k">OPTIONAL</span><span class="w"> </span><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">activity</span><span class="p">:</span><span class="n">LearningActivity</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">TEACHES</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span>
+<span class="k">RETURN</span><span class="w"> </span><span class="n">comp</span><span class="p">.</span><span class="n">title</span><span class="p">,</span>
+<span class="w">       </span><span class="n">count</span><span class="p">(</span><span class="n">activity</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">activitiesAvailable</span><span class="p">,</span>
+<span class="w">       </span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">count</span><span class="p">(</span><span class="n">activity</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s">&#39;Gap&#39;</span><span class="w"> </span><span class="n">ELSE</span><span class="w"> </span><span class="s">&#39;Covered&#39;</span><span class="w"> </span><span class="k">END</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">status</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">activitiesAvailable</span><span class="w"> </span><span class="k">ASC</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="use-cases-and-applications">Use Cases and Applications</h2>
+<h3 id="learning-resource-discovery">Learning Resource Discovery</h3>
+<h4 id="learner-self-service">Learner Self-Service</h4>
+<ul>
+<li><strong>Browse catalog</strong>: Explore available learning opportunities</li>
+<li><strong>Search by topic</strong>: Find activities on specific subjects</li>
+<li><strong>Filter by characteristics</strong>: Duration, difficulty, format, language</li>
+<li><strong>Preview content</strong>: See descriptions, objectives, reviews</li>
+</ul>
+<h4 id="intelligent-recommendations">Intelligent Recommendations</h4>
+<ul>
+<li><strong>Personalized suggestions</strong>: Based on learner profile and goals</li>
+<li><strong>Next best activity</strong>: What to learn next in pathway</li>
+<li><strong>Similar content</strong>: Activities related to current interests</li>
+<li><strong>Gap filling</strong>: Activities addressing skill deficiencies</li>
+</ul>
+<h3 id="adaptive-learning-systems">Adaptive Learning Systems</h3>
+<h4 id="personalized-pathways">Personalized Pathways</h4>
+<ul>
+<li><strong>Goal-based</strong>: Generate pathway from current state to target competencies</li>
+<li><strong>Prerequisite-aware</strong>: Only suggest activities learner is ready for</li>
+<li><strong>Multi-path options</strong>: Provide alternative routes to same goal</li>
+<li><strong>Dynamic adjustment</strong>: Adapt based on performance and preferences</li>
+</ul>
+<h4 id="content-sequencing">Content Sequencing</h4>
+<ul>
+<li><strong>Difficulty progression</strong>: Gradually increase challenge level</li>
+<li><strong>Competency building</strong>: Ensure prerequisites before advanced topics</li>
+<li><strong>Spaced repetition</strong>: Revisit concepts at optimal intervals</li>
+<li><strong>Variety</strong>: Mix formats and interaction types</li>
+</ul>
+<h3 id="curriculum-development">Curriculum Development</h3>
+<h4 id="course-design">Course Design</h4>
+<ul>
+<li><strong>Resource discovery</strong>: Find existing content to incorporate</li>
+<li><strong>Gap identification</strong>: Identify missing content for competencies</li>
+<li><strong>Sequencing assistance</strong>: Order activities logically</li>
+<li><strong>Competency mapping</strong>: Align curriculum to standards</li>
+</ul>
+<h4 id="quality-assurance_1">Quality Assurance</h4>
+<ul>
+<li><strong>Completeness checking</strong>: Ensure all competencies covered</li>
+<li><strong>Redundancy detection</strong>: Identify duplicate content</li>
+<li><strong>Accessibility audit</strong>: Verify universal design compliance</li>
+<li><strong>Metadata quality</strong>: Validate descriptions and classifications</li>
+</ul>
+<h3 id="enterprise-learning-management">Enterprise Learning Management</h3>
+<h4 id="training-catalog-management">Training Catalog Management</h4>
+<ul>
+<li><strong>Centralized catalog</strong>: Single source of truth for all training</li>
+<li><strong>Federated content</strong>: Aggregate from multiple providers</li>
+<li><strong>Compliance tracking</strong>: Ensure required training available</li>
+<li><strong>Vendor management</strong>: Track external content sources</li>
+</ul>
+<h4 id="skills-gap-analysis">Skills Gap Analysis</h4>
+<ul>
+<li><strong>Job role requirements</strong>: What competencies each role needs</li>
+<li><strong>Employee current state</strong>: What competencies employees have</li>
+<li><strong>Gap identification</strong>: What training is needed</li>
+<li><strong>Resource availability</strong>: What activities teach missing competencies</li>
+</ul>
+<h3 id="content-provider-services">Content Provider Services</h3>
+<h4 id="content-marketing">Content Marketing</h4>
+<ul>
+<li><strong>Discoverability</strong>: Make content findable in Experience Index</li>
+<li><strong>Rich descriptions</strong>: Detailed metadata attracts learners</li>
+<li><strong>Competency alignment</strong>: Show what skills content teaches</li>
+<li><strong>Reviews and ratings</strong>: Social proof of quality</li>
+</ul>
+<h4 id="analytics-and-insights">Analytics and Insights</h4>
+<ul>
+<li><strong>Usage patterns</strong>: Which content is most used</li>
+<li><strong>Completion rates</strong>: How many finish activities</li>
+<li><strong>Effectiveness</strong>: Do learners achieve intended outcomes</li>
+<li><strong>Market trends</strong>: What topics are in demand</li>
+</ul>
+<h2 id="tools-and-platforms">Tools and Platforms</h2>
+<h3 id="metadata-authoring-tools">Metadata Authoring Tools</h3>
+<h4 id="learning-object-repository-systems">Learning Object Repository Systems</h4>
+<ul>
+<li><strong>DSpace</strong>: Open-source repository with LOM support</li>
+<li><strong>Fedora Commons</strong>: Flexible digital object repository</li>
+<li><strong>CONTENTdm</strong>: Digital collection management</li>
+<li><strong>Equella</strong>: Learning content management system</li>
+</ul>
+<h4 id="metadata-editors">Metadata Editors</h4>
+<ul>
+<li><strong>LOM Editor</strong>: Specialized tools for creating LOM/LAM records</li>
+<li><strong>Dublin Core Metadata Editor</strong>: Generic metadata authoring</li>
+<li><strong>Custom forms</strong>: Web-based forms for specific schemas</li>
+<li><strong>Bulk import tools</strong>: Spreadsheet or CSV-based metadata creation</li>
+</ul>
+<h3 id="experience-index-implementations">Experience Index Implementations</h3>
+<h4 id="open-source">Open Source</h4>
+<ul>
+<li><strong>Apache Solr</strong>: Search platform with custom schema support</li>
+<li><strong>Elasticsearch</strong>: Distributed search and analytics</li>
+<li><strong>Federated search platforms</strong>: Aggregate across multiple repositories</li>
+<li><strong>Learning Registry</strong>: Node-based learning resource metadata exchange</li>
+</ul>
+<h4 id="commercial">Commercial</h4>
+<ul>
+<li><strong>Learning Content Management Systems</strong>: Built-in cataloging</li>
+<li><strong>Enterprise search platforms</strong>: Configured for learning content</li>
+<li><strong>Recommendation engines</strong>: ML-powered content suggestions</li>
+</ul>
+<h3 id="metadata-harvesting-tools">Metadata Harvesting Tools</h3>
+<h4 id="oai-pmh-harvesters">OAI-PMH Harvesters</h4>
+<ul>
+<li><strong>OAI Harvester</strong>: Python-based harvesting tool</li>
+<li><strong>PKP Harvester</strong>: Part of Public Knowledge Project suite</li>
+<li><strong>Jorum OAI Harvester</strong>: UK-based learning resource harvester</li>
+</ul>
+<h4 id="api-integration">API Integration</h4>
+<ul>
+<li><strong>Custom adapters</strong>: Connect to proprietary systems</li>
+<li><strong>ETL tools</strong>: Extract, transform, load metadata</li>
+<li><strong>Middleware platforms</strong>: Integration hubs for metadata exchange</li>
+</ul>
+<h2 id="challenges-and-considerations">Challenges and Considerations</h2>
+<h3 id="technical-challenges">Technical Challenges</h3>
+<h4 id="metadata-quality">Metadata Quality</h4>
+<ul>
+<li><strong>Incomplete records</strong>: Many resources lack full metadata</li>
+<li><strong>Inconsistent data</strong>: Different interpretations of fields</li>
+<li><strong>Outdated information</strong>: Metadata not maintained over time</li>
+<li><strong>Copy-paste errors</strong>: Duplicated or incorrect values</li>
+</ul>
+<h4 id="scalability">Scalability</h4>
+<ul>
+<li><strong>Large catalogs</strong>: Millions of learning resources to index</li>
+<li><strong>Real-time updates</strong>: Changes must propagate quickly</li>
+<li><strong>Search performance</strong>: Fast results despite complex queries</li>
+<li><strong>Storage requirements</strong>: Rich metadata increases database size</li>
+</ul>
+<h4 id="interoperability">Interoperability</h4>
+<ul>
+<li><strong>Schema variations</strong>: Different interpretations of P2881</li>
+<li><strong>Extension conflicts</strong>: Proprietary additions reduce portability</li>
+<li><strong>Version management</strong>: P2881, LOM, Dublin Core coexistence</li>
+<li><strong>Encoding issues</strong>: Character sets and internationalization</li>
+</ul>
+<h3 id="organizational-challenges">Organizational Challenges</h3>
+<h4 id="governance">Governance</h4>
+<ul>
+<li><strong>Authority</strong>: Who controls metadata standards and quality</li>
+<li><strong>Ownership</strong>: Who maintains metadata for shared resources</li>
+<li><strong>Policies</strong>: Consistent rules across organization</li>
+<li><strong>Enforcement</strong>: Ensuring compliance with standards</li>
+</ul>
+<h4 id="resource-investment">Resource Investment</h4>
+<ul>
+<li><strong>Initial effort</strong>: Retrospective metadata creation is expensive</li>
+<li><strong>Ongoing maintenance</strong>: Resources must be updated regularly</li>
+<li><strong>Training</strong>: Content creators need metadata literacy</li>
+<li><strong>Tools</strong>: Systems for authoring and managing metadata</li>
+</ul>
+<h3 id="adoption-barriers">Adoption Barriers</h3>
+<h4 id="cultural-resistance">Cultural Resistance</h4>
+<ul>
+<li><strong>Extra work</strong>: Metadata creation seen as burden</li>
+<li><strong>Value unclear</strong>: Benefits not immediately visible</li>
+<li><strong>Complexity</strong>: Standards seem overwhelming</li>
+<li><strong>Change fatigue</strong>: Another new system to learn</li>
+</ul>
+<h4 id="incentive-misalignment">Incentive Misalignment</h4>
+<ul>
+<li><strong>Individual effort, collective benefit</strong>: Metadata helps others more than creator</li>
+<li><strong>Time pressure</strong>: Deadlines prioritize content over metadata</li>
+<li><strong>Reward systems</strong>: Promotions don't recognize metadata contributions</li>
+<li><strong>Vendor interests</strong>: Proprietary systems preferred over interoperable metadata</li>
+</ul>
+<h3 id="quality-assurance_2">Quality Assurance</h3>
+<h4 id="validation-challenges">Validation Challenges</h4>
+<ul>
+<li><strong>Automated checking</strong>: Limited to syntax, not semantics</li>
+<li><strong>Subjective fields</strong>: Difficulty, quality assessments vary</li>
+<li><strong>Context sensitivity</strong>: Same content different difficulty for different learners</li>
+<li><strong>Continuous evolution</strong>: Content changes, metadata must track</li>
+</ul>
+<h4 id="competency-alignment_1">Competency Alignment</h4>
+<ul>
+<li><strong>Framework selection</strong>: Which competency framework to use</li>
+<li><strong>Mapping precision</strong>: How granular should alignment be</li>
+<li><strong>Multiple frameworks</strong>: Content may align to several standards</li>
+<li><strong>Validation</strong>: Verifying claimed competency teaching</li>
+</ul>
+<h2 id="future-directions">Future Directions</h2>
+<h3 id="ai-and-machine-learning">AI and Machine Learning</h3>
+<h4 id="automated-metadata-generation">Automated Metadata Generation</h4>
+<ul>
+<li><strong>NLP extraction</strong>: Derive metadata from content analysis</li>
+<li><strong>Image recognition</strong>: Classify visual content automatically</li>
+<li><strong>Speech-to-text</strong>: Generate transcripts and descriptions</li>
+<li><strong>Quality prediction</strong>: Estimate effectiveness from characteristics</li>
+</ul>
+<h4 id="intelligent-enhancement">Intelligent Enhancement</h4>
+<ul>
+<li><strong>Competency inference</strong>: Suggest competency alignments</li>
+<li><strong>Relationship discovery</strong>: Find prerequisites and sequencing</li>
+<li><strong>Difficulty estimation</strong>: Predict from content analysis</li>
+<li><strong>Personalized descriptions</strong>: Adapt explanations to learner level</li>
+</ul>
+<h3 id="semantic-web-and-linked-data">Semantic Web and Linked Data</h3>
+<h4 id="knowledge-graphs">Knowledge Graphs</h4>
+<ul>
+<li><strong>LOD Cloud integration</strong>: Link to external knowledge bases</li>
+<li><strong>Semantic relationships</strong>: Rich, inferrable connections</li>
+<li><strong>Federated queries</strong>: Search across institutional boundaries</li>
+<li><strong>Ontology-based reasoning</strong>: Derive implicit relationships</li>
+</ul>
+<h4 id="schemaorg-integration">Schema.org Integration</h4>
+<ul>
+<li><strong>Web discovery</strong>: Make learning content findable by search engines</li>
+<li><strong>Structured data</strong>: Rich snippets in search results</li>
+<li><strong>Cross-domain linking</strong>: Connect education to careers, jobs</li>
+<li><strong>Ecosystem growth</strong>: Broader adoption drives network effects</li>
+</ul>
+<h3 id="personalization-and-context">Personalization and Context</h3>
+<h4 id="learner-centric-metadata">Learner-Centric Metadata</h4>
+<ul>
+<li><strong>Adaptive descriptions</strong>: Different explanations for different learners</li>
+<li><strong>Context-aware recommendations</strong>: Consider time, location, device</li>
+<li><strong>Affective metadata</strong>: Describe emotional engagement potential</li>
+<li><strong>Motivation alignment</strong>: Match to learner's intrinsic interests</li>
+</ul>
+<h4 id="dynamic-metadata">Dynamic Metadata</h4>
+<ul>
+<li><strong>Real-time updates</strong>: Metadata changes based on usage patterns</li>
+<li><strong>A/B testing</strong>: Multiple descriptions, optimize for engagement</li>
+<li><strong>Crowd-sourced enhancement</strong>: Learners contribute tags, reviews</li>
+<li><strong>Predictive metadata</strong>: Forecasted completion rates, satisfaction</li>
+</ul>
+<h3 id="expanded-metadata-domains">Expanded Metadata Domains</h3>
+<h4 id="learning-engineering-metadata">Learning Engineering Metadata</h4>
+<ul>
+<li><strong>Evidence-based design</strong>: Research supporting approach</li>
+<li><strong>Cognitive load indicators</strong>: Expected mental effort</li>
+<li><strong>Learning science principles</strong>: Techniques employed</li>
+<li><strong>Effectiveness data</strong>: Empirical outcomes</li>
+</ul>
+<h4 id="social-learning-metadata">Social Learning Metadata</h4>
+<ul>
+<li><strong>Collaboration features</strong>: Group work, peer interaction</li>
+<li><strong>Community aspects</strong>: Discussion forums, social networks</li>
+<li><strong>Mentorship</strong>: Human support availability</li>
+<li><strong>Cultural context</strong>: Geographic, linguistic, social relevance</li>
+</ul>
+<h2 id="integration-with-graph-lms-architecture">Integration with Graph LMS Architecture</h2>
+<p>LAM provides the discovery and recommendation layer for graph-based learning systems:</p>
+<h3 id="content-space-definition">Content Space Definition</h3>
+<p>In a graph LMS, LAM defines the "content space" - all possible learning activities:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Create activity with full metadata</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="p">(</span><span class="n">activity</span><span class="p">:</span><span class="n">LearningActivity</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;activity:python-intro&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">title</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Introduction to Python&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Learn Python fundamentals...&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">difficulty</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;beginner&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">duration</span><span class="p">:</span><span class="w"> </span><span class="m">150</span><span class="p">,</span>
+<span class="w">  </span><span class="n">format</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;interactive&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">language</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;en&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">license</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;CC-BY-SA-4.0&#39;</span>
+<span class="p">})</span>
+
+<span class="c1">// Link to competencies taught</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">activity</span><span class="p">:</span><span class="n">LearningActivity</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;activity:python-intro&#39;</span><span class="p">})</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">comp</span><span class="p">:</span><span class="n">Competency</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;comp:python-syntax&#39;</span><span class="p">})</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="p">(</span><span class="n">activity</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">TEACHES</span><span class="w"> </span><span class="p">{</span><span class="n">level</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;proficient&#39;</span><span class="p">}</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span>
+
+<span class="c1">// Link to prerequisites</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">activity</span><span class="p">:</span><span class="n">LearningActivity</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;activity:python-intro&#39;</span><span class="p">})</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">prereq</span><span class="p">:</span><span class="n">Competency</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;comp:computer-basics&#39;</span><span class="p">})</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="p">(</span><span class="n">activity</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">REQUIRES</span><span class="w"> </span><span class="p">{</span><span class="n">minimumLevel</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;basic&#39;</span><span class="p">}</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">prereq</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="pathway-generation">Pathway Generation</h3>
+<p>Use LAM metadata to generate personalized learning paths:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Generate pathway from current competencies to goal</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">learner</span><span class="p">:</span><span class="n">Learner</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="n">learnerId</span><span class="p">})</span><span class="o">-[</span><span class="p">:</span><span class="n">MASTERED</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">current</span><span class="p">:</span><span class="n">Competency</span><span class="p">)</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">goal</span><span class="p">:</span><span class="n">Competency</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="n">goalCompetency</span><span class="p">})</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">shortestPath</span><span class="p">((</span><span class="n">current</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">PREREQUISITE_FOR</span><span class="p">*</span><span class="o">]-</span><span class="p">(</span><span class="n">goal</span><span class="p">))</span>
+<span class="k">WITH</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">nodes</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">competencies</span>
+<span class="k">UNWIND</span><span class="w"> </span><span class="n">competencies</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">comp</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">activity</span><span class="p">:</span><span class="n">LearningActivity</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">TEACHES</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="p">(</span><span class="n">learner</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">COMPLETED</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">activity</span><span class="p">)</span>
+<span class="w">  </span><span class="n">AND</span><span class="w"> </span><span class="n">activity</span><span class="p">.</span><span class="n">difficulty</span><span class="w"> </span><span class="p">&lt;=</span><span class="w"> </span><span class="n">learner</span><span class="p">.</span><span class="n">currentLevel</span>
+<span class="k">RETURN</span><span class="w"> </span><span class="n">activity</span><span class="p">,</span><span class="w"> </span><span class="n">comp</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">length</span><span class="p">(</span><span class="n">path</span><span class="p">),</span><span class="w"> </span><span class="n">activity</span><span class="p">.</span><span class="n">rating</span><span class="w"> </span><span class="k">DESC</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="adaptive-recommendations">Adaptive Recommendations</h3>
+<p>Combine learner profile with LAM metadata:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">learner</span><span class="p">:</span><span class="n">Learner</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="n">learnerId</span><span class="p">})</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">learner</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">HAS_MASTERED</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">mastered</span><span class="p">:</span><span class="n">Competency</span><span class="p">)</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">learner</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">PURSUING</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">goal</span><span class="p">:</span><span class="n">Competency</span><span class="p">)</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">activity</span><span class="p">:</span><span class="n">LearningActivity</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">TEACHES</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">goal</span><span class="p">)</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">activity</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">REQUIRES</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">prereq</span><span class="p">:</span><span class="n">Competency</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">prereq</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">collect</span><span class="p">(</span><span class="n">mastered</span><span class="p">)</span>
+<span class="w">  </span><span class="n">AND</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="p">(</span><span class="n">learner</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">COMPLETED</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">activity</span><span class="p">)</span>
+<span class="w">  </span><span class="n">AND</span><span class="w"> </span><span class="n">activity</span><span class="p">.</span><span class="n">language</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="n">learner</span><span class="p">.</span><span class="n">preferredLanguages</span>
+<span class="w">  </span><span class="n">AND</span><span class="w"> </span><span class="n">activity</span><span class="p">.</span><span class="n">duration</span><span class="w"> </span><span class="p">&lt;=</span><span class="w"> </span><span class="n">learner</span><span class="p">.</span><span class="n">availableTime</span>
+<span class="k">WITH</span><span class="w"> </span><span class="n">activity</span><span class="p">,</span>
+<span class="w">     </span><span class="k">CASE</span><span class="w"> </span><span class="n">activity</span><span class="p">.</span><span class="n">difficulty</span>
+<span class="w">       </span><span class="k">WHEN</span><span class="w"> </span><span class="n">learner</span><span class="p">.</span><span class="n">currentLevel</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="m">3</span>
+<span class="w">       </span><span class="k">WHEN</span><span class="w"> </span><span class="n">learner</span><span class="p">.</span><span class="n">currentLevel</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="m">2</span>
+<span class="w">       </span><span class="k">WHEN</span><span class="w"> </span><span class="n">learner</span><span class="p">.</span><span class="n">currentLevel</span><span class="w"> </span><span class="err">+</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="m">1</span>
+<span class="w">       </span><span class="n">ELSE</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="k">END</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">difficultyScore</span>
+<span class="k">RETURN</span><span class="w"> </span><span class="n">activity</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">difficultyScore</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="m">0</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">difficultyScore</span><span class="w"> </span><span class="k">DESC</span><span class="p">,</span><span class="w"> </span><span class="n">activity</span><span class="p">.</span><span class="n">rating</span><span class="w"> </span><span class="k">DESC</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="m">5</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="conclusion">Conclusion</h2>
+<p>Learning Activity Metadata (IEEE P2881) serves as a critical pillar of the Total Learning Architecture by providing the semantic layer that describes what learning opportunities exist and how they relate to learner needs. By establishing:</p>
+<ul>
+<li><strong>Comprehensive descriptions</strong> that capture all relevant characteristics of learning activities</li>
+<li><strong>Standardized schemas</strong> enabling exchange across systems and organizations</li>
+<li><strong>Rich semantics</strong> linking activities to competencies, prerequisites, and outcomes</li>
+<li><strong>Federated discovery</strong> through the Experience Index</li>
+<li><strong>Intelligent matching</strong> capabilities for personalized recommendations</li>
+</ul>
+<p>LAM addresses fundamental challenges in learning resource management and discovery while enabling sophisticated adaptive learning capabilities.</p>
+<p>As the second pillar of the <a href="../tla/">Total Learning Architecture</a>, LAM integrates seamlessly with:
+- <a href="xapi.md">xAPI</a> for tracking learner interactions with activities
+- <a href="../rcd/">RCD</a> for competency-based activity description
+- <a href="../qti/">QTI</a> for assessment metadata
+- <a href="../elr/">ELR</a> for credential relationships</p>
+<p>In graph-based learning management systems, LAM provides the essential capability to define the content space, generate personalized pathways, deliver adaptive recommendations, and connect learning opportunities to competency development. This rich metadata layer transforms learning catalogs from simple lists into intelligent, queryable knowledge graphs that can reason about relationships and optimize for learner success.</p>
+<p>While challenges remain in metadata quality, organizational adoption, and technical interoperability, the benefits of standardized, comprehensive learning activity descriptions are driving continued investment. The evolution toward AI-enhanced metadata generation, semantic web integration, and dynamic personalization signals a future where learning opportunities are not just cataloged but intelligently understood and matched to individual learner needs.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://standards.ieee.org/project/2881.html">IEEE P2881 Working Group</a> - Learning Activity Metadata standard development</li>
+<li><a href="https://standards.ieee.org/standard/1484_12_1-2002.html">IEEE 1484.12.1-2002</a> - Learning Object Metadata (LOM)</li>
+<li><a href="../tla/">Total Learning Architecture (TLA)</a> - Architectural context</li>
+<li><a href="xapi.md">Experience API (xAPI)</a> - Learning activity tracking</li>
+<li><a href="../rcd/">Reusable Competency Definitions (RCD)</a> - Competency framework integration</li>
+<li><a href="../qti/">Question and Test Interoperability (QTI)</a> - Assessment metadata</li>
+<li><a href="../elr/">Enterprise Learner Records (ELR)</a> - Credential relationships</li>
+<li><a href="https://www.dublincore.org/">Dublin Core Metadata Initiative</a> - Foundational metadata standards</li>
+<li><a href="https://schema.org/Course">Schema.org Course</a> - Web-based learning metadata</li>
+<li><a href="https://www.openarchives.org/pmh/">OAI-PMH Protocol</a> - Metadata harvesting standard</li>
+</ul>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../lrs/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Learning Record Store (LRS)">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Learning Record Store (LRS)
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../rcd/" class="md-footer__link md-footer__link--next" aria-label="Next: Reusable Competency Definitions (RCD)">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Reusable Competency Definitions (RCD)
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

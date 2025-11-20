@@ -6,27 +6,31 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Graph LMS Design Documents All content licensed Creative Commons ShareAlike Attribution Noncommercial">
+        <meta name="description" content="A description under 110 characters.">
       
       
         <meta name="author" content="Dan McCreary">
       
       
-        <link rel="canonical" href="https://dmccreary.github.io/graph-lms/prompts/concept-taxonomy/">
+        <link rel="canonical" href="https://dmccreary.github.io/graph-lms/sims/graph-ila/">
       
       
+        <link rel="prev" href="../sample-arch/">
+      
+      
+        <link rel="next" href="../xapi-demo/">
       
       
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
     
     
       
-        <title>Concept taxonomy - Graph LMS</title>
+        <title>Graph Integrated Learning Architecture - Graph Learning Management System</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -47,6 +51,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../css/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -82,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-foundational-mathematics" class="md-skip">
+        <a href="#graph-integrated-learning-architecture-infographic" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +104,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Graph LMS" class="md-header__button md-logo" aria-label="Graph LMS" data-md-component="logo">
+    <a href="../.." title="Graph Learning Management System" class="md-header__button md-logo" aria-label="Graph Learning Management System" data-md-component="logo">
       
   <img src="../../img/logo-180.png" alt="logo">
 
@@ -111,13 +117,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Graph LMS
+            Graph Learning Management System
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Concept taxonomy
+              Graph Integrated Learning Architecture
             
           </span>
         </div>
@@ -129,13 +135,11 @@
     
     
     
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -167,14 +171,13 @@
     </div>
   </div>
 </div>
-      
     
     
       <div class="md-header__source">
         <a href="https://github.com/dmccreary/graph-lms" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -198,6 +201,8 @@
           
             
               
+                
+              
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -207,19 +212,19 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Graph LMS" class="md-nav__button md-logo" aria-label="Graph LMS" data-md-component="logo">
+    <a href="../.." title="Graph Learning Management System" class="md-nav__button md-logo" aria-label="Graph Learning Management System" data-md-component="logo">
       
   <img src="../../img/logo-180.png" alt="logo">
 
     </a>
-    Graph LMS
+    Graph Learning Management System
   </label>
   
     <div class="md-nav__source">
       <a href="https://github.com/dmccreary/graph-lms" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -239,10 +244,8 @@
       <a href="../.." class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Home
-    
   </span>
   
 
@@ -261,10 +264,8 @@
       <a href="../../about/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     About
-    
   </span>
   
 
@@ -296,7 +297,18 @@
       
         
       
-    
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -308,16 +320,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../../concepts/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Concepts
-    
   </span>
   
 
@@ -352,7 +361,6 @@
     
     
     
-    
       
         
         
@@ -361,16 +369,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../../arch/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Architecture
-    
   </span>
   
 
@@ -395,10 +400,11 @@
     
       
         
+          
+        
       
         
       
-    
     
     
     
@@ -412,14 +418,11 @@
         
   
   
-  
-    <a href="../../view-data-model/index.md" class="md-nav__link">
+    <a href="../../view-data-model/" class="md-nav__link">
       
-  
   
   <span class="md-ellipsis">
     View Data Model
-    
   </span>
   
 
@@ -448,10 +451,17 @@
         
       
         
+          
+        
+      
+        
+          
+        
       
         
       
-    
+        
+      
     
     
     
@@ -465,14 +475,11 @@
         
   
   
-  
-    <a href="../" class="md-nav__link">
+    <a href="../../prompts/" class="md-nav__link">
       
-  
   
   <span class="md-ellipsis">
     Prompts
-    
   </span>
   
 
@@ -491,6 +498,8 @@
       
   
   
+    
+  
   
   
     
@@ -501,40 +510,244 @@
         
       
         
+          
+        
       
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
         
       
     
     
     
-    
-      
-        
-        
       
     
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
-  
-  
-  
-    <a href="../../sims/" class="md-nav__link">
-      
-  
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     MicroSims
-    
   </span>
   
 
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            MicroSims
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sample-arch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sample Architecture Drawing
+  </span>
   
 
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Graph Integrated Learning Architecture
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Graph Integrated Learning Architecture
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#microsim-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroSim Description
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xapi-demo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    xAPI Demo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gila/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph Integrated Learning Architecture (GILA)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tla-vis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph TLA Vis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Templates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -550,10 +763,8 @@
       <a href="../../references/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     References
-    
   </span>
   
 
@@ -572,10 +783,8 @@
       <a href="../../license/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     License
-    
   </span>
   
 
@@ -594,10 +803,28 @@
       <a href="../../how-we-built-this-site/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../checklist.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Customization Checklist
   </span>
   
 
@@ -616,10 +843,28 @@
       <a href="../../glossary/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tla-glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TLA Glossary
   </span>
   
 
@@ -638,10 +883,8 @@
       <a href="../../contact/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Contact
-    
   </span>
   
 
@@ -658,7 +901,9 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -666,6 +911,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -675,108 +922,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-foundational-mathematics" class="md-nav__link">
+  <a href="#microsim-description" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Foundational Mathematics
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-signal-fundamentals" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Signal Fundamentals
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-sampling-and-digitization" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Sampling and Digitization
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-mathematical-transforms" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Mathematical Transforms
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-system-analysis-and-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. System Analysis and Operations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-digital-filtering" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Digital Filtering
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-advanced-signal-analysis" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Advanced Signal Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-stochastic-signal-processing" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Stochastic Signal Processing
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-adaptive-and-advanced-processing" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Adaptive and Advanced Processing
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-communication-systems" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Communication Systems
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11-application-domains" class="md-nav__link">
-    <span class="md-ellipsis">
-      11. Application Domains
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#12-machine-learning-and-emerging-technologies" class="md-nav__link">
-    <span class="md-ellipsis">
-      12. Machine Learning and Emerging Technologies
+      MicroSim Description
     </span>
   </a>
   
@@ -796,51 +944,30 @@
                 
                   
 
-
   
   
 
 
-  <h1>Concept taxonomy</h1>
+<h1 id="graph-integrated-learning-architecture-infographic">Graph Integrated Learning Architecture Infographic</h1>
+<iframe src="./main.html" height="580px" scrolling="no"
+  style="overflow: hidden;"></iframe>
 
-<h3 id="1-foundational-mathematics">1. Foundational Mathematics</h3>
-<p><strong>Definition</strong>: Core mathematical concepts and tools that serve as prerequisites for understanding signal processing principles.</p>
-<p><strong>Concepts</strong>: Complex numbers, Euler's formula, Phasors, Vectors, Matrices, Linear algebra, Calculus, Differential equations, Integration, Differentiation, Probability, Random variables, Statistics, Mean, Variance, Standard deviation</p>
-<h3 id="2-signal-fundamentals">2. Signal Fundamentals</h3>
-<p><strong>Definition</strong>: Basic concepts that define what signals are, their characteristics, and fundamental properties.</p>
-<p><strong>Concepts</strong>: Signals, Systems, Continuous-time signals, Discrete-time signals, Analog signals, Digital signals, Time domain, Frequency domain, Signal decomposition, LTI systems, Causality, Stability</p>
-<h3 id="3-sampling-and-digitization">3. Sampling and Digitization</h3>
-<p><strong>Definition</strong>: Concepts related to converting analog signals to digital form and the associated theoretical considerations.</p>
-<p><strong>Concepts</strong>: Sampling, Quantization, Aliasing, Nyquist theorem, Sampling rate conversion, Interpolation, Decimation, Oversampling, Undersampling, Quantization noise</p>
-<h3 id="4-mathematical-transforms">4. Mathematical Transforms</h3>
-<p><strong>Definition</strong>: Mathematical techniques used to analyze signals in different domains and representations.</p>
-<p><strong>Concepts</strong>: Fourier series, Fourier Transform (FT), Inverse Fourier Transform (IFT), Laplace Transform, Z-Transform, Discrete Fourier Transform (DFT), Fast Fourier Transform (FFT), Bilinear transform, Window functions, Spectral analysis</p>
-<h3 id="5-system-analysis-and-operations">5. System Analysis and Operations</h3>
-<p><strong>Definition</strong>: Methods for analyzing system behavior and fundamental signal processing operations.</p>
-<p><strong>Concepts</strong>: Convolution, Impulse response, Frequency response, Signal detection, Autocorrelation, Cross-correlation, Power Spectral Density (PSD), Energy Spectral Density (ESD)</p>
-<h3 id="6-digital-filtering">6. Digital Filtering</h3>
-<p><strong>Definition</strong>: Techniques and implementations for filtering digital signals to remove unwanted components or enhance desired features.</p>
-<p><strong>Concepts</strong>: Filtering, Low-pass filter (LPF), High-pass filter (HPF), Band-pass filter (BPF), Band-stop filter (BSF), FIR filters, IIR filters, Filter design, Butterworth filter, Chebyshev filter, Elliptic filter, Bessel filter</p>
-<h3 id="7-advanced-signal-analysis">7. Advanced Signal Analysis</h3>
-<p><strong>Definition</strong>: Sophisticated techniques for analyzing complex signals, especially time-varying and non-stationary signals.</p>
-<p><strong>Concepts</strong>: Time-frequency analysis, Short-Time Fourier Transform (STFT), Spectrogram, Wavelet Transform (WT), Continuous Wavelet Transform (CWT), Discrete Wavelet Transform (DWT), Multiresolution analysis</p>
-<h3 id="8-stochastic-signal-processing">8. Stochastic Signal Processing</h3>
-<p><strong>Definition</strong>: Methods for processing and analyzing random signals and statistical signal characteristics.</p>
-<p><strong>Concepts</strong>: Random processes, Stationarity, Ergodicity, White noise, Colored noise, Signal estimation, Kalman filter, Wiener filter, Signal prediction</p>
-<h3 id="9-adaptive-and-advanced-processing">9. Adaptive and Advanced Processing</h3>
-<p><strong>Definition</strong>: Self-adjusting algorithms and advanced techniques for signal enhancement and processing.</p>
-<p><strong>Concepts</strong>: Adaptive filtering, Least Mean Squares (LMS) algorithm, Recursive Least Squares (RLS) algorithm, Noise cancellation, Signal compression, Lossless compression, Lossy compression, Huffman coding, Entropy coding, Signal reconstruction, Multirate signal processing, Polyphase filters, Filter banks, Subband coding, Compressed sensing, Sparse representation</p>
-<h3 id="10-communication-systems">10. Communication Systems</h3>
-<p><strong>Definition</strong>: Signal processing techniques specifically applied to communication and data transmission systems.</p>
-<p><strong>Concepts</strong>: Digital Signal Processing (DSP), Modulation, Amplitude Modulation (AM), Frequency Modulation (FM), Phase Modulation (PM), Pulse-Code Modulation (PCM), Digital communications, Modulation schemes, Digital modulation, Quad Amplitude Modulation, Phase Shift Keying (PSK), Frequency Shift Keying (FSK), Ortho Freq Division Multi, Channel coding, Error detection, Error correction, Communications signal processing</p>
-<h3 id="11-application-domains">11. Application Domains</h3>
-<p><strong>Definition</strong>: Specific fields and applications where signal processing techniques are applied to solve real-world problems.</p>
-<p><strong>Concepts</strong>: Radar signal processing, Sonar signal processing, Image processing, Edge detection, Image filtering, Image segmentation, Audio signal processing, Speech recognition, Speech synthesis, Voice over IP (VoIP), Multimedia signal processing, Virtual Reality (VR), Augmented Reality (AR), Internet of Things (IoT), Quantum signal processing, Biosignal processing, Brain-Computer Interfaces (BCI)</p>
-<h3 id="12-machine-learning-and-emerging-technologies">12. Machine Learning and Emerging Technologies</h3>
-<p><strong>Definition</strong>: Integration of artificial intelligence, machine learning techniques with signal processing, and ethical considerations in modern applications.</p>
-<p><strong>Concepts</strong>: Machine Learning (ML), Supervised learning, Unsupervised learning, Feature extraction, Pattern recognition, Classification, Regression, Neural Networks (NN), Deep Learning (DL), Convolutional Neural Networks (CNNs), Recurrent Neural Networks (RNNs), Autoencoders, Gen Adv Nets, Cognitive signal processing, Big data analytics, Ethical considerations in AI</p>
-
-
+<p>You can include this MicroSim in your course by pasting the following HTML directly into your web page.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/signal-processing/sims/SIM_NAME/main.html&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;480px&quot;</span> <span class="na">scrolling</span><span class="o">=</span><span class="s">&quot;no&quot;</span>
+  <span class="na">style</span><span class="o">=</span><span class="s">&quot;overflow: hidden;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p><a class="md-button md-button--primary" href="main.html">Run the Graph Integrated Learning Architecture MicroSim</a></p>
+<p><a href="https://editor.p5js.org/dmccreary/sketches/_7FhUvxeX">Edit the Graph Integrated Learning Architecture MicroSim</a></p>
+<h2 id="microsim-description">MicroSim Description</h2>
+<p>In this demo, we use three range control sliders to change 
+the ways a sine wave is drawn on a canvas.
+The three parameters are:</p>
+<ol>
+<li>amplitude</li>
+<li>period</li>
+<li>and phase</li>
+</ol>
 
 
 
@@ -849,7 +976,14 @@
 
 
   
+  
 
+
+
+  
+
+
+  
 
 
 
@@ -871,6 +1005,46 @@
       
         <footer class="md-footer">
   
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../sample-arch/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Sample Architecture Drawing">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Sample Architecture Drawing
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../xapi-demo/" class="md-footer__link md-footer__link--next" aria-label="Next: xAPI Demo">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                xAPI Demo
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -895,12 +1069,12 @@
     </div>
     
     
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-    
-    
-      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+        <script src="../../js/extra.js"></script>
       
     
   </body>

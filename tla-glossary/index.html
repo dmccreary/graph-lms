@@ -1,0 +1,2652 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Graph LMS Design Documents All content licensed Creative Commons ShareAlike Attribution Noncommercial">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/graph-lms/tla-glossary/">
+      
+      
+        <link rel="prev" href="../glossary/">
+      
+      
+        <link rel="next" href="../contact/">
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>TLA Glossary - Graph Learning Management System</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-JLDD8032H6"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-JLDD8032H6",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-JLDD8032H6",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ieee-tla-standards-glossary" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Graph Learning Management System" class="md-header__button md-logo" aria-label="Graph Learning Management System" data-md-component="logo">
+      
+  <img src="../img/logo-180.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Graph Learning Management System
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              TLA Glossary
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/graph-lms" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Graph Learning Management System" class="md-nav__button md-logo" aria-label="Graph Learning Management System" data-md-component="logo">
+      
+  <img src="../img/logo-180.png" alt="logo">
+
+    </a>
+    Graph Learning Management System
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/graph-lms" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../concepts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Concepts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../arch/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Architecture
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../view-data-model/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    View Data Model
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../checklist.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Customization Checklist
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    TLA Glossary
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    TLA Glossary
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-standards-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Standards Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Standards Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-digital-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Digital Learning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aicc" class="md-nav__link">
+    <span class="md-ellipsis">
+      AICC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-application-programming-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      API (Application Programming Interface)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arm-activity-and-resource-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      ARM (Activity and Resource Management)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assignable-unit-au" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assignable Unit (AU)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cass-competency-and-skills-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      CaSS (Competency and Skills System)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmi5" class="md-nav__link">
+    <span class="md-ellipsis">
+      cmi5
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmi5-allowed-statements" class="md-nav__link">
+    <span class="md-ellipsis">
+      cmi5 Allowed Statements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmi5-defined-statements" class="md-nav__link">
+    <span class="md-ellipsis">
+      cmi5 Defined Statements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmm-capability-maturity-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      CMM (Capability Maturity Model)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Framework
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cors" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#course-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Course Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crud-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      CRUD Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ctdl" class="md-nav__link">
+    <span class="md-ellipsis">
+      CTDL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-pillar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Pillar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dtic" class="md-nav__link">
+    <span class="md-ellipsis">
+      DTIC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecc-enterprise-course-catalog" class="md-nav__link">
+    <span class="md-ellipsis">
+      ECC (Enterprise Course Catalog)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#educational-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Alignment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elr-enterprise-learner-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      ELR (Enterprise Learner Record)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elrr-enterprise-learner-record-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      ELRR (Enterprise Learner Record Repository)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experience-index-xi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Experience Index (XI)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Framework
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gdpr-general-data-protection-regulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      GDPR (General Data Protection Regulation)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#https" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTPS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ieee-institute-of-electrical-and-electronics-engineers" class="md-nav__link">
+    <span class="md-ellipsis">
+      IEEE (Institute of Electrical and Electronics Engineers)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interoperability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interoperability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iriirl-internationalized-resource-identifierlocator" class="md-nav__link">
+    <span class="md-ellipsis">
+      IRI/IRL (Internationalized Resource Identifier/Locator)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-javascript-object-notation" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON (JavaScript Object Notation)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-ld-json-for-linked-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON-LD (JSON for Linked Data)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kafka-stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kafka Stream
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ksao-knowledge-skills-abilities-and-other-behaviors" class="md-nav__link">
+    <span class="md-ellipsis">
+      KSAO (Knowledge, Skills, Abilities, and Other behaviors)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Launch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Launch Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learner
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learner-preferences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learner Preferences
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learner-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learner Profile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Activity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-activity-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Activity Metadata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-record-store-lrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Record Store (LRS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lms-learning-management-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      LMS (Learning Management System)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lom-learning-object-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      LOM (Learning Object Metadata)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lrmi" class="md-nav__link">
+    <span class="md-ellipsis">
+      LRMI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      LRS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ltsc-learning-technology-standards-committee" class="md-nav__link">
+    <span class="md-ellipsis">
+      LTSC (Learning Technology Standards Committee)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#master-object-model-mom" class="md-nav__link">
+    <span class="md-ellipsis">
+      Master Object Model (MOM)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata-aggregation-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Aggregation Services
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#noisy-lrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Noisy LRS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nosql" class="md-nav__link">
+    <span class="md-ellipsis">
+      NoSQL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#par-project-authorization-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      PAR (Project Authorization Request)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pesc" class="md-nav__link">
+    <span class="md-ellipsis">
+      PESC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rdf-resource-description-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      RDF (Resource Description Framework)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Registration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restrestful-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      REST/RESTful API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scd-sharable-competency-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      SCD (Sharable Competency Definitions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schemaorg" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schema.org
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scorm-sharable-content-object-reference-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      SCORM (Sharable Content Object Reference Model)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session" class="md-nav__link">
+    <span class="md-ellipsis">
+      Session
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Statement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tla-total-learning-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      TLA (Total Learning Architecture)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tla-data-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      TLA Data Strategy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tla-reference-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      TLA Reference Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tla-sandbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      TLA Sandbox
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transactional-lrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transactional LRS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uri" class="md-nav__link">
+    <span class="md-ellipsis">
+      URI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    <span class="md-ellipsis">
+      URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uuid-universally-unique-identifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      UUID (Universally Unique Identifier)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verb
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vocabulary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vocabulary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working Group
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xapi-experience-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      xAPI (Experience API)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xapi-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      xAPI Profile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xapi-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      xAPI Statement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xi" class="md-nav__link">
+    <span class="md-ellipsis">
+      XI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xml-extensible-markup-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      XML (eXtensible Markup Language)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-standards-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Standards Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Standards Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-digital-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Digital Learning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aicc" class="md-nav__link">
+    <span class="md-ellipsis">
+      AICC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-application-programming-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      API (Application Programming Interface)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arm-activity-and-resource-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      ARM (Activity and Resource Management)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assignable-unit-au" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assignable Unit (AU)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cass-competency-and-skills-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      CaSS (Competency and Skills System)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmi5" class="md-nav__link">
+    <span class="md-ellipsis">
+      cmi5
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmi5-allowed-statements" class="md-nav__link">
+    <span class="md-ellipsis">
+      cmi5 Allowed Statements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmi5-defined-statements" class="md-nav__link">
+    <span class="md-ellipsis">
+      cmi5 Defined Statements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmm-capability-maturity-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      CMM (Capability Maturity Model)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Framework
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cors" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#course-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Course Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crud-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      CRUD Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ctdl" class="md-nav__link">
+    <span class="md-ellipsis">
+      CTDL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-pillar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Pillar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dtic" class="md-nav__link">
+    <span class="md-ellipsis">
+      DTIC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecc-enterprise-course-catalog" class="md-nav__link">
+    <span class="md-ellipsis">
+      ECC (Enterprise Course Catalog)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#educational-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Alignment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elr-enterprise-learner-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      ELR (Enterprise Learner Record)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elrr-enterprise-learner-record-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      ELRR (Enterprise Learner Record Repository)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experience-index-xi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Experience Index (XI)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Framework
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gdpr-general-data-protection-regulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      GDPR (General Data Protection Regulation)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#https" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTPS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ieee-institute-of-electrical-and-electronics-engineers" class="md-nav__link">
+    <span class="md-ellipsis">
+      IEEE (Institute of Electrical and Electronics Engineers)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interoperability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interoperability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iriirl-internationalized-resource-identifierlocator" class="md-nav__link">
+    <span class="md-ellipsis">
+      IRI/IRL (Internationalized Resource Identifier/Locator)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-javascript-object-notation" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON (JavaScript Object Notation)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-ld-json-for-linked-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON-LD (JSON for Linked Data)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kafka-stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kafka Stream
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ksao-knowledge-skills-abilities-and-other-behaviors" class="md-nav__link">
+    <span class="md-ellipsis">
+      KSAO (Knowledge, Skills, Abilities, and Other behaviors)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Launch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Launch Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learner
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learner-preferences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learner Preferences
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learner-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learner Profile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Activity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-activity-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Activity Metadata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-record-store-lrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Record Store (LRS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lms-learning-management-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      LMS (Learning Management System)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lom-learning-object-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      LOM (Learning Object Metadata)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lrmi" class="md-nav__link">
+    <span class="md-ellipsis">
+      LRMI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      LRS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ltsc-learning-technology-standards-committee" class="md-nav__link">
+    <span class="md-ellipsis">
+      LTSC (Learning Technology Standards Committee)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#master-object-model-mom" class="md-nav__link">
+    <span class="md-ellipsis">
+      Master Object Model (MOM)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata-aggregation-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Aggregation Services
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#noisy-lrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Noisy LRS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nosql" class="md-nav__link">
+    <span class="md-ellipsis">
+      NoSQL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#par-project-authorization-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      PAR (Project Authorization Request)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pesc" class="md-nav__link">
+    <span class="md-ellipsis">
+      PESC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rdf-resource-description-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      RDF (Resource Description Framework)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Registration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restrestful-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      REST/RESTful API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scd-sharable-competency-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      SCD (Sharable Competency Definitions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schemaorg" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schema.org
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scorm-sharable-content-object-reference-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      SCORM (Sharable Content Object Reference Model)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session" class="md-nav__link">
+    <span class="md-ellipsis">
+      Session
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Statement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tla-total-learning-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      TLA (Total Learning Architecture)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tla-data-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      TLA Data Strategy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tla-reference-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      TLA Reference Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tla-sandbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      TLA Sandbox
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transactional-lrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transactional LRS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uri" class="md-nav__link">
+    <span class="md-ellipsis">
+      URI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    <span class="md-ellipsis">
+      URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uuid-universally-unique-identifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      UUID (Universally Unique Identifier)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verb
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vocabulary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vocabulary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working Group
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xapi-experience-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      xAPI (Experience API)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xapi-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      xAPI Profile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xapi-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      xAPI Statement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xi" class="md-nav__link">
+    <span class="md-ellipsis">
+      XI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xml-extensible-markup-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      XML (eXtensible Markup Language)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="ieee-tla-standards-glossary">IEEE TLA Standards Glossary</h1>
+<h2 id="core-standards-overview">Core Standards Overview</h2>
+<p>This glossary covers terminology from the key IEEE TLA (Total Learning Architecture) standards and related learning technology specifications:</p>
+<ul>
+<li><strong>IEEE 9274.1.1-2023</strong>: Experience API (xAPI) Base Standard</li>
+<li><strong>IEEE P9274.2.1</strong>: xAPI Profiles Standard  </li>
+<li><strong>IEEE P9274.3.1</strong>: cmi5 Profile for xAPI</li>
+<li><strong>IEEE 1484.20.3-2022</strong>: Standard for Sharable Competency Definitions (SCD)</li>
+<li><strong>IEEE P2997</strong>: Standard for Enterprise Learner Records</li>
+<li><strong>IEEE P2881</strong>: Standard for Learning Metadata</li>
+</ul>
+<h4 id="actor">Actor</h4>
+<p>An entity (person, group, or system) who performs an action in an xAPI statement. In xAPI, the Actor is the "who" in the subject-verb-object structure of learning data.</p>
+<h4 id="advanced-digital-learning">Advanced Digital Learning</h4>
+<p>ADL or the Advanced Digital Learning Initiative is a U.S. Department of Defense program that develops learning technology standards and reference implementations.</p>
+<h4 id="agent">Agent</h4>
+<p>In cmi5 and xAPI, an individual Actor representing a learner or system entity.</p>
+<h4 id="aicc">AICC</h4>
+<p>Aviation Industry Computer-Based Training Committee (predecessor organization to cmi5 development)</p>
+<h4 id="api-application-programming-interface">API (Application Programming Interface)</h4>
+<p>A set of rules and protocols that allows different software applications to communicate with each other. In TLA context, refers to standardized interfaces for exchanging learning data.</p>
+<h4 id="arm-activity-and-resource-management">ARM (Activity and Resource Management)</h4>
+<p>A TLA service that captures, connects, and shares data about learning resources, including the ability to generate and manage metadata about learning activities.</p>
+<h4 id="assignable-unit-au">Assignable Unit (AU)</h4>
+<p>In cmi5, the launchable piece of content that includes the concepts of completion, pass/fail, score, and duration. AUs are separately launchable pieces of content that collect learner data and send it to the LMS.</p>
+<h4 id="block">Block</h4>
+<p>In cmi5, a grouping structure that wraps pieces of content that are either grouped together or contain Assignable Units.</p>
+<h4 id="cass-competency-and-skills-system">CaSS (Competency and Skills System)</h4>
+<p>An open-source system that allows users to define, store, manage, and access Competency Definitions and organize them into Competency Frameworks.</p>
+<h4 id="cmi5">cmi5</h4>
+<p>An xAPI Profile that bridges the SCORM and xAPI divide by defining interoperability rules, including launch, authorization, reporting and course structure, that inform how an LMS and xAPI-enabled learning activities communicate with each other.</p>
+<h4 id="cmi5-allowed-statements">cmi5 Allowed Statements</h4>
+<p>xAPI statements that include the session id and potentially additional information included in the launch data but are otherwise custom to an AU, maintaining the inherent flexibility of xAPI.</p>
+<h4 id="cmi5-defined-statements">cmi5 Defined Statements</h4>
+<p>xAPI statements that are highly defined by the specification and are tied to session/registration management concepts. They include a specific cmi5 category Activity for easy detection and access in the LRS statement stream.</p>
+<h4 id="cmm-capability-maturity-model">CMM (Capability Maturity Model)</h4>
+<p>A framework used by TLA to describe different levels of implementation maturity for learning architecture components.</p>
+<h4 id="competency">Competency</h4>
+<p>A skill, knowledge, ability, attitude, habit of practice, behavior, or learning outcome that can be defined, measured, and assessed.</p>
+<h4 id="competency-definition">Competency Definition</h4>
+<p>Formal representation of the key characteristics of a competency, independently of its use in any particular context, enabling interoperability among learning systems.</p>
+<h4 id="competency-framework">Competency Framework</h4>
+<p>Structured collections of competencies that define the relationship between competencies in the context of a specific domain (e.g., job, duty, occupation).</p>
+<h4 id="cors">CORS</h4>
+<p>Cross Origin Resource Sharing - HTTP mechanism for resource loading across domains</p>
+<h4 id="course-structure">Course Structure</h4>
+<p>In cmi5, the organizational framework that wraps content pieces into Blocks and Assignable Units, implemented as an XML file called cmi5.xml.</p>
+<h4 id="crud-operations">CRUD Operations</h4>
+<p>Create, Read, Update, and Delete operations that connected systems can perform on metadata through the ARM service.</p>
+<h4 id="ctdl">CTDL</h4>
+<p>Credential Transparency Description Language</p>
+<h4 id="data-model">Data Model</h4>
+<p>A standardized structure that defines how data elements are organized, related, and stored to enable interoperability between systems.</p>
+<h4 id="data-pillar">Data Pillar</h4>
+<p>One of the four foundational data categories in the TLA Data Strategy that must be exposed through common interfaces, asynchronous services, and standard data formats.</p>
+<h4 id="dtic">DTIC</h4>
+<p>Defense Technical Information Center</p>
+<h4 id="ecc-enterprise-course-catalog">ECC (Enterprise Course Catalog)</h4>
+<p>An ADL Initiative program working to mature the Experience Index and the underlying P2881 Learning Activity Metadata standard.</p>
+<h4 id="educational-alignment">Educational Alignment</h4>
+<p>A key component of learning resource metadata that describes how a learning resource aligns to the competencies it supports.</p>
+<h4 id="elr-enterprise-learner-record">ELR (Enterprise Learner Record)</h4>
+<p>A data model that preserves data ownership and integrity while tracking a learner's path through different organizations, learning experiences, demonstrated competencies, conferred credentials, and employment history.</p>
+<h4 id="elrr-enterprise-learner-record-repository">ELRR (Enterprise Learner Record Repository)</h4>
+<p>A prototype system designed to modernize how DoD captures, stores, and uses data about individuals' education and training experiences.</p>
+<h4 id="experience-index-xi">Experience Index (XI)</h4>
+<p>A structured database that stores Learning Activity Metadata, intended to be the server-side implementation of the P2881 standard.</p>
+<h4 id="framework">Framework</h4>
+<p>See Competency Framework.</p>
+<h4 id="gdpr-general-data-protection-regulation">GDPR (General Data Protection Regulation)</h4>
+<p>European privacy regulation that TLA Study Group and related standards development must comply with.</p>
+<h4 id="https">HTTPS</h4>
+<p>Secure Hypertext Transfer Protocol</p>
+<h4 id="ieee-institute-of-electrical-and-electronics-engineers">IEEE (Institute of Electrical and Electronics Engineers)</h4>
+<p>An internationally recognized standards-development organization working with ADL Initiative to formally establish TLA data standards.</p>
+<h4 id="interoperability">Interoperability</h4>
+<p>The ability of different systems and technologies to communicate, exchange data, and use the information that has been exchanged.</p>
+<h4 id="iriirl-internationalized-resource-identifierlocator">IRI/IRL (Internationalized Resource Identifier/Locator)</h4>
+<p>According to xAPI, an IRL is an IRI that, when translated into a URI, is a URL. Used for unique identification of learning concepts and entities.</p>
+<h4 id="json-javascript-object-notation">JSON (JavaScript Object Notation)</h4>
+<p>A lightweight data format used for encoding learning data in xAPI and other TLA standards.</p>
+<h4 id="json-ld-json-for-linked-data">JSON-LD (JSON for Linked Data)</h4>
+<p>A JSON-based format for expressing linked data, used in xAPI Profiles and Learning Metadata standards.</p>
+<h4 id="kafka-stream">Kafka Stream</h4>
+<p>A distributed streaming platform used in TLA Reference Implementation for processing and routing xAPI statements between services.</p>
+<h4 id="ksao-knowledge-skills-abilities-and-other-behaviors">KSAO (Knowledge, Skills, Abilities, and Other behaviors)</h4>
+<p>The standard categorization of competency elements required for performing different jobs, duties, and tasks.</p>
+<h4 id="launch">Launch</h4>
+<p>In cmi5, the process of starting an Assignable Unit from an LMS, providing the AU with necessary information about the LMS and learner.</p>
+<h4 id="launch-data">Launch Data</h4>
+<p>Information provided to Assignable Units during the cmi5 launch process, including LRS authentication credentials and session context.</p>
+<h4 id="learner">Learner</h4>
+<p>The end user viewing/using the learning content (Assignable Units).</p>
+<h4 id="learner-preferences">Learner Preferences</h4>
+<p>In cmi5, settings scoped to the Agent representing the enrolled LMS learner, including language and audio preferences.</p>
+<h4 id="learner-profile">Learner Profile</h4>
+<p>A comprehensive record of a learner's activities, competencies, and progress that can be populated from various TLA services.</p>
+<h4 id="learning-activity">Learning Activity</h4>
+<p>Any learning experience or content that can generate xAPI statements, ranging from traditional courses to simulations, games, and real-world activities.</p>
+<h4 id="learning-activity-metadata">Learning Activity Metadata</h4>
+<p>Structured data that describes learning resources, activities, events, and instructional content, stored in an Experience Index.</p>
+<h4 id="learning-object">Learning Object</h4>
+<p>Educational content that is more formally defined than typical teaching materials and intended to be reused by many educators and learners.</p>
+<h4 id="learning-record-store-lrs">Learning Record Store (LRS)</h4>
+<p>A system that exposes RESTful Web Service API for the purpose of tracking and accessing experiential learning data, serving as the server-side implementation of xAPI.</p>
+<h4 id="lms-learning-management-system">LMS (Learning Management System)</h4>
+<p>A computer system with capabilities to register learners, launch learning presentations, analyze and report learner performance, and track learners' progress.</p>
+<h4 id="lom-learning-object-metadata">LOM (Learning Object Metadata)</h4>
+<p>IEEE 1484.12.1 standard that P2881 Learning Metadata builds upon to increase granularity of learning resource definitions.</p>
+<h4 id="lrmi">LRMI</h4>
+<p>Learning Resource Metadata Initiative</p>
+<h4 id="lrs">LRS</h4>
+<p>See Learning Record Store.</p>
+<h4 id="ltsc-learning-technology-standards-committee">LTSC (Learning Technology Standards Committee)</h4>
+<p>An IEEE Computer Society committee that sponsors working groups developing learning technology standards including TLA components.</p>
+<h4 id="master-object-model-mom">Master Object Model (MOM)</h4>
+<p>A TLA-specific xAPI Profile that provides a standardized way to structure xAPI statements for interoperability across TLA components.</p>
+<h4 id="metadata">Metadata</h4>
+<p>Data that describes other data, enabling the search, evaluation, acquisition, and use of learning content and activities.</p>
+<h4 id="metadata-aggregation-services">Metadata Aggregation Services</h4>
+<p>Services being developed by the ECC program to connect the Experience Index to systems that include information about learning resources.</p>
+<h4 id="noisy-lrs">Noisy LRS</h4>
+<p>An LRS that stores raw learner records (xAPI statements) before they are processed and rolled up to the Transactional LRS.</p>
+<h4 id="nosql">NoSQL</h4>
+<p>Non-relational database systems (e.g., MongoDB) used in TLA implementations</p>
+<h4 id="object">Object</h4>
+<p>In xAPI, the "what" component of the actor-verb-object statement structure, representing what the learning activity was about.</p>
+<h4 id="par-project-authorization-request">PAR (Project Authorization Request)</h4>
+<p>A formal document required to initiate IEEE standards development projects.</p>
+<h4 id="pesc">PESC</h4>
+<p>Postsecondary Electronic Standards Council</p>
+<h4 id="profile">Profile</h4>
+<p>In TLA context, either an xAPI Profile defining vocabulary and rules, or a data profile defining different types of competencies used within an organization.</p>
+<h4 id="query">Query</h4>
+<p>A request made to retrieve specific metadata from the Experience Index using GET commands through the ARM API.</p>
+<h4 id="rdf-resource-description-framework">RDF (Resource Description Framework)</h4>
+<p>A framework for describing resources on the web, used as the underlying data model for Learning Metadata standards.</p>
+<h4 id="registration">Registration</h4>
+<p>An enrollment instance of a learner in a course, with a registration ID that uniquely identifies and persists throughout the course progress.</p>
+<h4 id="restrestful-api">REST/RESTful API</h4>
+<p>Representational State Transfer - an architectural pattern for web services that TLA interfaces use for communicating learning data via HTTP requests and responses.</p>
+<h4 id="scd-sharable-competency-definitions">SCD (Sharable Competency Definitions)</h4>
+<p>IEEE 1484.20.3 standard that enables a common approach for describing competencies, aligning them in frameworks, and defining assessment criteria.</p>
+<h4 id="schemaorg">Schema.org</h4>
+<p>Vocabulary for structured data markup</p>
+<h4 id="scorm-sharable-content-object-reference-model">SCORM (Sharable Content Object Reference Model)</h4>
+<p>A legacy e-learning standard that cmi5 is designed to bridge with xAPI, providing traditional packaging and launch capabilities.</p>
+<h4 id="session">Session</h4>
+<p>In cmi5, a period of learner interaction with an Assignable Unit, bounded by "Initialized" and "Terminated" statements.</p>
+<h4 id="statement">Statement</h4>
+<p>See xAPI Statement.</p>
+<h4 id="tla-total-learning-architecture">TLA (Total Learning Architecture)</h4>
+<p>A comprehensive framework of standards and services designed to enable interoperable learning ecosystems, particularly within the U.S. Department of Defense.</p>
+<h4 id="tla-data-strategy">TLA Data Strategy</h4>
+<p>A common set of goals and objectives across DoD's education and training community built on four data pillars with standardized interfaces and data formats.</p>
+<h4 id="tla-reference-implementation">TLA Reference Implementation</h4>
+<p>A working implementation of TLA standards designed to enable stakeholders to test, evaluate, or deploy TLA sandbox implementations.</p>
+<h4 id="tla-sandbox">TLA Sandbox</h4>
+<p>A testing environment built around ADL's TLA reference implementation for evaluating tools, products, and services.</p>
+<h4 id="transactional-lrs">Transactional LRS</h4>
+<p>An LRS that receives processed xAPI statements rolled up from the noisy LRS using TLA MOM statements.</p>
+<h4 id="uri">URI</h4>
+<p>Uniform Resource Identifier</p>
+<h4 id="url">URL</h4>
+<p>Uniform Resource Locator</p>
+<h4 id="uuid-universally-unique-identifier">UUID (Universally Unique Identifier)</h4>
+<p>A unique identifier used to identify learners and correlate their activities across TLA systems.</p>
+<h4 id="verb">Verb</h4>
+<p>In xAPI, the action component of the actor-verb-object statement structure, described by a URI and display string indicating what action occurred.</p>
+<h4 id="vocabulary">Vocabulary</h4>
+<p>Controlled terms and definitions used in standards to ensure consistent interpretation and interoperability across systems.</p>
+<h4 id="working-group">Working Group</h4>
+<p>IEEE committees that develop specific standards, such as the Competency Data Standards Working Group or xAPI Working Group.</p>
+<h4 id="xapi-experience-api">xAPI (Experience API)</h4>
+<p>An IEEE approved standard (IEEE 9274.1.1-2023) for learning technology that captures data about learning experiences in a consistent format using a simple actor-verb-object structure.</p>
+<h4 id="xapi-profile">xAPI Profile</h4>
+<p>A set of rules and vocabulary that define how to apply the xAPI standard for particular use cases, ensuring interoperability for specific domains or applications.</p>
+<h4 id="xapi-statement">xAPI Statement</h4>
+<p>The basic unit of learning data in xAPI, structured as actor-verb-object (who did what to what), with additional context and metadata.</p>
+<h4 id="xi">XI</h4>
+<p>See Experience Index.</p>
+<h4 id="xml-extensible-markup-language">XML (eXtensible Markup Language)</h4>
+<p>A markup language used in cmi5 for the manifest file (cmi5.xml) that describes course structure and metadata.</p>
+<hr />
+<p><em>This glossary is based on publicly available IEEE standards documentation and TLA implementation guides as of 2025. For the most current and authoritative definitions, please refer to the official IEEE standards publications.</em></p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../glossary/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Glossary">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Glossary
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../contact/" class="md-footer__link md-footer__link--next" aria-label="Next: Contact">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Contact
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../js/extra.js"></script>
+      
+    
+  </body>
+</html>

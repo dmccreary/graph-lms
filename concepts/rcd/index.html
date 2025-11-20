@@ -1,0 +1,2844 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Graph LMS Design Documents All content licensed Creative Commons ShareAlike Attribution Noncommercial">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/graph-lms/concepts/rcd/">
+      
+      
+        <link rel="prev" href="../lam/">
+      
+      
+        <link rel="next" href="../qti/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Reusable Competency Definitions (RCD) - Graph Learning Management System</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-JLDD8032H6"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-JLDD8032H6",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-JLDD8032H6",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#reusable-competency-definitions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Graph Learning Management System" class="md-header__button md-logo" aria-label="Graph Learning Management System" data-md-component="logo">
+      
+  <img src="../../img/logo-180.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Graph Learning Management System
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Reusable Competency Definitions (RCD)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/graph-lms" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Graph Learning Management System" class="md-nav__button md-logo" aria-label="Graph Learning Management System" data-md-component="logo">
+      
+  <img src="../../img/logo-180.png" alt="logo">
+
+    </a>
+    Graph Learning Management System
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/graph-lms" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Concepts
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concept-graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../content-graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Content
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learning-trajectories/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learning Trajectories
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xapi.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Experience API (xAPI)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lrs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learning Record Store (LRS)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lam/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learning Activity Metadata (LAM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Reusable Competency Definitions (RCD)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Reusable Competency Definitions (RCD)
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-reusable-competency-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      What are Reusable Competency Definitions?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-purpose-and-benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Purpose and Benefits
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Purpose and Benefits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interoperability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interoperability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consistency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#efficiency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Efficiency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-driven-decision-making" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data-Driven Decision Making
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ieee-1484201-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      IEEE 1484.20.1 Standard
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IEEE 1484.20.1 Standard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-components-of-the-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Components of the Standard
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Components of the Standard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#competency-identifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Identifier
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-title" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Title
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proficiency-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proficiency Levels
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure-and-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structure and Metadata
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure and Metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Required Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional Elements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relationship-to-total-learning-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationship to Total Learning Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Relationship to Total Learning Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integration-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Points
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration Points">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Content
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assessment-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment Systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-record-store-lrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Record Store (LRS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#credentialing-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credentialing Systems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#competency-frameworks-and-taxonomies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Frameworks and Taxonomies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Competency Frameworks and Taxonomies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#framework-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Framework Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Framework Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#occupational-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Occupational Frameworks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#educational-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Frameworks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizational-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organizational Frameworks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Relationships
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-effective-rcds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Effective RCDs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating Effective RCDs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-action-verbs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Action Verbs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#be-specific-and-measurable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Be Specific and Measurable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#include-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Include Context
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-proficiency-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Define Proficiency Criteria
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maintain-granularity-balance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maintain Granularity Balance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rcds-in-graph-based-learning-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      RCDs in Graph-Based Learning Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RCDs in Graph-Based Learning Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#graph-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Representation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query Capabilities
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-xapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with xAPI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration with xAPI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xapi-statement-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      xAPI Statement Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="xAPI Statement Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#competency-assertion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Assertion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Progress
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases-and-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Cases and Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Cases and Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#corporate-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      Corporate Training
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#higher-education" class="md-nav__link">
+    <span class="md-ellipsis">
+      Higher Education
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#professional-certification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Professional Certification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#government-and-military" class="md-nav__link">
+    <span class="md-ellipsis">
+      Government and Military
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools-and-technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools and Technologies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tools and Technologies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#competency-authoring-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Authoring Tools
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-database-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Database Platforms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-platform-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Platform Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#challenges-and-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenges and Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Challenges and Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#governance-and-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Governance and Maintenance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adoption-barriers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adoption Barriers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technical-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Challenges
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-directions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Directions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Future Directions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#artificial-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Artificial Intelligence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blockchain-and-decentralization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blockchain and Decentralization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#micro-credentials-and-modularity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Micro-Credentials and Modularity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#labor-market-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Labor Market Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qti/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Question and Test Interoperability (QTI)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Enterprise Learner Records (ELR)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adaptive-assessments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adaptive Assessments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assessment-standards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assessment Standards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../arch/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Architecture
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../view-data-model/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    View Data Model
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../checklist.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Customization Checklist
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tla-glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TLA Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-reusable-competency-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      What are Reusable Competency Definitions?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-purpose-and-benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Purpose and Benefits
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Purpose and Benefits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interoperability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interoperability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consistency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#efficiency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Efficiency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-driven-decision-making" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data-Driven Decision Making
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ieee-1484201-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      IEEE 1484.20.1 Standard
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IEEE 1484.20.1 Standard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-components-of-the-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Components of the Standard
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Components of the Standard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#competency-identifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Identifier
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-title" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Title
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proficiency-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proficiency Levels
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure-and-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structure and Metadata
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure and Metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Required Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional Elements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relationship-to-total-learning-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationship to Total Learning Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Relationship to Total Learning Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integration-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Points
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration Points">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Content
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assessment-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment Systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-record-store-lrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Record Store (LRS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#credentialing-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credentialing Systems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#competency-frameworks-and-taxonomies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Frameworks and Taxonomies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Competency Frameworks and Taxonomies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#framework-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Framework Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Framework Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#occupational-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Occupational Frameworks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#educational-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Frameworks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizational-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organizational Frameworks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Relationships
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-effective-rcds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Effective RCDs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating Effective RCDs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-action-verbs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Action Verbs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#be-specific-and-measurable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Be Specific and Measurable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#include-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Include Context
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-proficiency-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Define Proficiency Criteria
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maintain-granularity-balance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maintain Granularity Balance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rcds-in-graph-based-learning-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      RCDs in Graph-Based Learning Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RCDs in Graph-Based Learning Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#graph-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Representation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query Capabilities
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-xapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with xAPI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration with xAPI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xapi-statement-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      xAPI Statement Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="xAPI Statement Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#competency-assertion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Assertion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competency-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Progress
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases-and-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Cases and Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Cases and Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#corporate-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      Corporate Training
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#higher-education" class="md-nav__link">
+    <span class="md-ellipsis">
+      Higher Education
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#professional-certification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Professional Certification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#government-and-military" class="md-nav__link">
+    <span class="md-ellipsis">
+      Government and Military
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools-and-technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools and Technologies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tools and Technologies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#competency-authoring-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competency Authoring Tools
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-database-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Database Platforms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-platform-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Platform Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#challenges-and-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenges and Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Challenges and Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#governance-and-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Governance and Maintenance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adoption-barriers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adoption Barriers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technical-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Challenges
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-directions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Directions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Future Directions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#artificial-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Artificial Intelligence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blockchain-and-decentralization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blockchain and Decentralization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#micro-credentials-and-modularity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Micro-Credentials and Modularity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#labor-market-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Labor Market Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="reusable-competency-definitions">Reusable Competency Definitions</h1>
+<p>Reusable Competency Definitions or RCDs are part of the IEEE <a href="../tla/">Total Learning Architecture</a> and are described in IEEE standard IEEE 1484.20.1.</p>
+<h2 id="what-are-reusable-competency-definitions">What are Reusable Competency Definitions?</h2>
+<p>RCDs describe what you need to know to do a job. For example, an RCD can describe:</p>
+<ul>
+<li>Knowledge, Skills, Abilities, and Other behaviors (KSAOs) required in the workplace</li>
+<li>A common language for describing competencies across organizations</li>
+<li>Assessment and evaluation criteria for measuring proficiency</li>
+<li>Alignment between education/training and operational performance</li>
+</ul>
+<h2 id="core-purpose-and-benefits">Core Purpose and Benefits</h2>
+<p>Reusable Competency Definitions provide a standardized, machine-readable format for expressing competencies that can be shared and reused across different educational and training systems. This standardization offers several key benefits:</p>
+<h3 id="interoperability">Interoperability</h3>
+<p>RCDs enable different systems and organizations to exchange competency information without ambiguity. A competency defined in one learning platform can be understood and utilized by another system, facilitating learner mobility and credential portability.</p>
+<h3 id="consistency">Consistency</h3>
+<p>By establishing a common vocabulary and structure, RCDs ensure that competencies are described consistently across contexts, reducing confusion and enabling accurate comparison of learning outcomes.</p>
+<h3 id="efficiency">Efficiency</h3>
+<p>Organizations can leverage existing competency definitions rather than creating new ones from scratch, saving time and resources while building on established best practices.</p>
+<h3 id="data-driven-decision-making">Data-Driven Decision Making</h3>
+<p>Standardized competency data enables sophisticated analytics and reporting, helping organizations track skill gaps, measure training effectiveness, and make informed decisions about learning investments.</p>
+<h2 id="ieee-1484201-standard">IEEE 1484.20.1 Standard</h2>
+<p>The IEEE 1484.20.1 standard, formally titled "Standard for Learning Technology - Data Model for Reusable Competency Definitions," provides the technical specification for creating and managing RCDs.</p>
+<h3 id="key-components-of-the-standard">Key Components of the Standard</h3>
+<h4 id="competency-identifier">Competency Identifier</h4>
+<p>Each RCD must have a unique, persistent identifier (typically a URI) that enables unambiguous reference and retrieval. This identifier remains constant even as the competency definition evolves.</p>
+<h4 id="competency-title">Competency Title</h4>
+<p>A concise, human-readable name for the competency that clearly indicates what it represents (e.g., "Java Programming," "Statistical Analysis," "Customer Service Communication").</p>
+<h4 id="competency-description">Competency Description</h4>
+<p>A detailed explanation of the competency that specifies what a learner should know or be able to do. Descriptions should be:</p>
+<ul>
+<li><strong>Specific</strong>: Clearly define the scope and boundaries</li>
+<li><strong>Measurable</strong>: Include observable behaviors or outcomes</li>
+<li><strong>Action-oriented</strong>: Use verbs that describe performance</li>
+<li><strong>Context-aware</strong>: Specify the conditions or situations where the competency applies</li>
+</ul>
+<h4 id="competency-type">Competency Type</h4>
+<p>Classification of the competency into categories such as:</p>
+<ul>
+<li><strong>Knowledge</strong>: Facts, concepts, principles, and theories</li>
+<li><strong>Skills</strong>: Practical abilities and techniques</li>
+<li><strong>Abilities</strong>: Cognitive or physical capacities</li>
+<li><strong>Attitudes</strong>: Dispositions and values</li>
+<li><strong>Behaviors</strong>: Observable actions in specific contexts</li>
+</ul>
+<h4 id="proficiency-levels">Proficiency Levels</h4>
+<p>RCDs can define multiple levels of mastery, such as:</p>
+<ul>
+<li>Novice/Awareness</li>
+<li>Basic/Foundational</li>
+<li>Intermediate/Proficient</li>
+<li>Advanced/Expert</li>
+<li>Master/Authority</li>
+</ul>
+<p>Each level should have clear criteria and performance indicators.</p>
+<h2 id="structure-and-metadata">Structure and Metadata</h2>
+<p>A complete RCD includes both required and optional metadata elements that provide context and enable discovery:</p>
+<h3 id="required-elements">Required Elements</h3>
+<ul>
+<li><strong>Identifier</strong>: Unique URI for the competency</li>
+<li><strong>Title</strong>: Short descriptive name</li>
+<li><strong>Description</strong>: Detailed competency statement</li>
+</ul>
+<h3 id="optional-elements">Optional Elements</h3>
+<ul>
+<li><strong>Subject</strong>: Domain or discipline classification</li>
+<li><strong>Language</strong>: Language code for internationalization</li>
+<li><strong>Version</strong>: Version identifier for tracking changes</li>
+<li><strong>Status</strong>: Current lifecycle state (draft, active, deprecated)</li>
+<li><strong>Creator</strong>: Individual or organization that authored the RCD</li>
+<li><strong>Date</strong>: Creation or modification timestamps</li>
+<li><strong>Related Competencies</strong>: Links to prerequisite, related, or advanced competencies</li>
+</ul>
+<h2 id="relationship-to-total-learning-architecture">Relationship to Total Learning Architecture</h2>
+<p>Within the IEEE Total Learning Architecture (TLA), RCDs serve as the foundational building blocks that connect various system components:</p>
+<h3 id="integration-points">Integration Points</h3>
+<h4 id="learning-content">Learning Content</h4>
+<p>RCDs tag learning resources with the competencies they address, enabling:
+- Competency-based content search and discovery
+- Automatic learning path generation
+- Gap analysis between current and target competencies</p>
+<h4 id="assessment-systems">Assessment Systems</h4>
+<p>RCDs define what assessments should measure:
+- Alignment of test items to specific competencies
+- Proficiency level determination
+- Evidence collection for competency attainment</p>
+<h4 id="learning-record-store-lrs">Learning Record Store (LRS)</h4>
+<p>xAPI statements reference RCDs to record:
+- Competency-based learning activities
+- Achievement and progression data
+- Skills inventory and portfolio building</p>
+<h4 id="credentialing-systems">Credentialing Systems</h4>
+<p>RCDs specify the competencies represented by:
+- Digital badges and micro-credentials
+- Certificates and degrees
+- Professional certifications</p>
+<h2 id="competency-frameworks-and-taxonomies">Competency Frameworks and Taxonomies</h2>
+<p>RCDs are often organized into structured frameworks that show relationships and hierarchies:</p>
+<h3 id="framework-types">Framework Types</h3>
+<h4 id="occupational-frameworks">Occupational Frameworks</h4>
+<p>Define competencies required for specific jobs or career paths:
+- Industry-specific skill standards
+- Professional role definitions
+- Career progression ladders</p>
+<h4 id="educational-frameworks">Educational Frameworks</h4>
+<p>Organize academic competencies by:
+- Subject area and grade level
+- Degree program requirements
+- Learning outcome alignment</p>
+<h4 id="organizational-frameworks">Organizational Frameworks</h4>
+<p>Custom competency models for specific organizations:
+- Corporate competency models
+- Training program outcomes
+- Performance management criteria</p>
+<h3 id="competency-relationships">Competency Relationships</h3>
+<p>RCDs can be linked to express:</p>
+<ul>
+<li><strong>Prerequisites</strong>: Foundational competencies required before attempting advanced ones</li>
+<li><strong>Related Competencies</strong>: Complementary or frequently co-occurring competencies</li>
+<li><strong>Aggregated Competencies</strong>: Higher-level competencies composed of multiple sub-competencies</li>
+<li><strong>Alternative Competencies</strong>: Different approaches to achieving similar outcomes</li>
+</ul>
+<h2 id="creating-effective-rcds">Creating Effective RCDs</h2>
+<p>Developing high-quality RCDs requires careful attention to several best practices:</p>
+<h3 id="use-action-verbs">Use Action Verbs</h3>
+<p>Begin competency statements with clear, observable action verbs from Bloom's Taxonomy or similar frameworks:</p>
+<ul>
+<li><strong>Knowledge</strong>: Define, list, recall, recognize</li>
+<li><strong>Comprehension</strong>: Explain, describe, summarize, interpret</li>
+<li><strong>Application</strong>: Apply, demonstrate, implement, use</li>
+<li><strong>Analysis</strong>: Analyze, compare, contrast, differentiate</li>
+<li><strong>Synthesis</strong>: Create, design, develop, construct</li>
+<li><strong>Evaluation</strong>: Evaluate, assess, critique, justify</li>
+</ul>
+<h3 id="be-specific-and-measurable">Be Specific and Measurable</h3>
+<p>Avoid vague terms like "understand" or "appreciate." Instead, specify observable evidence:</p>
+<p>❌ Poor: "Understand database concepts"
+✅ Good: "Design normalized relational database schemas for business applications"</p>
+<h3 id="include-context">Include Context</h3>
+<p>Specify conditions, tools, or constraints:</p>
+<p>"Develop REST APIs using Python and Flask framework, following OpenAPI 3.0 specification, with proper authentication and error handling"</p>
+<h3 id="define-proficiency-criteria">Define Proficiency Criteria</h3>
+<p>For each level, specify:
+- Performance expectations
+- Quality standards
+- Independence requirements
+- Complexity of tasks</p>
+<h3 id="maintain-granularity-balance">Maintain Granularity Balance</h3>
+<p>RCDs should be:
+- <strong>Not too broad</strong>: "Software Development" is too general
+- <strong>Not too narrow</strong>: "Use semicolons in JavaScript" is too specific
+- <strong>Just right</strong>: "Implement error handling in asynchronous JavaScript applications"</p>
+<h2 id="rcds-in-graph-based-learning-systems">RCDs in Graph-Based Learning Systems</h2>
+<p>In graph database architectures, RCDs become nodes with rich relationship capabilities:</p>
+<h3 id="graph-representation">Graph Representation</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:uuid:competency-python-data-analysis&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Competency&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Python Data Analysis&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Analyze datasets using Python libraries (pandas, numpy) to extract insights and create visualizations&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;domain&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Data Science&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Intermediate&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;prerequisites&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;urn:uuid:competency-python-basics&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;urn:uuid:competency-statistics-fundamentals&quot;</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;enables&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;urn:uuid:competency-machine-learning&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;urn:uuid:competency-data-visualization&quot;</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;assessedBy&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;urn:uuid:assessment-pandas-project&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;urn:uuid:assessment-data-analysis-quiz&quot;</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;taughtIn&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;urn:uuid:course-data-science-101&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;urn:uuid:module-python-analytics&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="query-capabilities">Query Capabilities</h3>
+<p>Graph databases enable powerful queries:</p>
+<ul>
+<li><strong>Learning Path Discovery</strong>: Find optimal sequences of competencies from current state to learning goal</li>
+<li><strong>Gap Analysis</strong>: Identify missing competencies between a learner's profile and a target role</li>
+<li><strong>Competency Clustering</strong>: Discover commonly co-occurring competencies for bundle recommendations</li>
+<li><strong>Impact Analysis</strong>: Assess downstream effects of changes to competency definitions</li>
+</ul>
+<h2 id="integration-with-xapi">Integration with xAPI</h2>
+<p>RCDs work seamlessly with the Experience API (xAPI) to create rich, competency-based learning records:</p>
+<h3 id="xapi-statement-examples">xAPI Statement Examples</h3>
+<h4 id="competency-assertion">Competency Assertion</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;actor&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;mbox&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mailto:learner@example.com&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;verb&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/verbs/mastered&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;en-US&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mastered&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:uuid:competency-python-data-analysis&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/activities/competency&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;en-US&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Python Data Analysis&quot;</span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;completion&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;scaled&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.85</span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;contextActivities&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://id.tincanapi.com/recipe/competency-framework/0_1&quot;</span>
+<span class="w">      </span><span class="p">}]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="competency-progress">Competency Progress</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;actor&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;mbox&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mailto:learner@example.com&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;verb&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/verbs/progressed&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;en-US&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;progressed&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:uuid:competency-python-data-analysis&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://adlnet.gov/expapi/activities/competency&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;http://id.tincanapi.com/extension/proficiency-level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;intermediate&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="use-cases-and-applications">Use Cases and Applications</h2>
+<h3 id="corporate-training">Corporate Training</h3>
+<p>Organizations use RCDs to:
+- Define job role requirements and hiring criteria
+- Create personalized learning paths based on skill gaps
+- Track employee skill development over time
+- Align training programs with business objectives
+- Support succession planning and talent development</p>
+<h3 id="higher-education">Higher Education</h3>
+<p>Universities leverage RCDs to:
+- Design competency-based degree programs
+- Enable prior learning assessment and credit transfer
+- Map program outcomes to industry requirements
+- Provide detailed skill transcripts to graduates
+- Facilitate program review and accreditation</p>
+<h3 id="professional-certification">Professional Certification</h3>
+<p>Certification bodies use RCDs to:
+- Define certification requirements clearly
+- Create valid and reliable assessments
+- Issue verifiable digital credentials
+- Maintain certification through continuing education
+- Enable stackable credentials and learning pathways</p>
+<h3 id="government-and-military">Government and Military</h3>
+<p>Public sector applications include:
+- Workforce development programs
+- Job training for transitioning service members
+- Civil service competency frameworks
+- Inter-agency mobility and skill portability</p>
+<h2 id="tools-and-technologies">Tools and Technologies</h2>
+<p>Several platforms and standards support RCD creation and management:</p>
+<h3 id="competency-authoring-tools">Competency Authoring Tools</h3>
+<ul>
+<li><strong>CASE Network</strong>: Collaborative competency framework development</li>
+<li><strong>Achievement Standards Network (ASN)</strong>: Repository of educational standards</li>
+<li><strong>Open Badges</strong>: Competency-based digital credentialing</li>
+<li><strong>IMS Global standards</strong>: CASE, Open Badges, Comprehensive Learner Record</li>
+</ul>
+<h3 id="graph-database-platforms">Graph Database Platforms</h3>
+<ul>
+<li><strong>Neo4j</strong>: Property graph database for competency networks</li>
+<li><strong>Amazon Neptune</strong>: Managed graph database service</li>
+<li><strong>ArangoDB</strong>: Multi-model database with graph capabilities</li>
+<li><strong>TigerGraph</strong>: Enterprise-scale graph analytics</li>
+</ul>
+<h3 id="learning-platform-integration">Learning Platform Integration</h3>
+<ul>
+<li><strong>Competency-Based Education (CBE) systems</strong>: Specialized LMS platforms</li>
+<li><strong>Learning Record Store (LRS)</strong>: xAPI-compliant data stores</li>
+<li><strong>Talent Management Systems</strong>: HR platforms with competency tracking</li>
+<li><strong>Portfolio Systems</strong>: Evidence-based competency demonstration</li>
+</ul>
+<h2 id="challenges-and-considerations">Challenges and Considerations</h2>
+<h3 id="governance-and-maintenance">Governance and Maintenance</h3>
+<ul>
+<li><strong>Version Control</strong>: Managing updates while maintaining backward compatibility</li>
+<li><strong>Authority</strong>: Determining who can create and modify competencies</li>
+<li><strong>Deprecation</strong>: Handling obsolete competencies gracefully</li>
+<li><strong>Quality Assurance</strong>: Ensuring consistency and accuracy across large frameworks</li>
+</ul>
+<h3 id="adoption-barriers">Adoption Barriers</h3>
+<ul>
+<li><strong>Complexity</strong>: RCD standards can seem overwhelming to practitioners</li>
+<li><strong>Legacy Systems</strong>: Integrating with existing non-standard approaches</li>
+<li><strong>Cultural Change</strong>: Shifting from course-based to competency-based thinking</li>
+<li><strong>Resource Requirements</strong>: Initial investment in framework development</li>
+</ul>
+<h3 id="technical-challenges">Technical Challenges</h3>
+<ul>
+<li><strong>Identifier Persistence</strong>: Ensuring URIs remain resolvable over time</li>
+<li><strong>Semantic Precision</strong>: Avoiding ambiguity in competency descriptions</li>
+<li><strong>Granularity Decisions</strong>: Finding the right level of detail</li>
+<li><strong>Localization</strong>: Translating and culturally adapting competencies</li>
+</ul>
+<h2 id="future-directions">Future Directions</h2>
+<p>The evolution of RCDs is being shaped by several emerging trends:</p>
+<h3 id="artificial-intelligence">Artificial Intelligence</h3>
+<ul>
+<li><strong>Automated Competency Extraction</strong>: Using NLP to derive competencies from job postings and course descriptions</li>
+<li><strong>Intelligent Matching</strong>: AI-driven recommendation of learning resources to competency gaps</li>
+<li><strong>Dynamic Frameworks</strong>: Self-organizing competency structures based on learning data</li>
+<li><strong>Skill Prediction</strong>: Forecasting future competency requirements based on industry trends</li>
+</ul>
+<h3 id="blockchain-and-decentralization">Blockchain and Decentralization</h3>
+<ul>
+<li><strong>Verifiable Credentials</strong>: Cryptographically secured competency assertions</li>
+<li><strong>Self-Sovereign Identity</strong>: Learner-controlled competency portfolios</li>
+<li><strong>Distributed Registries</strong>: Decentralized competency definition and discovery</li>
+</ul>
+<h3 id="micro-credentials-and-modularity">Micro-Credentials and Modularity</h3>
+<ul>
+<li><strong>Granular Credentials</strong>: Competency-specific badges and certificates</li>
+<li><strong>Stackable Pathways</strong>: Modular learning that aggregates to larger credentials</li>
+<li><strong>Just-in-Time Learning</strong>: Targeted competency development for immediate needs</li>
+</ul>
+<h3 id="labor-market-integration">Labor Market Integration</h3>
+<ul>
+<li><strong>Skills-Based Hiring</strong>: Direct matching of RCD profiles to job requirements</li>
+<li><strong>Real-Time Skill Demand</strong>: Labor market analytics informing competency frameworks</li>
+<li><strong>Career Guidance</strong>: Personalized pathways based on competency trajectories</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Reusable Competency Definitions represent a fundamental shift toward more precise, portable, and actionable descriptions of learning outcomes. By providing a standardized, machine-readable format for competencies, RCDs enable interoperability across learning systems, support personalized learning pathways, and create transparent connections between education and workforce needs.</p>
+<p>As part of the Total Learning Architecture, RCDs serve as the semantic foundation that links learning content, assessments, credentials, and career opportunities. Their integration with graph databases and xAPI creates powerful capabilities for competency tracking, gap analysis, and adaptive learning.</p>
+<p>While challenges remain in governance, adoption, and technical implementation, the benefits of competency-based approaches are driving continued investment and innovation. As AI, blockchain, and other emerging technologies mature, RCDs will play an increasingly central role in creating flexible, lifelong learning ecosystems that respond to the dynamic needs of learners and employers alike.</p>
+<h2 id="references">References</h2>
+<ul>
+<li>IEEE 1484.20.1-2007: Standard for Learning Technology - Data Model for Reusable Competency Definitions</li>
+<li><a href="../tla/">IEEE Total Learning Architecture</a></li>
+<li><a href="xapi.md">Experience API (xAPI)</a></li>
+<li><a href="../lrs/">Learning Record Store (LRS)</a></li>
+<li>IMS Global Competency and Academic Standards Exchange (CASE)</li>
+<li>HR Open Standards for Competency Data</li>
+<li>O*NET Content Model and Occupational Standards</li>
+</ul>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../lam/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Learning Activity Metadata (LAM)">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Learning Activity Metadata (LAM)
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../qti/" class="md-footer__link md-footer__link--next" aria-label="Next: Question and Test Interoperability (QTI)">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Question and Test Interoperability (QTI)
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>
