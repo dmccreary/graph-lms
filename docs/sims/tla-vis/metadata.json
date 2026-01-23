@@ -1,0 +1,55 @@
+{
+  "title": "Graph TLA via vis.js",
+  "description": "A description under 110 characters.",
+  "subject": "Mathematics",
+  "topic": "Graph TLA via vis.js",
+  "gradeLevel": "6-12",
+  "bloomsTaxonomy": [
+    "Understand",
+    "Apply"
+  ],
+  "author": "Dan McCreary",
+  "dateCreated": "2026-01-23",
+  "dateModified": "2026-01-23",
+  "version": "1.0.0",
+  "license": "MIT",
+  "language": "en",
+  "format": "text/html",
+  "type": "Interactive Simulation",
+  "framework": "vis-network",
+  "url": "https://dmccreary.github.io/graph-lms/sims/tla-vis/",
+  "identifier": "https://dmccreary.github.io/graph-lms/sims/tla-vis/",
+  "_source": {
+    "repo": "graph-lms",
+    "sim": "tla-vis",
+    "github_url": "https://github.com/dmccreary/graph-lms/tree/main/docs/sims/tla-vis",
+    "auto_generated": true,
+    "generation_date": "2026-01-23"
+  },
+  "subjects": [
+    "Mathematics",
+    "Physics",
+    "Computer Science",
+    "Chemistry",
+    "Biology",
+    "Engineering",
+    "Economics"
+  ],
+  "visualizationType": [
+    "animation",
+    "simulation",
+    "chart",
+    "graph",
+    "diagram",
+    "interactive-demo",
+    "network",
+    "timeline",
+    "map"
+  ],
+  "learningObjectives": [
+    "Understand the mathematical concept of graph tla via vis.js",
+    "Apply graph tla via vis.js to solve problems",
+    "Visualize and interpret graph tla via vis.js relationships",
+    "Test understanding of graph tla via vis.js through interactive exercises"
+  ]
+}
