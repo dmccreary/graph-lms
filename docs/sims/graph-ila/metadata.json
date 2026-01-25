@@ -48,5 +48,27 @@
     "Apply graph integrated learning architecture to solve problems",
     "Visualize and interpret graph integrated learning architecture relationships",
     "Experiment with parameters to observe their effects on graph integrated learning architecture"
-  ]
+  ],
+  "pedagogical": {
+    "pattern": "guided-discovery",
+    "bloomAlignment": [
+      "understand",
+      "apply"
+    ],
+    "bloomVerbs": [
+      "compare",
+      "calculate",
+      "illustrate",
+      "use",
+      "experiment"
+    ],
+    "pacing": "self-paced",
+    "supportsPrediction": true,
+    "dataVisibility": "high",
+    "feedbackType": [
+      "immediate",
+      "corrective"
+    ],
+    "interactionStyle": "construct"
+  }
 }

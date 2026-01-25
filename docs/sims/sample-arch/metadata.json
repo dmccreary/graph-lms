@@ -48,5 +48,27 @@
     "Apply a title under 60 characters. to solve problems",
     "Visualize and interpret a title under 60 characters. relationships",
     "Test understanding of a title under 60 characters. through interactive exercises"
-  ]
+  ],
+  "pedagogical": {
+    "pattern": "guided-discovery",
+    "bloomAlignment": [
+      "understand",
+      "apply"
+    ],
+    "bloomVerbs": [
+      "compare",
+      "apply",
+      "calculate",
+      "illustrate",
+      "use"
+    ],
+    "pacing": "self-paced",
+    "supportsPrediction": true,
+    "dataVisibility": "high",
+    "feedbackType": [
+      "immediate",
+      "corrective"
+    ],
+    "interactionStyle": "construct"
+  }
 }

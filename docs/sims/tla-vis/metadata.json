@@ -51,5 +51,29 @@
     "Apply graph tla via vis.js to solve problems",
     "Visualize and interpret graph tla via vis.js relationships",
     "Test understanding of graph tla via vis.js through interactive exercises"
-  ]
+  ],
+  "pedagogical": {
+    "pattern": "guided-discovery",
+    "bloomAlignment": [
+      "understand",
+      "apply",
+      "analyze"
+    ],
+    "bloomVerbs": [
+      "compare",
+      "interpret",
+      "illustrate",
+      "implement",
+      "use"
+    ],
+    "pacing": "self-paced",
+    "supportsPrediction": true,
+    "dataVisibility": "medium",
+    "feedbackType": [
+      "immediate",
+      "corrective",
+      "explanatory"
+    ],
+    "interactionStyle": "respond"
+  }
 }
