@@ -289,6 +289,12 @@ A conceptual framework representing all possible knowledge states within a domai
 
 In the graph LMS, the knowledge space is mapped using nodes and edges to represent concepts and their relationships.
 
+#### KSAOs
+
+Knowledge, skills, abilities, and other behaviors that shareable competency definitions contain.
+
+SCDs are defined by the IEEE 1484.20.3 Standard.
+
 #### LangChain
 
 A framework for developing applications powered by language models.
