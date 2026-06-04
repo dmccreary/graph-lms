@@ -1,0 +1,74 @@
+{
+  "title": "A title under 60 characters.",
+  "description": "A description under 110 characters.",
+  "subject": "Mathematics",
+  "topic": "A title under 60 characters.",
+  "gradeLevel": "6-12",
+  "bloomsTaxonomy": [
+    "Understand",
+    "Apply"
+  ],
+  "author": "Dan McCreary",
+  "dateCreated": "2026-01-23",
+  "dateModified": "2026-01-23",
+  "version": "1.0.0",
+  "license": "MIT",
+  "language": "en",
+  "format": "text/html",
+  "type": "Interactive Simulation",
+  "framework": "p5.js",
+  "url": "https://dmccreary.github.io/graph-lms/sims/sample-arch/",
+  "identifier": "https://dmccreary.github.io/graph-lms/sims/sample-arch/",
+  "_source": {
+    "repo": "graph-lms",
+    "sim": "sample-arch",
+    "github_url": "https://github.com/dmccreary/graph-lms/tree/main/docs/sims/sample-arch",
+    "auto_generated": true,
+    "generation_date": "2026-01-23"
+  },
+  "subjects": [
+    "Mathematics",
+    "Physics",
+    "Computer Science",
+    "Chemistry",
+    "Biology",
+    "Economics"
+  ],
+  "visualizationType": [
+    "simulation",
+    "graph",
+    "diagram",
+    "interactive-demo",
+    "network",
+    "timeline",
+    "map"
+  ],
+  "learningObjectives": [
+    "Understand the mathematical concept of a title under 60 characters.",
+    "Apply a title under 60 characters. to solve problems",
+    "Visualize and interpret a title under 60 characters. relationships",
+    "Test understanding of a title under 60 characters. through interactive exercises"
+  ],
+  "pedagogical": {
+    "pattern": "guided-discovery",
+    "bloomAlignment": [
+      "understand",
+      "apply"
+    ],
+    "bloomVerbs": [
+      "compare",
+      "apply",
+      "calculate",
+      "illustrate",
+      "use"
+    ],
+    "pacing": "self-paced",
+    "supportsPrediction": true,
+    "dataVisibility": "high",
+    "feedbackType": [
+      "immediate",
+      "corrective"
+    ],
+    "interactionStyle": "construct"
+  }
+}

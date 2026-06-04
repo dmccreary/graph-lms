@@ -1,0 +1,74 @@
+{
+  "title": "Graph Integrated Learning Architecture",
+  "description": "A description under 110 characters.",
+  "subject": "Mathematics",
+  "topic": "Graph Integrated Learning Architecture",
+  "gradeLevel": "6-12",
+  "bloomsTaxonomy": [
+    "Understand",
+    "Apply"
+  ],
+  "author": "Dan McCreary",
+  "dateCreated": "2026-01-23",
+  "dateModified": "2026-01-23",
+  "version": "1.0.0",
+  "license": "MIT",
+  "language": "en",
+  "format": "text/html",
+  "type": "Interactive Simulation",
+  "framework": "p5.js",
+  "url": "https://dmccreary.github.io/graph-lms/sims/graph-ila/",
+  "identifier": "https://dmccreary.github.io/graph-lms/sims/graph-ila/",
+  "_source": {
+    "repo": "graph-lms",
+    "sim": "graph-ila",
+    "github_url": "https://github.com/dmccreary/graph-lms/tree/main/docs/sims/graph-ila",
+    "auto_generated": true,
+    "generation_date": "2026-01-23"
+  },
+  "subjects": [
+    "Mathematics",
+    "Physics",
+    "Computer Science",
+    "Biology",
+    "Engineering",
+    "Economics"
+  ],
+  "visualizationType": [
+    "simulation",
+    "graph",
+    "diagram",
+    "interactive-demo",
+    "network",
+    "timeline",
+    "map"
+  ],
+  "learningObjectives": [
+    "Understand the mathematical concept of graph integrated learning architecture",
+    "Apply graph integrated learning architecture to solve problems",
+    "Visualize and interpret graph integrated learning architecture relationships",
+    "Experiment with parameters to observe their effects on graph integrated learning architecture"
+  ],
+  "pedagogical": {
+    "pattern": "guided-discovery",
+    "bloomAlignment": [
+      "understand",
+      "apply"
+    ],
+    "bloomVerbs": [
+      "compare",
+      "calculate",
+      "illustrate",
+      "use",
+      "experiment"
+    ],
+    "pacing": "self-paced",
+    "supportsPrediction": true,
+    "dataVisibility": "high",
+    "feedbackType": [
+      "immediate",
+      "corrective"
+    ],
+    "interactionStyle": "construct"
+  }
+}
